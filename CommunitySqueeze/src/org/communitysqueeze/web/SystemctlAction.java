@@ -19,6 +19,7 @@
  */
 package org.communitysqueeze.web;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.apache.log4j.Logger;
@@ -57,6 +58,28 @@ public abstract class SystemctlAction extends ActionSupport {
 	 * @return
 	 */
 	public abstract String getServiceName();
+	
+	/**
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	protected void populateServiceStatus() 
+			throws IOException, InterruptedException {
+		
+		File outFile = null;
+		try {
+			String serviceName = getServiceName();
+			outFile = File.createTempFile(serviceName + "_status_", ".txt");
+			status = Util.getServiceStatus(serviceName, outFile);
+		} finally {
+			if (outFile != null) {
+				try {
+					outFile.delete();
+				} catch (Exception e) {}
+			}
+		}		
+		
+	}
 	
 	/**
 	 * @return

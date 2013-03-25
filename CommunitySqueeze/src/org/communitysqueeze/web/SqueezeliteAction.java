@@ -114,26 +114,6 @@ public class SqueezeliteAction extends SystemctlAction {
 
 	/**
 	 * @throws IOException
-	 * @throws InterruptedException
-	 */
-	private void populateServiceStatus() 
-			throws IOException, InterruptedException {
-		
-		File outFile = null;
-		try {
-			outFile = File.createTempFile("stdout", ".txt");
-			status = Util.getServiceStatus(SERVICE_NAME, outFile);
-		} finally {
-			if (outFile != null) {
-				try {
-					outFile.delete();
-				} catch (Exception e) {}
-			}
-		}
-	}
-	
-	/**
-	 * @throws IOException
 	 * @throws FileNotFoundException
 	 */
 	private void populatePropertiesFromConfigFile() 

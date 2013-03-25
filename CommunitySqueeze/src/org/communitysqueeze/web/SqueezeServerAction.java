@@ -19,11 +19,7 @@
  */
 package org.communitysqueeze.web;
 
-import java.io.File;
-import java.io.IOException;
-
 import org.apache.log4j.Logger;
-import org.communitysqueeze.util.Util;
 
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
@@ -54,27 +50,6 @@ public class SqueezeServerAction extends SystemctlAction {
 		return SERVICE_NAME;
 	}
 
-	/**
-	 * @throws IOException
-	 * @throws InterruptedException
-	 */
-	private void populateServiceStatus() 
-			throws IOException, InterruptedException {
-		
-		File outFile = null;
-		try {
-			outFile = File.createTempFile("stdout", ".txt");
-			status = Util.getServiceStatus(SERVICE_NAME, outFile);
-		} finally {
-			if (outFile != null) {
-				try {
-					outFile.delete();
-				} catch (Exception e) {}
-			}
-		}		
-		
-	}
-	
 	/**
 	 * @return
 	 * @throws Exception
