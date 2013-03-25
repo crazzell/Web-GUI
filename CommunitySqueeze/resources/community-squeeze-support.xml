@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="community-squeeze-support" extends="community-squeeze-default" namespace="/">
+
+		<action name="Ethernet_*" method="{1}"
+			class="org.communitysqueeze.web.EthernetAction">
+			<result name="populate">/ethernet.jsp</result>
+			<result name="input">/ethernet.jsp</result>
+			<result name="success" type="redirectAction">/Ethernet_populate</result>
+		</action>
+
+		<action name="Wireless_*" method="{1}"
+			class="org.communitysqueeze.web.WirelessAction">
+			<result name="populate">/wireless.jsp</result>
+			<result name="input">/wireless.jsp</result>
+			<result name="success" type="redirectAction">/Wireless_populate</result>
+		</action>
+
+		<action name="SqueezeServer_*" method="{1}"
+			class="org.communitysqueeze.web.SqueezeServerAction">
+			<result name="populate">/squeezeserver.jsp</result>
+			<result name="input">/squeezeserver.jsp</result>
+			<result name="success" type="redirectAction">/SqueezeServer_populate</result>
+		</action>
+
+		<action name="Squeezelite_*" method="{1}"
+			class="org.communitysqueeze.web.SqueezeliteAction">
+			<result name="populate">/squeezelite.jsp</result>
+			<result name="input">/squeezelite.jsp</result>
+			<result name="success" type="redirectAction">/Squeezelite_populate</result>
+		</action>
+
+	</package>
+
+</struts>
