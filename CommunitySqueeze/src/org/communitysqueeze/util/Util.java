@@ -516,7 +516,7 @@ public final class Util {
 			throws IOException, InterruptedException {
 		
 		String[] cmdLineArgs = new String[] {
-				Commands.CMD_SUDO, Commands.CMD_REBOOT
+				Commands.CMD_SUDO, Commands.CMD_NOHUP, Commands.CMD_REBOOT
 		};
 		
 		return ExecuteProcess.executeCommand(cmdLineArgs);

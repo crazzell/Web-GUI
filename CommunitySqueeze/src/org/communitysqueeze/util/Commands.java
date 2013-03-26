@@ -33,6 +33,7 @@ public class Commands {
 	public final static String[] CMD_LINE_APLAY_LIST_AUDIO_DEV = {"aplay", "-L"};
 
 	public final static String CMD_SUDO = "sudo";
+	public final static String CMD_NOHUP = "nohup";
 	public final static String CMD_REBOOT = "reboot";
 	public final static String CMD_IFCONFIG = "ifconfig";
 	public final static String CMD_IFUP = "ifup";

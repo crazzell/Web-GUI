@@ -27,8 +27,9 @@ public class EthernetAction extends InterfaceAction {
 	
 	private static final long serialVersionUID = -6566605197191164096L;
 
-	private final static String INTERFACE_NAME = "p20p1";
-	//private final static String INTERFACE_NAME = "eth0";
+	//private final static String INTERFACE_NAME = "p20p1";
+	//private final static String INTERFACE_NAME = "p4p1";
+	private final static String INTERFACE_NAME = "eth0";
 
 	/**
 	 * 
