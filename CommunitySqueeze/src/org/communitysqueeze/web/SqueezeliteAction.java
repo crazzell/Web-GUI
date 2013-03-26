@@ -46,10 +46,10 @@ public class SqueezeliteAction extends SystemctlAction {
 	
 	private final static Logger LOGGER = Logger.getLogger(SqueezeliteAction.class);
 
-	private final static String SERVICE_NAME = "squeezelite.service";
-	
+	private final static String NAME = "squeezelite";
+	private final static String SERVICE_NAME = NAME + ".service";
 	private final static String SQUEEZELITE_CONFIG_PATH = "/etc/sysconfig/";
-	private final static String SQUEEZELITE_CONFIG_FILE_NAME = "squeezelite";
+	private final static String SQUEEZELITE_CONFIG_FILE_NAME = NAME;
 	
 	private final static String WANDBOARD_DEFAULT_AUDIO_DEVICE = "sgtl5000audio";
 	
@@ -111,7 +111,7 @@ public class SqueezeliteAction extends SystemctlAction {
 		
 		return SERVICE_NAME;
 	}
-
+	
 	/**
 	 * @throws IOException
 	 * @throws FileNotFoundException
@@ -168,7 +168,7 @@ public class SqueezeliteAction extends SystemctlAction {
 			 */
 			populateServiceStatus();
 		} catch (Exception e) {
-			LOGGER.error("Caught exception populating!", e);
+			LOGGER.error("Caught exception populating " + getServiceName() + "!", e);
 			throw e;
 		}
  		
@@ -343,7 +343,7 @@ public class SqueezeliteAction extends SystemctlAction {
 			file = writeTempSqueezeliteProperties(SQUEEZELITE_CONFIG_FILE_NAME, list);
 			replaceSqueezeliteConfig(file);
 		} catch (Exception e) {
-			LOGGER.error("Caught exception saving!", e);
+			LOGGER.error("Caught exception saving " + getServiceName() + "!", e);
 			throw e;
 		} finally {
 			if (file != null) {
@@ -592,7 +592,7 @@ public class SqueezeliteAction extends SystemctlAction {
 		
 		BufferedWriter bw = null;
 		try {
-			File tempFile = File.createTempFile("squeezelite-", ".txt");
+			File tempFile = File.createTempFile(NAME + "_config_", ".txt");
 			bw = new BufferedWriter(new FileWriter(tempFile));
 			bw.write(Util.getModifiedComment());
 			Iterator<String> it = argList.iterator();

@@ -31,7 +31,8 @@ public class SqueezeServerAction extends SystemctlAction {
 	
 	private final static Logger LOGGER = Logger.getLogger(SqueezeServerAction.class);
 	
-	private final static String SERVICE_NAME = "squeezeboxserver.service";
+	private final static String NAME = "squeezeboxserver";
+	private final static String SERVICE_NAME = NAME + ".service";
 		
 	/**
 	 * 
@@ -49,7 +50,7 @@ public class SqueezeServerAction extends SystemctlAction {
 		
 		return SERVICE_NAME;
 	}
-
+	
 	/**
 	 * @return
 	 * @throws Exception
@@ -59,7 +60,7 @@ public class SqueezeServerAction extends SystemctlAction {
 		try {
 			populateServiceStatus();
 		} catch (Exception e) {
-			LOGGER.error("Caught exception while populating!", e);
+			LOGGER.error("Caught exception while populating " + getServiceName() + "!", e);
 			throw e;
 		}
  		
