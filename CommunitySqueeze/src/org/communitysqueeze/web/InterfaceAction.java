@@ -470,7 +470,7 @@ public abstract class InterfaceAction extends ActionSupport {
 			populatePropertiesFromConfigFile();
 			populateInterfaceStatus();
 		} catch (Exception e) {
-			LOGGER.warn("Caugh exception populating!", e);
+			LOGGER.warn("Caught exception populating " + getInterfaceName() + "!", e);
 			throw e;
 		}
 		
@@ -511,7 +511,7 @@ public abstract class InterfaceAction extends ActionSupport {
 				replaceKeysConfig(tmpKeysFile);
 			}
 		} catch (Exception e) {
-			LOGGER.error("Caught exception saving!", e);
+			LOGGER.error("Caught exception saving " + getInterfaceName() + "!", e);
 			throw e;
 		} finally {
 			if (tmpInterfaceFile != null) {
@@ -538,7 +538,7 @@ public abstract class InterfaceAction extends ActionSupport {
 		try {
 			interfaceUp();
 		} catch (Exception e) {
-			LOGGER.warn("Caught exception bringing interface up!", e);
+			LOGGER.warn("Caught exception bringing interface " + getInterfaceName() + " up!", e);
 			throw e;
 		}
 		
@@ -554,7 +554,7 @@ public abstract class InterfaceAction extends ActionSupport {
 		try {
 			interfaceDown();
 		} catch (Exception e) {
-			LOGGER.warn("Caught exception taking interface down!", e);
+			LOGGER.warn("Caught exception taking interface " + getInterfaceName() + " down!", e);
 			throw e;
 		}
 		
@@ -570,7 +570,8 @@ public abstract class InterfaceAction extends ActionSupport {
 		try {
 			interfaceDownUp();
 		} catch (Exception e) {
-			LOGGER.warn("Caught exception taking interface down and back up again!", e);
+			LOGGER.warn("Caught exception taking interface " + getInterfaceName() + 
+							" down and back up again!", e);
 			throw e;
 		}
 		
