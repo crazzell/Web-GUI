@@ -615,11 +615,10 @@ public class SqueezeliteAction extends SystemctlAction {
 	
 	/**
 	 * @param configName
-	 * @return
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	private boolean readSqueezeliteConfigProperties(String configName) 
+	private void readSqueezeliteConfigProperties(String configName) 
 			throws FileNotFoundException, IOException {
 		
 		BufferedReader br = null;
@@ -696,7 +695,5 @@ public class SqueezeliteAction extends SystemctlAction {
 				} catch (Exception e) {}
 			}
 		}
-		
-		return true;
 	}
 }
