@@ -5,14 +5,19 @@
 <title>Community Squeeze OS Web Configuration</title>
 </head>
 <body>
+<center>
 <h2>Community Squeeze OS Web Configuration</h2>
+<img src="cs-logo-541x288.png" alt="Community Squeeze Logo" width="541" height="288" />
+<br />
 <a href="Ethernet_populate.action">Ethernet Interface</a>
-<br />
+&nbsp;
 <a href="Wireless_populate.action">Wireless Interface</a>
-<br />
+&nbsp;
 <a href="Squeezelite_populate.action">Squeezelite Player</a>
-<br />
+&nbsp;
 <a href="SqueezeServer_populate.action">Squeeze Server</a>
+<br />
+</center>
 
 <hr/>
 

@@ -2,5 +2,5 @@
 <hr/>
 
 <p>
-    <a href="index.jsp"><s:text name="index.title"/></a>
+    <a href="/index.jsp"><s:text name="index.title"/></a>
 </p>

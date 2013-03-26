@@ -8,7 +8,16 @@ pageEncoding="ISO-8859-1"%>
 <title>Community Squeeze OS: Ethernet Interface Configuration</title>
 </head>
 <body>
-<h2>Ethernet Interface Configuration</h2>
+<table>
+  <tr>
+    <td>
+      <a href="index.jsp"><img src="cs-logo-146x50.png" alt="Community Squeeze Logo" width="146" height="50" /></a>
+    </td>
+    <td>
+      <h2>Ethernet Interface Configuration</h2>
+    </td>
+  </tr>
+</table>
 
 <hr />
 <s:actionerror />
