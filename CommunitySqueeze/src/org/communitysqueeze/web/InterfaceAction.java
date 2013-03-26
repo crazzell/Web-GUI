@@ -49,9 +49,12 @@ public abstract class InterfaceAction extends ActionSupport {
 	
 	protected final static Logger LOGGER = Logger.getLogger(InterfaceAction.class);
 	
-	public final static String INTERFACE_PATH_PREFIX = "/etc/sysconfig/network-scripts/ifcfg-";
-	public final static String KEYS_PATH_PREFIX = "/etc/sysconfig/network-scripts/keys-";
+	private final static String NETWORK_CONFIG_PATH = "/etc/sysconfig/network-scripts/";
+	private final static String IFCFG_PREFIX = "ifcfg-";
+	private final static String KEYS_PREFIX = "keys-";
 
+	private final static String INTERFACE_PATH_PREFIX = NETWORK_CONFIG_PATH + IFCFG_PREFIX;
+	
 	/*
 	 * Ethernet
 	 */
@@ -670,8 +673,9 @@ public abstract class InterfaceAction extends ActionSupport {
 		
 		File outFile = null;
 		try {
-			outFile = File.createTempFile("interfaceStatus_", ".txt");
-			status = Util.getInterfaceStatus(getInterfaceName(), outFile);
+			String interfaceName = getInterfaceName();
+			outFile = File.createTempFile(interfaceName + "_status_", ".txt");
+			status = Util.getInterfaceStatus(interfaceName, outFile);
 		} finally {
 			if (outFile != null) {
 				try {
@@ -754,11 +758,12 @@ public abstract class InterfaceAction extends ActionSupport {
 		File tmpFile = null;
 		
 		try {
-			tmpFile = File.createTempFile("keys-" + getInterfaceName() + "_", ".txt");
+			String interfaceName = getInterfaceName();
+			tmpFile = File.createTempFile(KEYS_PREFIX + interfaceName + "_", ".txt");
 			Writer writer = new FileWriter(tmpFile);
 
 			String[] cmdLineArgs = new String[] {
-					Commands.CMD_SUDO, Commands.SCRIPT_KEYS_READ, getInterfaceName()
+					Commands.CMD_SUDO, Commands.SCRIPT_KEYS_READ, interfaceName
 			};
 			
 			ExecuteProcess.executeCommand(cmdLineArgs, writer, null);
@@ -783,7 +788,8 @@ public abstract class InterfaceAction extends ActionSupport {
 		
 		BufferedWriter writer = null;
 		try {
-			File file = File.createTempFile("keys-" + getInterfaceName() + "_", ".txt");
+			String interfaceName = getInterfaceName();
+			File file = File.createTempFile(KEYS_PREFIX + interfaceName + "_", ".txt");
 			writer = new BufferedWriter(new FileWriter(file));
 			writer.write(Util.getModifiedComment());
 			Set<Entry<String, String>> set = keysProperties.entrySet();
@@ -815,7 +821,7 @@ public abstract class InterfaceAction extends ActionSupport {
 		
 		BufferedWriter writer = null;
 		try {
-			File file = File.createTempFile("ifcfg-" + getInterfaceName() + "_", ".txt");
+			File file = File.createTempFile(IFCFG_PREFIX + getInterfaceName() + "_", ".txt");
 			writer = new BufferedWriter(new FileWriter(file));
 			writer.write(Util.getModifiedComment());
 			Set<Entry<String, String>> set = interfaceProperties.entrySet();
