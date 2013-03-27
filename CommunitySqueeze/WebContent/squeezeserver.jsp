@@ -6,12 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Community Squeeze OS: Squeeze Server Control</title>
+<link href="css/bootstrap.css" rel="stylesheet"
+  type="text/css" media="all">
 </head>
 <body>
 <table>
   <tr>
     <td>
-      <a href="index.jsp"><img src="cs-logo-146x50.png" alt="Community Squeeze Logo" width="146" height="50" /></a>
+      <a href="index.jsp"><img src="images/cs-logo-146x50.png" alt="Community Squeeze Logo" width="146" height="50" /></a>
     </td>
     <td>
       <h2>Squeeze Server Control</h2>

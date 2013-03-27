@@ -4,14 +4,18 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Community Squeeze OS: Unexpected Error</title>
+  <title>Community Squeeze OS: Unexpected Error</title>
+  <link href="css/bootstrap.css" rel="stylesheet"
+    type="text/css" media="all">
 </head>
-
 <body>
 <table>
   <tr>
     <td>
-      <a href="index.jsp"><img src="cs-logo-146x50.png" alt="Community Squeeze Logo" width="146" height="50" /></a>
+      <a href="index.jsp">
+        <img src="images/cs-logo-146x50.png" alt="Community Squeeze Logo" 
+          width="146" height="50" />
+      </a>
     </td>
     <td>
       <h2>An unexpected error has occured!</h2>

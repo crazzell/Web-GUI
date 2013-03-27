@@ -3,11 +3,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Community Squeeze OS Web Configuration</title>
+<link href="css/bootstrap.css" rel="stylesheet"
+  type="text/css" media="all">
 </head>
 <body>
 <center>
 <h2>Community Squeeze OS Web Configuration</h2>
-<img src="cs-logo-541x288.png" alt="Community Squeeze Logo" width="541" height="288" />
+<img src="images/cs-logo-541x288.png" alt="Community Squeeze Logo" 
+  width="541" height="288" />
 <br />
 <a href="Ethernet_populate.action">Ethernet Interface</a>
 &nbsp;
@@ -21,11 +24,16 @@
 
 <hr/>
 
-<p><a href="http://struts.apache.org/">
-    <img src="struts-power.gif"
+<div class="pull-left">
+  <a href="http://struts.apache.org/">
+    <img src="images/struts-power.gif"
          alt="Powered by Struts" border="0px"/>
-</a>
-</p>
+  </a>
+</div>
+
+<div class="pull-right">
+  Copyright &copy; 2013 Community Squeeze
+</div>
 
 </body>
 </html>
