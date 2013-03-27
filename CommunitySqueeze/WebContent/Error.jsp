@@ -5,8 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <title>Community Squeeze OS: Unexpected Error</title>
-  <link href="css/bootstrap.css" rel="stylesheet"
-    type="text/css" media="all">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
 <table>

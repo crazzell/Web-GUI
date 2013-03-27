@@ -4,10 +4,11 @@ pageEncoding="ISO-8859-1"%>
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Community Squeeze OS: Ethernet Interface Configuration</title>
-<link href="css/bootstrap.css" rel="stylesheet"
-  type="text/css" media="all">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <title>Community Squeeze OS: Ethernet Interface Configuration</title>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
 <table>
@@ -25,9 +26,9 @@ pageEncoding="ISO-8859-1"%>
 <s:actionerror />
 
 <s:form action="Ethernet" theme="simple" >
-	<s:textarea name="status" cols="100" rows="7"/>
-	<br />
-	<s:submit action="Ethernet_populate" value="Status" />
+  <s:textarea name="status" cols="100" rows="7"/>
+  <br />
+  <s:submit action="Ethernet_populate" value="Status" />
 </s:form>
 
 <hr />

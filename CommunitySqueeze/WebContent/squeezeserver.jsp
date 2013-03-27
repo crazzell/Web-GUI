@@ -4,10 +4,11 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Community Squeeze OS: Squeeze Server Control</title>
-<link href="css/bootstrap.css" rel="stylesheet"
-  type="text/css" media="all">
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <title>Community Squeeze OS: Squeeze Server Control</title>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
 <table>

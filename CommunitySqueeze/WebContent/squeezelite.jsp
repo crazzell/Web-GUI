@@ -4,10 +4,11 @@
 <%@taglib uri="/struts-tags" prefix="s"%>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Community Squeeze OS: Squeezelite Player Configuration and Control</title>
-<link href="css/bootstrap.css" rel="stylesheet"
-  type="text/css" media="all">
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+  <title>Community Squeeze OS: Squeezelite Player Configuration and Control</title>
+  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
 
@@ -46,7 +47,6 @@
 		tooltip="Set the player name" />
 	<s:textfield name="mac" label="MAC Address" 
 		tooltip="Set mac address, format: ab:cd:ef:12:34:56" />
-	<!-- <s:textfield name="audioDev" label="Audio Device" /> -->
 	<s:select name="audioDev" list="audioDevList" label="Audio Device" 
 		tooltip="Specify output device, default 'default' if not specified" />
 	<s:textfield name="maxRate" label="Max Sample Rate" 
