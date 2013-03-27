@@ -308,7 +308,11 @@ public final class Util {
 		try {
 			Writer writer = new FileWriter(tmpFile);
 
-			ExecuteProcess.executeCommand(Commands.CMD_LINE_APLAY_LIST_AUDIO_DEV, writer, null);
+			String[] cmdLineArgs = new String[] {
+					Commands.CMD_SUDO, Commands.CMD_APLAY, Commands.APLAY_LIST
+			};
+
+			ExecuteProcess.executeCommand(cmdLineArgs, writer, null);
 			reader = new BufferedReader(new FileReader(tmpFile));
 			ArrayList<String> list = new ArrayList<String>();
 			/*

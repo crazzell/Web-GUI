@@ -30,15 +30,16 @@ public class Commands {
 	public final static String SCRIPT_KEYS_UPDATE = "csos-keysUpdate";
 	public final static String SCRIPT_SQUEEZELITE_CONFIG_UPDATE = "csos-squeezeliteConfigUpdate";
 	
-	public final static String[] CMD_LINE_APLAY_LIST_AUDIO_DEV = {"aplay", "-L"};
-
 	public final static String CMD_SUDO = "sudo";
 	public final static String CMD_NOHUP = "nohup";
 	public final static String CMD_REBOOT = "reboot";
 	public final static String CMD_IFCONFIG = "ifconfig";
 	public final static String CMD_IFUP = "ifup";
 	public final static String CMD_IFDOWN = "ifdown";
-
+	
+	public final static String CMD_APLAY = "aplay";
+	public final static String APLAY_LIST = "-L";
+	
 	public final static String CMD_WPA_CLI = "wpa_cli"; 	
 	public final static String WPA_CLI_SCAN = "scan"; 	
 	public final static String WPA_CLI_SCAN_OK = "OK";
