@@ -26,7 +26,7 @@
 <s:actionerror />
 
 <s:form action="SqueezeServer" theme="simple" >
-	<s:textarea name="status" cols="100" rows="8"/>
+	<s:textarea name="status" cols="100" rows="8" readonly="true" />
 	<br />
 	<s:submit action="SqueezeServer_populate" value="Status" />
 	<s:submit action="SqueezeServer_enableService" value="Enable" />

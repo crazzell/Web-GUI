@@ -26,7 +26,7 @@ pageEncoding="ISO-8859-1"%>
 <s:actionerror />
 
 <s:form action="Ethernet" theme="simple" >
-  <s:textarea name="status" cols="100" rows="7"/>
+  <s:textarea name="status" cols="100" rows="7" readonly="true" />
   <br />
   <s:submit action="Ethernet_populate" value="Status" />
 </s:form>

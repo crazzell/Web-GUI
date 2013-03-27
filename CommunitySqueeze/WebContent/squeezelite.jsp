@@ -30,7 +30,7 @@
 <s:actionerror />
 
 <s:form action="Squeezelite" theme="simple" >
-	<s:textarea name="status" cols="100" rows="4"/>
+	<s:textarea name="status" cols="100" rows="4" readonly="true" />
 	<br />
 	<s:submit action="Squeezelite_populate" value="Status" />
 	<s:submit action="Squeezelite_enableService" value="Enable" />

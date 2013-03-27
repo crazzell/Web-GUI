@@ -28,7 +28,7 @@ pageEncoding="ISO-8859-1"%>
 <s:actionerror />
 
 <s:form action="Wireless" theme="simple" >
-	<s:textarea name="status" cols="100" rows="7"/>
+	<s:textarea name="status" cols="100" rows="7" readonly="true" />
 	<br />
 	<s:submit action="Wireless_populate" value="Status" />
 </s:form>
