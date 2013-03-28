@@ -19,6 +19,8 @@
  */
 package org.communitysqueeze.web;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
@@ -26,12 +28,31 @@ package org.communitysqueeze.web;
 public class WirelessSaveAction extends WirelessAction {
 
 	private static final long serialVersionUID = -4796404325008094804L;
+	
+	private final static Logger LOGGER = Logger.getLogger(WirelessSaveAction.class);
 
+	/**
+	 * 
+	 */
+	public WirelessSaveAction() {
+		
+		super();
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("WirelessSaveAction()");
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see com.opensymphony.xwork2.ActionSupport#validate()
 	 */
 	@Override
 	public void validate() {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("validate()");
+		}
+		
 		super.validate();
 	}
 	
@@ -39,6 +60,11 @@ public class WirelessSaveAction extends WirelessAction {
 	 * @see org.communitysqueeze.web.InterfaceAction#execute()
 	 */
 	public String execute() throws Exception {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("execute()");
+		}
+		
 		return save();
 	}
 }

@@ -19,6 +19,8 @@
  */
 package org.communitysqueeze.web;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
@@ -26,6 +28,8 @@ package org.communitysqueeze.web;
 public class WirelessAction extends InterfaceAction {
 
 	private static final long serialVersionUID = -3670704165326089152L;
+	
+	private final static Logger LOGGER = Logger.getLogger(WirelessAction.class);
 
 	private final static String INTERFACE_NAME = "wlan0";
 	
@@ -35,6 +39,10 @@ public class WirelessAction extends InterfaceAction {
 	public WirelessAction() {
 		
 		super();
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("WirelessAction()");
+		}
 	}
 
 	/* (non-Javadoc)
@@ -42,6 +50,7 @@ public class WirelessAction extends InterfaceAction {
 	 */
 	@Override
 	public String getInterfaceName() {
+		
 		return INTERFACE_NAME;
 	}
 }

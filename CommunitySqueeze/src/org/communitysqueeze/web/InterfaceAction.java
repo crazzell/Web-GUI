@@ -47,7 +47,7 @@ public abstract class InterfaceAction extends ActionSupport {
 	
 	private static final long serialVersionUID = -398961030369733246L;
 	
-	protected final static Logger LOGGER = Logger.getLogger(InterfaceAction.class);
+	private final static Logger LOGGER = Logger.getLogger(InterfaceAction.class);
 	
 	private final static String NETWORK_CONFIG_PATH = "/etc/sysconfig/network-scripts/";
 	private final static String IFCFG_PREFIX = "ifcfg-";
@@ -128,6 +128,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	public InterfaceAction() {
 		
 		super();
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("InterfaceAction()");
+		}
 	}
 	
 	/**
@@ -460,6 +464,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String execute() throws Exception {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("execute()");
+		}
+
 		return populate();
 	}
 	
@@ -468,6 +476,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 * @throws Exception
 	 */
 	public String populate() throws Exception {
+
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("populate()");
+		}
 
 		try {
 			populatePropertiesFromConfigFile();
@@ -486,6 +498,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String save() throws Exception {		
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("save()");
+		}
+
 		File tmpInterfaceFile = null;
 		File tmpKeysFile = null;
 		try {
@@ -538,6 +554,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String up() throws Exception {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("up()");
+		}
+
 		try {
 			interfaceUp();
 		} catch (Exception e) {
@@ -554,6 +574,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String down() throws Exception {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("down()");
+		}
+
 		try {
 			interfaceDown();
 		} catch (Exception e) {
@@ -570,6 +594,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String downUp() throws Exception {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("downUp()");
+		}
+
 		try {
 			interfaceDownUp();
 		} catch (Exception e) {
@@ -587,6 +615,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String reboot() throws Exception {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("reboot()");
+		}
+
 		try {
 			Util.reboot();
 		} catch (Exception e) {
@@ -602,6 +634,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	protected void saveProperties() {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("saveProperties()");
+		}
+
 		/*
 		 * Are we a wireless interface?
 		 */
@@ -671,6 +707,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected void populateInterfaceStatus() 
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("populateInterfaceStatus()");
+		}
+
 		File outFile = null;
 		try {
 			String interfaceName = getInterfaceName();
@@ -691,6 +731,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	protected void populatePropertiesFromConfigFile() 
 			throws IOException, FileNotFoundException, InterruptedException {
+
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("populatePropertiesFromConfigFile()");
+		}
 
 		readInterfaceConfigProperties();
 		
@@ -742,6 +786,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected void readInterfaceConfigProperties() 
 			throws FileNotFoundException, IOException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("readInterfaceConfigProperties()");
+		}
+		
 		Util.readConfigProperties(
 				new FileReader(INTERFACE_PATH_PREFIX + getInterfaceName()), 
 				interfaceProperties);
@@ -755,6 +803,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected void readKeysConfigProperties() 
 			throws FileNotFoundException, IOException, InterruptedException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("readKeysConfigProperties()");
+		}
+
 		File tmpFile = null;
 		
 		try {
@@ -786,6 +838,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected File writeTempKeysProperties() 
 			throws IOException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("writeTempKeysProperties()");
+		}
+
 		BufferedWriter writer = null;
 		try {
 			String interfaceName = getInterfaceName();
@@ -819,6 +875,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected File writeTempInterfaceProperties() 
 			throws IOException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("writeTempInterfaceProperties()");
+		}
+
 		BufferedWriter writer = null;
 		try {
 			File file = File.createTempFile(IFCFG_PREFIX + getInterfaceName() + "_", ".txt");
@@ -853,6 +913,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected int replaceInterfaceConfig(File tmpFile)
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("replaceInterfaceConfig(tmpFile=" + tmpFile + ")");
+		}
+
 		String[] cmdLineArgs = new String[] {
 				Commands.CMD_SUDO, Commands.SCRIPT_INTERFACE_UPDATE, 
 				tmpFile.getAbsolutePath(), getInterfaceName()
@@ -870,6 +934,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected int replaceKeysConfig(File tmpFile)
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("replaceKeysConfig(tmpFile=" + tmpFile + ")");
+		}
+
 		String[] cmdLineArgs = new String[] {
 				Commands.CMD_SUDO, Commands.SCRIPT_KEYS_UPDATE, 
 				tmpFile.getAbsolutePath(), getInterfaceName()
@@ -886,6 +954,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	private int[] interfaceDownUp() 
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("interfaceDownUp()");
+		}
+
 		return new int[] {
 				interfaceDown(), 
 				interfaceUp()
@@ -900,6 +972,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	private int interfaceUp() 
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("interfaceUp()");
+		}
+
 		String[] cmdLineArgs = new String[] {
 				Commands.CMD_SUDO, Commands.CMD_IFUP, getInterfaceName()
 		};
@@ -915,6 +991,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	private int interfaceDown() 
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("interfaceDown()");
+		}
+
 		String[] cmdLineArgs = new String[] {
 				Commands.CMD_SUDO, Commands.CMD_IFDOWN, getInterfaceName()
 		};

@@ -40,10 +40,26 @@ public abstract class SystemctlAction extends ActionSupport {
 	
 	protected String status;
 	
+	/**
+	 * 
+	 */
+	public SystemctlAction() {
+		
+		super();
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("SystemctlAction()");
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see com.opensymphony.xwork2.ActionSupport#execute()
 	 */
 	public String execute() throws Exception {
+
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("execute()");
+		}
 
 		return populate();
 	}
@@ -66,6 +82,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	protected void populateServiceStatus() 
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("populateServiceStatus()");
+		}
+
 		File outFile = null;
 		try {
 			String serviceName = getServiceName();
@@ -87,6 +107,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String stopService() throws Exception {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("stopService()");
+		}
+
 		try {
 			stopService(getServiceName());
 		} catch (Exception e) {
@@ -102,6 +126,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	 * @throws Exception
 	 */
 	public String restartService() throws Exception {
+
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("restartService()");
+		}
 
 		try {
 			restartService(getServiceName());
@@ -119,6 +147,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String startService() throws Exception {
 
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("startService()");
+		}
+
 		try {
 			startService(getServiceName());
 		} catch (Exception e) {
@@ -135,6 +167,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String enableService() throws Exception {
 
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("enableService()");
+		}
+
 		try {
 			enableService(getServiceName());
 		} catch (Exception e) {
@@ -150,6 +186,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	 * @throws Exception
 	 */
 	public String disableService() throws Exception {
+
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("disableService()");
+		}
 
 		try {
 			disableService(getServiceName());
@@ -170,6 +210,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int restartService(String serviceName) 
 				throws IOException, InterruptedException{
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("restartService(serviceName=" + serviceName + ")");
+		}
+
 		return ExecuteProcess.executeCommand(
 				Util.getSystemctlRestartCmdLine(serviceName));
 	}
@@ -183,6 +227,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int startService(String serviceName) 
 			throws IOException, InterruptedException{
 	
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("startService(serviceName=" + serviceName + ")");
+		}
+
 		return ExecuteProcess.executeCommand(
 				Util.getSystemctlStartCmdLine(serviceName));
 	}
@@ -196,6 +244,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int stopService(String serviceName) 
 			throws IOException, InterruptedException{
 	
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("stopService(serviceName=" + serviceName + ")");
+		}
+
 		return ExecuteProcess.executeCommand(
 				Util.getSystemctlStopCmdLine(serviceName));
 	}
@@ -209,6 +261,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int enableService(String serviceName) 
 			throws IOException, InterruptedException{
 	
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("enableService(serviceName=" + serviceName + ")");
+		}
+
 		return ExecuteProcess.executeCommand(
 				Util.getSystemctlEnableCmdLine(serviceName));
 	}
@@ -222,6 +278,10 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int disableService(String serviceName) 
 			throws IOException, InterruptedException{
 	
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("disableService(serviceName=" + serviceName + ")");
+		}
+
 		return ExecuteProcess.executeCommand(
 				Util.getSystemctlDisableCmdLine(serviceName));
 	}	

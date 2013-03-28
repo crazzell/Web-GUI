@@ -40,6 +40,10 @@ public class SqueezeServerAction extends SystemctlAction {
 	public SqueezeServerAction() {
 		
 		super();
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("SqueezeServerAction()");
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -57,6 +61,10 @@ public class SqueezeServerAction extends SystemctlAction {
 	 */
 	public String populate() throws Exception {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("populate()");
+		}
+
 		try {
 			populateServiceStatus();
 		} catch (Exception e) {

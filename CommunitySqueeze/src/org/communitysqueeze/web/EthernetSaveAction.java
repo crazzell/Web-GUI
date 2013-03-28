@@ -19,6 +19,8 @@
  */
 package org.communitysqueeze.web;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
@@ -26,12 +28,31 @@ package org.communitysqueeze.web;
 public class EthernetSaveAction extends EthernetAction {
 
 	private static final long serialVersionUID = 6118435658784817126L;
+	
+	private final static Logger LOGGER = Logger.getLogger(EthernetSaveAction.class);
+	
+	/**
+	 * 
+	 */
+	public EthernetSaveAction() {
+	
+		super();
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("EthernetSaveAction()");
+		}
+	}
 
 	/* (non-Javadoc)
 	 * @see com.opensymphony.xwork2.ActionSupport#validate()
 	 */
 	@Override
 	public void validate() {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("validate()");
+		}
+		
 		super.validate();
 	}
 	
@@ -39,6 +60,11 @@ public class EthernetSaveAction extends EthernetAction {
 	 * @see org.communitysqueeze.web.InterfaceAction#execute()
 	 */
 	public String execute() throws Exception {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("execute()");
+		}
+		
 		return save();
 	}
 }

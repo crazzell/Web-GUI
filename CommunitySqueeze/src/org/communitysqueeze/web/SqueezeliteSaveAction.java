@@ -19,6 +19,7 @@
  */
 package org.communitysqueeze.web;
 
+import org.apache.log4j.Logger;
 import org.communitysqueeze.util.Util;
 import org.communitysqueeze.util.Validate;
 
@@ -30,12 +31,18 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 
 	private static final long serialVersionUID = -6556726358112205788L;
 	
+	private final static Logger LOGGER = Logger.getLogger(SqueezeliteSaveAction.class);
+	
 	/**
 	 * 
 	 */
 	public SqueezeliteSaveAction() {
 		
 		super();
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("SqueezeliteSaveAction()");
+		}
 	}
 	
 	/* (non-Javadoc)
@@ -43,6 +50,10 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 	 */
 	public void validate() {
 
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("validate()");
+		}
+		
 		if (name != null && name.trim().length() > 0) {
 			if (!name.trim().matches(Validate.REGEX_ALPHA_NUMERIC)) {
 				addActionError("Invalid Name! Format is <name>, alpha/numeric");				
@@ -107,7 +118,7 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 		}
 		
 		if (codec != null && codec.trim().length() > 0) {
-			String[] tempList = codec.split(",");
+			String[] tempList = codec.trim().split(",");
 			for (int i = 0; i < tempList.length; i++) {
 				if (!validateCodec(tempList[i])) {
 					addActionError("Invalid Codec '" + tempList[i] + 
@@ -131,14 +142,6 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 				addActionError("Invalid Server IP Address! Format is dotted quad. eg. 192.168.0.1");
 			}
 		}
-		
-		if (hasActionErrors() || hasFieldErrors()) {
-			/*
-			 * We store the audioDevList, hidden, in the request.
-			 * Only regenerate the priorityList if we fail validation. 
-			 */
-			priorityList = Util.generatePriorityList(46);
-		}
 	}
 	
 	/* (non-Javadoc)
@@ -146,7 +149,16 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 	 */
 	public String execute() throws Exception {
 
-		return save();
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("execute()");
+		}
+		
+		Thread.sleep(5000);
+		String result = save();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute() returns " + result);
+		}
+		return result;
 	}
 	
 	/**

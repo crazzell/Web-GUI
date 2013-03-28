@@ -36,12 +36,6 @@ public class Validate {
 	
 	public final static String REGEX_ALPHA_NUMERIC = "^[a-zA-Z0-9]*$";
 	
-	/*
-	b = buffer time in ms, 
-			 c = period count, 
-			 f = sample format (16|24|24_3|32), 
-			 m = use mmap (0|1)"
-			 */
 	public final static String SQUEEZELITE_REGEX_ALSA_PARAMS = "^([0-9]*):([0-9]*):(16|24|24_3|32)?:(0|1)?$";
 
 	public final static int SQUEEZELITE_MAX_SAMPLE_RATE = 384000;

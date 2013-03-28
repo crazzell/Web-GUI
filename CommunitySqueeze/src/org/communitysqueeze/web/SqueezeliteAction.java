@@ -44,7 +44,7 @@ public class SqueezeliteAction extends SystemctlAction {
 
 	private static final long serialVersionUID = -6984779965819629682L;
 	
-	protected final static Logger LOGGER = Logger.getLogger(SqueezeliteAction.class);
+	private final static Logger LOGGER = Logger.getLogger(SqueezeliteAction.class);
 
 	private final static String NAME = "squeezelite";
 	private final static String SERVICE_NAME = NAME + ".service";
@@ -56,6 +56,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	
 	private final static String SQUEEZELITE_SERVICE_DEFAULT_NAME = 
 			"SqueezeliteWAND";
+
+	private final static int SQUEEZELITE_MAX_RT_PRIORITY = 46;
 
 	private final static String WANDBOARD_DEFAULT_AUDIO_DEVICE = "sgtl5000audio";
 	
@@ -81,6 +83,9 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String CFG_ALSA_PARAMS_OPTION = "-a ";
 	private final static String CFG_SERVER_IP = "SERVER_IP";
 	
+	private final static List<String> PRIORITY_LIST = 
+			Util.generatePriorityList(SQUEEZELITE_MAX_RT_PRIORITY);
+	
 	/*
 	 * Store the non commented <name>="<value>" config params in a map
 	 */
@@ -98,7 +103,7 @@ public class SqueezeliteAction extends SystemctlAction {
 	protected String alsaParams;
 	protected String serverIp;
 	
-	protected List<String> priorityList;
+	protected List<String> priorityList = PRIORITY_LIST;
 	protected List<String> audioDevList;
 	
 	/**
@@ -106,7 +111,11 @@ public class SqueezeliteAction extends SystemctlAction {
 	 */
 	public SqueezeliteAction() {
 		
-		super();		
+		super();
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("SqueezeliteAction()");
+		}
 	}
 
 	/* (non-Javadoc)
@@ -124,6 +133,10 @@ public class SqueezeliteAction extends SystemctlAction {
 	 */
 	private void populatePropertiesFromConfigFile() 
 			throws IOException, FileNotFoundException {
+
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("populatePropertiesFromConfigFile()");
+		}
 
 		readSqueezeliteConfigProperties(SQUEEZELITE_CONFIG_FILE_NAME);
 		
@@ -155,11 +168,11 @@ public class SqueezeliteAction extends SystemctlAction {
 	 */
 	public String populate() throws Exception {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("populate()");
+		}
+
 		try {
-			/*
-			 * generate priority list <= 46
-			 */
-			priorityList = Util.generatePriorityList(46);
 			/*
 			 * get the list of audio devices
 			 */
@@ -186,6 +199,10 @@ public class SqueezeliteAction extends SystemctlAction {
 	 */
 	public String save() throws Exception {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("save()");
+		}
+
 		ArrayList<String> list = new ArrayList<String>();
 		
 		/*
@@ -556,7 +573,7 @@ public class SqueezeliteAction extends SystemctlAction {
 	 */
 	public void setPriorityList(List<String> priorityList) {
 		
-		this.priorityList = priorityList;
+		//this.priorityList = priorityList;
 	}
 
 	/**
@@ -583,6 +600,11 @@ public class SqueezeliteAction extends SystemctlAction {
 	private void readSqueezeliteConfigProperties(String configName) 
 			throws FileNotFoundException, IOException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("readSqueezeliteConfigProperties(configName=" + 
+							configName + ")");
+		}
+
 		BufferedReader br = null;
 		try {
 			br = new BufferedReader(new FileReader(SQUEEZELITE_CONFIG_PATH + configName));
@@ -668,6 +690,11 @@ public class SqueezeliteAction extends SystemctlAction {
 	private File writeTempSqueezeliteProperties(String configName, ArrayList<String> argList) 
 			throws IOException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("writeTempSqueezeliteProperties(configName=" + 
+							configName + ", argList=" + argList + ")");
+		}
+
 		BufferedWriter bw = null;
 		try {
 			File tempFile = File.createTempFile(NAME + "_config_", ".txt");
@@ -700,6 +727,10 @@ public class SqueezeliteAction extends SystemctlAction {
 	private int replaceSqueezeliteConfig(File tmpFile)
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("replaceSqueezeliteConfig(tmpFile=" + tmpFile + ")");
+		}
+
 		String[] cmdLineArgs = new String[] {
 				Commands.CMD_SUDO, Commands.SCRIPT_SQUEEZELITE_CONFIG_UPDATE, 
 				tmpFile.getAbsolutePath()
