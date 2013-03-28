@@ -40,9 +40,17 @@
 			<result name="success" type="redirectAction">SqueezeServer_populate</result>
 		</action>
 
-		<action name="Squeezelite_save" 
+		<action name="Squeezelite_save" method="execute"
 			class="org.communitysqueeze.web.SqueezeliteSaveAction">
-			<result name="input">/squeezelite.jsp</result>
+			<!--
+			<interceptor-ref name="defaultStack" /> 
+			<interceptor-ref name="execAndWait">
+		        <param name="delay">1000</param>
+		        <param name="delaySleepInterval">500</param>
+		    </interceptor-ref>
+		    <result name="wait">/wait.jsp</result>
+		    -->
+			<result name="input">/squeezelite.jsp</result> 
 			<result name="success" type="redirectAction">Squeezelite_populate</result>
 		</action>
 
@@ -51,6 +59,16 @@
 			<result name="populate">/squeezelite.jsp</result>
 			<result name="input">/squeezelite.jsp</result>
 			<result name="success" type="redirectAction">Squeezelite_populate</result>
+		</action>
+
+		<action name="Test" 
+			class="org.communitysqueeze.web.TestAction">
+			<interceptor-ref name="execAndWait">
+		        <param name="delay">1000</param>
+		        <param name="delaySleepInterval">500</param>
+		    </interceptor-ref>
+		    <result name="wait">/wait.jsp</result>
+		    <result name="success">/success.jsp</result>
 		</action>
 
 	</package>
