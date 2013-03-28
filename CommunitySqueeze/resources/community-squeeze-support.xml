@@ -20,6 +20,12 @@
 			<result name="success" type="redirectAction">Ethernet_populate</result>
 		</action>
 
+		<action name="Wireless_save" 
+			class="org.communitysqueeze.web.WirelessSaveAction">
+			<result name="input">/wireless.jsp</result>
+			<result name="success" type="redirectAction">Wireless_populate</result>
+		</action>
+
 		<action name="Wireless_*" method="{1}"
 			class="org.communitysqueeze.web.WirelessAction">
 			<result name="populate">/wireless.jsp</result>
