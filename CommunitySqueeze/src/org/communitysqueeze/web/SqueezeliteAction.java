@@ -44,20 +44,21 @@ public class SqueezeliteAction extends SystemctlAction {
 
 	private static final long serialVersionUID = -6984779965819629682L;
 	
-	private final static Logger LOGGER = Logger.getLogger(SqueezeliteAction.class);
+	protected final static Logger LOGGER = Logger.getLogger(SqueezeliteAction.class);
 
 	private final static String NAME = "squeezelite";
 	private final static String SERVICE_NAME = NAME + ".service";
 	private final static String SQUEEZELITE_CONFIG_PATH = "/etc/sysconfig/";
 	private final static String SQUEEZELITE_CONFIG_FILE_NAME = NAME;
 	
+	private final static String SQUEEZELITE_SERVICE_DEFAULT_LOG_FILE = 
+			"/var/log/squeezelite/squeezelite.log";
+	
+	private final static String SQUEEZELITE_SERVICE_DEFAULT_NAME = 
+			"SqueezeliteWAND";
+
 	private final static String WANDBOARD_DEFAULT_AUDIO_DEVICE = "sgtl5000audio";
 	
-	/*
-	 * Store the non commented <name>="<value>" config params in a map
-	 */
-	protected HashMap<String, String> properties = new HashMap<String, String>();
-
 	private final static String CFG_NAME = "NAME";
 	private final static String CFG_NAME_OPTION = "-n ";
 	private final static String CFG_MAC = "MAC";
@@ -80,20 +81,25 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String CFG_ALSA_PARAMS_OPTION = "-a ";
 	private final static String CFG_SERVER_IP = "SERVER_IP";
 	
-	private String name;
-	private String mac;
-	private String maxRate;
-	private String audioDev;
-	private String logFile;
-	private String logLevel;
-	private String priority;
-	private String buffer;
-	private String codec;
-	private String alsaParams;
-	private String serverIp;
+	/*
+	 * Store the non commented <name>="<value>" config params in a map
+	 */
+	protected HashMap<String, String> properties = new HashMap<String, String>();
+
+	protected String name;
+	protected String mac;
+	protected String maxRate;
+	protected String audioDev;
+	protected String logFile;
+	protected String logLevel;
+	protected String priority;
+	protected String buffer;
+	protected String codec;
+	protected String alsaParams;
+	protected String serverIp;
 	
-	private List<String> priorityList;
-	private List<String> audioDevList;
+	protected List<String> priorityList;
+	protected List<String> audioDevList;
 	
 	/**
 	 * 
@@ -126,9 +132,8 @@ public class SqueezeliteAction extends SystemctlAction {
 		maxRate = properties.get(CFG_MAX_RATE);
 		audioDev = properties.get(CFG_AUDIO_DEV);
 		/*
-		 * AUDIO_DEV is set in config file. 
-		 * Make sure it is in the list. 
-		 * Might not be if USB DAC and currently disconnected.
+		 * If AUDIO_DEV is set in config file, make sure it is in the list. 
+		 * Might not be if USB DAC is being used but currently disconnected.
 		 */
 		if (audioDev != null) {
 			if (!audioDevList.contains(audioDev)) {
@@ -189,6 +194,9 @@ public class SqueezeliteAction extends SystemctlAction {
 		 */
 		if (name != null && name.trim().length() > 0) {
 			list.add(CFG_NAME + "=\"" + CFG_NAME_OPTION + name.trim() + "\"");
+		} else {
+			list.add(CFG_NAME + "=\"" + CFG_NAME_OPTION + 
+						SQUEEZELITE_SERVICE_DEFAULT_NAME + "\"");
 		}
 		
 		/*
@@ -235,6 +243,9 @@ public class SqueezeliteAction extends SystemctlAction {
 		 */
 		if (logFile != null && logFile.trim().length() > 0) {
 			list.add(CFG_LOG_FILE + "=\"" + CFG_LOG_FILE_OPTION + logFile.trim() + "\"");
+		} else {
+			list.add(CFG_LOG_FILE + "=\"" + CFG_LOG_FILE_OPTION + 
+						SQUEEZELITE_SERVICE_DEFAULT_LOG_FILE + "\"");
 		}
 		
 		/*
@@ -565,55 +576,6 @@ public class SqueezeliteAction extends SystemctlAction {
 	}
 	
 	/**
-	 * @param tmpFile
-	 * @return
-	 * @throws IOException
-	 * @throws InterruptedException
-	 */
-	private int replaceSqueezeliteConfig(File tmpFile)
-			throws IOException, InterruptedException {
-		
-		String[] cmdLineArgs = new String[] {
-				Commands.CMD_SUDO, Commands.SCRIPT_SQUEEZELITE_CONFIG_UPDATE, 
-				tmpFile.getAbsolutePath()
-		};
-		
-		return ExecuteProcess.executeCommand(cmdLineArgs);
-	}
-	
-	/**
-	 * @param configName
-	 * @param argList
-	 * @return
-	 * @throws IOException
-	 */
-	private File writeTempSqueezeliteProperties(String configName, ArrayList<String> argList) 
-			throws IOException {
-		
-		BufferedWriter bw = null;
-		try {
-			File tempFile = File.createTempFile(NAME + "_config_", ".txt");
-			bw = new BufferedWriter(new FileWriter(tempFile));
-			bw.write(Util.getModifiedComment());
-			Iterator<String> it = argList.iterator();
-			while (it.hasNext()) {
-				bw.write(it.next() + Util.LINE_SEP);
-			}
-			return tempFile;
-		} finally {
-			if (bw != null) {
-				try {
-					bw.flush();
-				} catch (Exception e) {}
-				
-				try {
-					bw.close();
-				} catch (Exception e) {}
- 			}
-		}
-	}
-	
-	/**
 	 * @param configName
 	 * @throws FileNotFoundException
 	 * @throws IOException
@@ -695,5 +657,54 @@ public class SqueezeliteAction extends SystemctlAction {
 				} catch (Exception e) {}
 			}
 		}
+	}
+	
+	/**
+	 * @param configName
+	 * @param argList
+	 * @return
+	 * @throws IOException
+	 */
+	private File writeTempSqueezeliteProperties(String configName, ArrayList<String> argList) 
+			throws IOException {
+		
+		BufferedWriter bw = null;
+		try {
+			File tempFile = File.createTempFile(NAME + "_config_", ".txt");
+			bw = new BufferedWriter(new FileWriter(tempFile));
+			bw.write(Util.getModifiedComment());
+			Iterator<String> it = argList.iterator();
+			while (it.hasNext()) {
+				bw.write(it.next() + Util.LINE_SEP);
+			}
+			return tempFile;
+		} finally {
+			if (bw != null) {
+				try {
+					bw.flush();
+				} catch (Exception e) {}
+				
+				try {
+					bw.close();
+				} catch (Exception e) {}
+ 			}
+		}
+	}
+	
+	/**
+	 * @param tmpFile
+	 * @return
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	private int replaceSqueezeliteConfig(File tmpFile)
+			throws IOException, InterruptedException {
+		
+		String[] cmdLineArgs = new String[] {
+				Commands.CMD_SUDO, Commands.SCRIPT_SQUEEZELITE_CONFIG_UPDATE, 
+				tmpFile.getAbsolutePath()
+		};
+		
+		return ExecuteProcess.executeCommand(cmdLineArgs);
 	}
 }

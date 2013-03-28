@@ -92,6 +92,22 @@ public final class Util {
 	}
 	
 	/**
+	 * @param name
+	 * @param list
+	 * @return
+	 */
+	public final static boolean contains(final String[] list, final String name) {
+		
+		for (int j = 0; j < list.length; j++) {
+			if (list[j].equals(name)) {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	/**
 	 * @param p
 	 */
 	public static void closeProcessStreams(Process p) {

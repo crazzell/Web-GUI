@@ -7,32 +7,44 @@
 
 	<package name="community-squeeze-support" extends="community-squeeze-default" namespace="/">
 
+		<action name="Ethernet_save"
+			class="org.communitysqueeze.web.EthernetSaveAction">
+			<result name="input">/ethernet.jsp</result>
+			<result name="success" type="redirectAction">Ethernet_populate</result>
+		</action>
+
 		<action name="Ethernet_*" method="{1}"
 			class="org.communitysqueeze.web.EthernetAction">
 			<result name="populate">/ethernet.jsp</result>
 			<result name="input">/ethernet.jsp</result>
-			<result name="success" type="redirectAction">/Ethernet_populate</result>
+			<result name="success" type="redirectAction">Ethernet_populate</result>
 		</action>
 
 		<action name="Wireless_*" method="{1}"
 			class="org.communitysqueeze.web.WirelessAction">
 			<result name="populate">/wireless.jsp</result>
 			<result name="input">/wireless.jsp</result>
-			<result name="success" type="redirectAction">/Wireless_populate</result>
+			<result name="success" type="redirectAction">Wireless_populate</result>
 		</action>
 
 		<action name="SqueezeServer_*" method="{1}"
 			class="org.communitysqueeze.web.SqueezeServerAction">
 			<result name="populate">/squeezeserver.jsp</result>
 			<result name="input">/squeezeserver.jsp</result>
-			<result name="success" type="redirectAction">/SqueezeServer_populate</result>
+			<result name="success" type="redirectAction">SqueezeServer_populate</result>
+		</action>
+
+		<action name="Squeezelite_save" 
+			class="org.communitysqueeze.web.SqueezeliteSaveAction">
+			<result name="input">/squeezelite.jsp</result>
+			<result name="success" type="redirectAction">Squeezelite_populate</result>
 		</action>
 
 		<action name="Squeezelite_*" method="{1}"
 			class="org.communitysqueeze.web.SqueezeliteAction">
 			<result name="populate">/squeezelite.jsp</result>
 			<result name="input">/squeezelite.jsp</result>
-			<result name="success" type="redirectAction">/Squeezelite_populate</result>
+			<result name="success" type="redirectAction">Squeezelite_populate</result>
 		</action>
 
 	</package>

@@ -27,7 +27,6 @@
 </table>
 
 <hr />
-<s:actionerror />
 
 <s:form action="Squeezelite" theme="simple" >
 	<s:textarea name="status" cols="100" rows="4" readonly="true" />
@@ -41,6 +40,8 @@
 </s:form>
 
 <hr />
+
+<s:actionerror />
 
 <s:form action="Squeezelite" >
 	<s:textfield name="name" label="Name" 
@@ -73,6 +74,13 @@
 		 m = use mmap (0|1)" />
 	<s:textfield name="serverIp" label="Server IP Address" 
 		tooltip="Connect to specified server, otherwise uses autodiscovery to find server" />
+		
+	<!-- store the audioDevList -->
+	<s:iterator value="audioDevList" status="stat">
+		<s:hidden name="audioDevList[%{#stat.index}]" value="%{audioDevList[#stat.index]}" />
+	</s:iterator>
+	
+	<s:hidden name="status" />
 	
 	<s:submit action="Squeezelite_save" value="Save" />
 	<s:reset key="button.reset"/>
