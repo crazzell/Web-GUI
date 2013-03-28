@@ -1,0 +1,12 @@
+tomcat ALL = NOPASSWD:\
+ /usr/sbin/csos-ifcfgUpdate,\
+ /usr/sbin/csos-keysRead,\
+ /usr/sbin/csos-keysUpdate,\
+ /usr/sbin/csos-squeezeliteConfigUpdate,\
+ /usr/sbin/csos-reboot,\
+ /usr/bin/systemctl,\
+ /usr/bin/aplay,\
+ /usr/sbin/ifconfig,\
+ /usr/sbin/ifup,\
+ /usr/sbin/ifdown,\
+ /usr/sbin/wpa_cli

@@ -29,6 +29,7 @@ public class Commands {
 	public final static String SCRIPT_KEYS_READ = "csos-keysRead";
 	public final static String SCRIPT_KEYS_UPDATE = "csos-keysUpdate";
 	public final static String SCRIPT_SQUEEZELITE_CONFIG_UPDATE = "csos-squeezeliteConfigUpdate";
+	public final static String SCRIPT_REBOOT = "csos-reboot";
 	
 	public final static String CMD_SUDO = "sudo";
 	public final static String CMD_NOHUP = "nohup";

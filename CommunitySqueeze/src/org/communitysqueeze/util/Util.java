@@ -470,7 +470,8 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlStatusCmd(String serviceName) {
 		
-		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, Commands.SYSTEMCTL_STATUS, serviceName};
+		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
+				Commands.SYSTEMCTL_STATUS, serviceName};
 	}
 	
 	/**
@@ -479,7 +480,8 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlStatusCmdLine(String serviceName) {
 		
-		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, Commands.SYSTEMCTL_STATUS, serviceName};
+		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
+				Commands.SYSTEMCTL_STATUS, serviceName};
 	}
 	
 	/**
@@ -488,7 +490,8 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlStartCmdLine(String serviceName) {
 		
-		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, Commands.SYSTEMCTL_START, serviceName};
+		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
+				Commands.SYSTEMCTL_START, serviceName};
 	}
 	
 	/**
@@ -497,7 +500,8 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlStopCmdLine(String serviceName) {
 		
-		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, Commands.SYSTEMCTL_STOP, serviceName};
+		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
+				Commands.SYSTEMCTL_STOP, serviceName};
 	}
 	
 	/**
@@ -506,7 +510,8 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlEnableCmdLine(String serviceName) {
 		
-		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, Commands.SYSTEMCTL_ENABLE, serviceName};
+		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
+				Commands.SYSTEMCTL_ENABLE, serviceName};
 	}
 	
 	/**
@@ -515,7 +520,8 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlDisableCmdLine(String serviceName) {
 		
-		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, Commands.SYSTEMCTL_DISABLE, serviceName};
+		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
+				Commands.SYSTEMCTL_DISABLE, serviceName};
 	}
 	
 	/**
@@ -524,7 +530,8 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlRestartCmdLine(String serviceName) {
 		
-		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, Commands.SYSTEMCTL_RESTART, serviceName};
+		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
+				Commands.SYSTEMCTL_RESTART, serviceName};
 	}
 	
 	/**
@@ -536,7 +543,8 @@ public final class Util {
 			throws IOException, InterruptedException {
 		
 		String[] cmdLineArgs = new String[] {
-				Commands.CMD_SUDO, Commands.CMD_NOHUP, Commands.CMD_REBOOT
+				//Commands.CMD_SUDO, Commands.CMD_NOHUP, Commands.CMD_REBOOT
+				Commands.CMD_SUDO, Commands.SCRIPT_REBOOT
 		};
 		
 		return ExecuteProcess.executeCommand(cmdLineArgs);
