@@ -130,6 +130,54 @@ public final class Util {
 			} catch (IOException ioe) {}
 		}
 	}
+
+	/**
+	 * @param interfaceName
+	 * @return
+	 */
+	public final static String getMacAddress(String interfaceName) {
+		
+		File tmpFile = null;
+		BufferedReader reader = null;
+		try {
+			tmpFile = File.createTempFile(interfaceName + "_mac_", ".txt");
+			Writer writer = new FileWriter(tmpFile);
+
+			String[] cmdLineArgs = new String[] {
+					Commands.CMD_SUDO, Commands.CMD_IFCONFIG, interfaceName
+			};
+			
+			ExecuteProcess.executeCommand(cmdLineArgs, writer, null);
+			reader = new BufferedReader(new FileReader(tmpFile));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				if (line.matches(Validate.REGEX_MAC_ADDRESS_IN_LINE)) {
+					String[] tmpList = line.split(" ");
+					for (int i = 0; i < tmpList.length; i++) {
+						if (tmpList[i].trim().matches(Validate.REGEX_MAC_ADDRESS)) {
+							return tmpList[i].trim();
+						}
+					}
+				}
+			}
+		} catch (Exception e) {
+			LOGGER.warn("getMacAddress(interfaceName=" + interfaceName + ")", e);
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (Exception e) {}
+			}
+			
+			if (tmpFile != null) {
+				try {
+					tmpFile.delete();
+				} catch (Exception e) {}
+			}
+		}
+		
+		return null;
+	}
 	
 	/**
 	 * @param interfaceName
@@ -140,9 +188,10 @@ public final class Util {
 	private static boolean scanWirelessNetworks(String interfaceName) 
 			throws IOException, InterruptedException {
 		
-		File tmpFile = File.createTempFile("wpa_cli_scan_", ".txt");
+		File tmpFile = null;
 		BufferedReader reader = null;
 		try {
+			tmpFile = File.createTempFile("wpa_cli_scan_", ".txt");
 			Writer writer = new FileWriter(tmpFile);
 
 			String[] cmdLineArgs = new String[] {

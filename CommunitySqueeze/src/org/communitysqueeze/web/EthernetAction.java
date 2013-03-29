@@ -31,9 +31,9 @@ public class EthernetAction extends InterfaceAction {
 
 	private final static Logger LOGGER = Logger.getLogger(EthernetAction.class);
 	
-	//private final static String INTERFACE_NAME = "p20p1";
-	//private final static String INTERFACE_NAME = "p4p1";
-	private final static String INTERFACE_NAME = "eth0";
+	//public final static String INTERFACE_NAME = "p20p1";
+	public final static String INTERFACE_NAME = "p4p1";
+	//public final static String INTERFACE_NAME = "eth0";
 
 	/**
 	 * 

@@ -35,6 +35,7 @@ import org.apache.log4j.Logger;
 import org.communitysqueeze.util.Commands;
 import org.communitysqueeze.util.ExecuteProcess;
 import org.communitysqueeze.util.Util;
+import org.communitysqueeze.util.Validate;
 
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
@@ -215,12 +216,23 @@ public class SqueezeliteAction extends SystemctlAction {
 			list.add(CFG_NAME + "=\"" + CFG_NAME_OPTION + 
 						SQUEEZELITE_SERVICE_DEFAULT_NAME + "\"");
 		}
+
+		/*
+		 * If mac is not populated by the user, get the mac of 
+		 * the default network interface
+		 */
+		if (mac == null || mac.trim().length() != Validate.MAC_STRING_LENGTH) {
+			String tempMac = Util.getMacAddress(EthernetAction.INTERFACE_NAME);
+			if (tempMac != null && tempMac.length() > 0) {
+				mac = tempMac;
+			}
+		} 
 		
 		/*
 		 * -m <mac addr>
 		 * Set mac address, format: ab:cd:ef:12:34:56
 		 */
-		if (mac != null && mac.trim().length() > 0) {
+		if (mac != null && mac.trim().length() == Validate.MAC_STRING_LENGTH) {
 			list.add(CFG_MAC + "=\"" + CFG_MAC_OPTION + mac.trim() + "\"");
 		}
 		

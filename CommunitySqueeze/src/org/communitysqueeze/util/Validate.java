@@ -34,6 +34,11 @@ public class Validate {
 	public final static String REGEX_MAC_ADDRESS = 
 		"^[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}$";
 	
+	public final static String REGEX_MAC_ADDRESS_IN_LINE = 
+			".*[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}:[0-9A-Fa-f]{2}.*";
+
+	public final static int MAC_STRING_LENGTH = 17;
+	
 	public final static String REGEX_ALPHA_NUMERIC = "^[a-zA-Z0-9]*$";
 	
 	public final static String SQUEEZELITE_REGEX_ALSA_PARAMS = "^([0-9]*):([0-9]*):(16|24|24_3|32)?:(0|1)?$";
