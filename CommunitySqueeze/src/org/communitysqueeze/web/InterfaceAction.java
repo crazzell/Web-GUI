@@ -26,15 +26,17 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Writer;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 import org.apache.log4j.Logger;
 import org.communitysqueeze.util.Commands;
 import org.communitysqueeze.util.ExecuteProcess;
+import org.communitysqueeze.util.StringIgnoreCaseComparator;
 import org.communitysqueeze.util.Util;
 import org.communitysqueeze.util.Validate;
 
@@ -93,8 +95,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	public final static String DUMMY_ESSID = "YOUR_ESSID_HERE";
 	public final static String DUMMY_WPA_PSK = "YOUR_PSK_HERE";
 	
-	protected HashMap<String, String> interfaceProperties = new HashMap<String, String>();
-	protected HashMap<String, String> keysProperties = new HashMap<String, String>();
+	protected SortedMap<String, String> interfaceProperties = 
+			new TreeMap<String, String>(StringIgnoreCaseComparator.COMPARATOR);
+	protected SortedMap<String, String> keysProperties = 
+			new TreeMap<String, String>(StringIgnoreCaseComparator.COMPARATOR);
 	
 	protected String name;
 	protected String type;
@@ -463,7 +467,7 @@ public abstract class InterfaceAction extends ActionSupport {
 	/**
 	 * @return
 	 */
-	public HashMap<String, String> getInterfaceProperties() {
+	public SortedMap<String, String> getInterfaceProperties() {
 		
 		return interfaceProperties;
 	}
@@ -471,7 +475,7 @@ public abstract class InterfaceAction extends ActionSupport {
 	/**
 	 * @return
 	 */
-	public HashMap<String, String> getKeysProperties() {
+	public SortedMap<String, String> getKeysProperties() {
 		
 		return keysProperties;
 	}
@@ -839,6 +843,16 @@ public abstract class InterfaceAction extends ActionSupport {
 			 * get the available networks
 			 */
 			networkList = Util.getAvailableNetworks(getInterfaceName());
+			/*
+			 * Make sure the network list contains the currently configured 
+			 * wireless network. It might be temporaily unavailable, or the scan
+			 * may have failed to pick it up.
+			 */
+			if (wirelessEssid != null && wirelessEssid.length() > 0 && 
+					!networkList.contains(wirelessEssid)) {
+				
+				networkList.add(0, wirelessEssid);
+			}
 		}
 	}	
 	

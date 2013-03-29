@@ -17,41 +17,20 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-package org.communitysqueeze.web;
+package org.communitysqueeze.util;
 
-import org.apache.log4j.Logger;
+import java.util.Comparator;
 
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
  */
-public class SqueezeServerAction extends SystemctlAction {
-
-	private static final long serialVersionUID = -6022146345888210034L;
+public final class StringIgnoreCaseComparator implements Comparator<String> {
 	
-	private final static Logger LOGGER = Logger.getLogger(SqueezeServerAction.class);
+	public final static StringIgnoreCaseComparator COMPARATOR = 
+			new StringIgnoreCaseComparator();
 	
-	private final static String NAME = "squeezeboxserver";
-	private final static String SERVICE_NAME = NAME + ".service";
-		
-	/**
-	 * 
-	 */
-	public SqueezeServerAction() {
-		
-		super();
-		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("SqueezeServerAction()");
-		}
+	public int compare(String strA, String strB) {
+		return strA.compareToIgnoreCase(strB);
 	}
-	
-	/* (non-Javadoc)
-	 * @see org.communitysqueeze.web.SystemctlAction#getServiceName()
-	 */
-	@Override
-	public String getServiceName() {
-		
-		return SERVICE_NAME;
-	}	
 }

@@ -149,10 +149,10 @@ public class SqueezeliteAction extends SystemctlAction {
 		 * If AUDIO_DEV is set in config file, make sure it is in the list. 
 		 * Might not be if USB DAC is being used but currently disconnected.
 		 */
-		if (audioDev != null) {
-			if (!audioDevList.contains(audioDev)) {
-				audioDevList.add(0, audioDev);
-			}
+		if (audioDev != null && audioDev.length() > 0 && 
+				!audioDevList.contains(audioDev)) {
+			
+			audioDevList.add(0, audioDev);
 		}
 		logFile = properties.get(CFG_LOG_FILE);
 		logLevel = properties.get(CFG_LOG_LEVEL);

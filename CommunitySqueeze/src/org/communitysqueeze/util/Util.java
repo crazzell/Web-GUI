@@ -30,9 +30,10 @@ import java.io.Writer;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 
@@ -233,7 +234,7 @@ public final class Util {
 	private static List<String> scanResultsWirelessNetworks(String interfaceName) 
 			throws IOException, InterruptedException {
 		
-		ArrayList<String> networkList = new ArrayList<String>();
+		List<String> networkList = new ArrayList<String>();
 		networkList.add("");
 		
 		if (scanWirelessNetworks(interfaceName)) {
@@ -252,14 +253,18 @@ public final class Util {
 				reader = new BufferedReader(new FileReader(tmpFile));
 				String line = null;
 				while ((line = reader.readLine()) != null) {
-					if (line.matches("^..\\:..\\:..\\:..\\:..\\:..*")) {
+					if (line.matches(Validate.REGEX_MAC_ADDRESS_IN_LINE)) {
 						int index = line.lastIndexOf("\t");
 						if (index > -1) {
-							String name = line.substring(index + 1);
-							networkList.add(name.trim());
+							String name = line.substring(index + 1).trim();
+							if (name.matches(Validate.REGEX_MAC_ADDRESS)) {
+								networkList.add(name);
+							}
 						}
 					}
 				}
+				Collections.sort(networkList, StringIgnoreCaseComparator.COMPARATOR);
+				networkList.add(0, "");
 			} finally {
 				if (reader != null) {
 					try {
@@ -450,7 +455,7 @@ public final class Util {
 	 * @throws FileNotFoundException
 	 * @throws IOException
 	 */
-	public final static void readConfigProperties(Reader reader, HashMap<String, String> properties) 
+	public final static void readConfigProperties(Reader reader, Map<String, String> properties) 
 			throws FileNotFoundException, IOException {
 		
 		BufferedReader br = null;

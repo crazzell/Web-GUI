@@ -63,18 +63,32 @@ public abstract class SystemctlAction extends ActionSupport {
 
 		return populate();
 	}
-	
-	/**
-	 * @return
-	 * @throws Exception
-	 */
-	public abstract String populate() throws Exception;
-	
+		
 	/**
 	 * @return
 	 */
 	public abstract String getServiceName();
 	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
+	public String populate() throws Exception {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("populate()");
+		}
+
+		try {
+			populateServiceStatus();
+		} catch (Exception e) {
+			LOGGER.error("Caught exception while populating " + getServiceName() + "!", e);
+			throw e;
+		}
+ 		
+		return "populate";
+	}	
+
 	/**
 	 * @throws IOException
 	 * @throws InterruptedException
