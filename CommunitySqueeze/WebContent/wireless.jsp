@@ -25,7 +25,6 @@ pageEncoding="ISO-8859-1"%>
 </table>
 
 <hr />
-<s:actionerror />
 
 <s:form action="Wireless" theme="simple" >
 	<s:textarea name="status" cols="100" rows="7" readonly="true" />
@@ -34,6 +33,8 @@ pageEncoding="ISO-8859-1"%>
 </s:form>
 
 <hr />
+
+<s:actionerror />
 
 <s:form action="Wireless" >
 	<s:select name="wirelessEssid" list="networkList" label="ESSID" 
@@ -70,6 +71,8 @@ pageEncoding="ISO-8859-1"%>
 	<s:submit value="Save" action="Wireless_save" align="left" />
 	<s:reset key="button.reset" align="left" />
 
+	<s:hidden name="status" />
+	
 	<s:submit value="Reboot" action="Wireless_reboot" />
 	<s:submit value="Interface Up" action="Wireless_up" />
 	<s:submit value="Interface Down" action="Wireless_down" />

@@ -53,7 +53,7 @@ public class EthernetSaveAction extends EthernetAction {
 			LOGGER.trace("validate()");
 		}
 		
-		super.validate();
+		validate_();
 	}
 	
 	/* (non-Javadoc)

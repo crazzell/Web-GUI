@@ -53,7 +53,7 @@ public class WirelessSaveAction extends WirelessAction {
 			LOGGER.trace("validate()");
 		}
 		
-		super.validate();
+		validate_();
 	}
 	
 	/* (non-Javadoc)

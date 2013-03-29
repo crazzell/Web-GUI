@@ -36,6 +36,7 @@ import org.apache.log4j.Logger;
 import org.communitysqueeze.util.Commands;
 import org.communitysqueeze.util.ExecuteProcess;
 import org.communitysqueeze.util.Util;
+import org.communitysqueeze.util.Validate;
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -458,7 +459,69 @@ public abstract class InterfaceAction extends ActionSupport {
 		
 		this.status = status;
 	}
+	
+	/**
+	 * @return
+	 */
+	public HashMap<String, String> getInterfaceProperties() {
+		
+		return interfaceProperties;
+	}
+	
+	/**
+	 * @return
+	 */
+	public HashMap<String, String> getKeysProperties() {
+		
+		return keysProperties;
+	}
 
+	/**
+	 * 
+	 */
+	protected void validate_() {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("validate_()");
+		}
+		
+		if (ipAddr0 != null && ipAddr0.trim().length() > 0) {
+			if (!ipAddr0.trim().matches(Validate.REGEX_IP_ADDRESS)) {
+				addActionError("Invalid IP Address! Format is dotted quad. eg. 192.168.0.1");
+			}
+		}
+
+		if (gateway0 != null && gateway0.trim().length() > 0) {
+			if (!gateway0.trim().matches(Validate.REGEX_IP_ADDRESS)) {
+				addActionError("Invalid Gateway! Format is dotted quad. eg. 192.168.0.1");
+			}
+		}
+		
+		if (dns1 != null && dns1.trim().length() > 0) {
+			if (!dns1.trim().matches(Validate.REGEX_IP_ADDRESS)) {
+				addActionError("Invalid DNS1! Format is dotted quad. eg. 192.168.0.1");
+			}
+		}
+		
+		if (dns2 != null && dns2.trim().length() > 0) {
+			if (!dns2.trim().matches(Validate.REGEX_IP_ADDRESS)) {
+				addActionError("Invalid DNS2! Format is dotted quad. eg. 192.168.0.1");
+			}
+		}
+
+		if (dns3 != null && dns3.trim().length() > 0) {
+			if (!dns3.trim().matches(Validate.REGEX_IP_ADDRESS)) {
+				addActionError("Invalid DNS3! Format is dotted quad. eg. 192.168.0.1");
+			}
+		}
+		
+		if (domain != null && domain.trim().length() > 0) {
+			if (!domain.trim().matches(Validate.REGEX_HOST_ADDRESS)) {
+				addActionError("Invalid Domain! eg. test.com");
+			}
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see com.opensymphony.xwork2.ActionSupport#execute()
 	 */
@@ -658,9 +721,9 @@ public abstract class InterfaceAction extends ActionSupport {
 		/*
 		 * static IP
 		 */
-		if (ipAddr0 != null && !ipAddr0.trim().equals("") &&
-				prefix0 != null && !prefix0.trim().equals("") &&
-				gateway0 != null && !gateway0.trim().equals("")) {
+		if (ipAddr0 != null && ipAddr0.trim().length() > 0 &&
+				prefix0 != null && prefix0.trim().length() > 0 &&
+				gateway0 != null && gateway0.trim().length() > 0) {
 			interfaceProperties.put(CFG_IPADDR0, ipAddr0.trim());
 			interfaceProperties.put(CFG_PREFIX0, prefix0.trim());
 			interfaceProperties.put(CFG_GATEWAY0, gateway0.trim());
@@ -675,25 +738,25 @@ public abstract class InterfaceAction extends ActionSupport {
 			interfaceProperties.put(CFG_BOOTPROTO, CFG_BOOTPROTO_DHCP);
 		}
 			
-		if (dns1 != null && !dns1.trim().equals("")) {
+		if (dns1 != null && dns1.trim().length() > 0) {
 			interfaceProperties.put(CFG_DNS1, dns1.trim());
 		} else {
 			interfaceProperties.remove(CFG_DNS1);
 		}
 	
-		if (dns2 != null && !dns2.trim().equals("")) {
+		if (dns2 != null && dns2.trim().length() > 0) {
 			interfaceProperties.put(CFG_DNS2, dns2.trim());
 		} else {
 			interfaceProperties.remove(CFG_DNS2);
 		}
 		
-		if (dns3 != null && !dns3.trim().equals("")) {
+		if (dns3 != null && dns3.trim().length() > 0) {
 			interfaceProperties.put(CFG_DNS3, dns3.trim());
 		} else {
 			interfaceProperties.remove(CFG_DNS3);
 		}
 		
-		if (domain != null && !domain.trim().equals("")) {
+		if (domain != null && domain.trim().length() > 0) {
 			interfaceProperties.put(CFG_DOMAIN, domain.trim());
 		} else {
 			interfaceProperties.remove(CFG_DOMAIN);

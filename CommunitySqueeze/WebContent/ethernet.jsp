@@ -23,7 +23,6 @@ pageEncoding="ISO-8859-1"%>
 </table>
 
 <hr />
-<s:actionerror />
 
 <s:form action="Ethernet" theme="simple" >
   <s:textarea name="status" cols="100" rows="7" readonly="true" />
@@ -32,6 +31,8 @@ pageEncoding="ISO-8859-1"%>
 </s:form>
 
 <hr />
+
+<s:actionerror label="Please attend to the following..." />
 
 <s:form action="Ethernet" >
 	
@@ -57,6 +58,8 @@ pageEncoding="ISO-8859-1"%>
 	<s:textfield name="dns2" label="DNS2" />
 	<s:textfield name="dns3" label="DNS3" />
 	<s:textfield name="domain" label="Domain" />
+		
+	<s:hidden name="status" />
 	
 	<s:submit value="Save" action="Ethernet_save" align="left" />
 	<s:reset key="button.reset" align="left" />
