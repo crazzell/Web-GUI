@@ -153,14 +153,6 @@ public abstract class InterfaceAction extends ActionSupport {
 	}
 
 	/**
-	 * @param networkList the networkList to set
-	 */
-	public void setNetworkList(List<String> networkList) {
-		
-		this.networkList = networkList;
-	}
-
-	/**
 	 * @return the wirelessWpaPsk
 	 */
 	public String getWirelessWpaPsk() {
