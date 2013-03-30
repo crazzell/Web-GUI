@@ -65,6 +65,6 @@ public class EthernetSaveAction extends EthernetAction {
 			LOGGER.trace("execute()");
 		}
 		
-		return save();
+		return save_();
 	}
 }

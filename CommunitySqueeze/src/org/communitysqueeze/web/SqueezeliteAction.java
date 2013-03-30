@@ -198,10 +198,10 @@ public class SqueezeliteAction extends SystemctlAction {
 	 * @return
 	 * @throws Exception
 	 */
-	public String save() throws Exception {
+	protected String save_() throws Exception {
 		
 		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("save()");
+			LOGGER.trace("save_()");
 		}
 
 		ArrayList<String> list = new ArrayList<String>();

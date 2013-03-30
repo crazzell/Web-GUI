@@ -154,7 +154,7 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 		}
 		
 		//Thread.sleep(5000);
-		String result = save();
+		String result = save_();
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("execute() returns " + result);
 		}

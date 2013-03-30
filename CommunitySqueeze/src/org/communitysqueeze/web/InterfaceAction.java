@@ -555,10 +555,10 @@ public abstract class InterfaceAction extends ActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	public String save() throws Exception {		
+	protected String save_() throws Exception {		
 		
 		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("save()");
+			LOGGER.trace("save_()");
 		}
 
 		File tmpInterfaceFile = null;

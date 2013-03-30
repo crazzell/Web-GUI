@@ -65,6 +65,6 @@ public class WirelessSaveAction extends WirelessAction {
 			LOGGER.trace("execute()");
 		}
 		
-		return save();
+		return save_();
 	}
 }
