@@ -20,6 +20,7 @@
 package org.communitysqueeze.web;
 
 import org.apache.log4j.Logger;
+import org.communitysqueeze.util.WebConfig;
 
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
@@ -31,7 +32,7 @@ public class WirelessAction extends InterfaceAction {
 	
 	private final static Logger LOGGER = Logger.getLogger(WirelessAction.class);
 
-	private final static String INTERFACE_NAME = "wlan0";
+	//private final static String INTERFACE_NAME = "wlan0";
 	
 	/**
 	 * 
@@ -51,6 +52,7 @@ public class WirelessAction extends InterfaceAction {
 	@Override
 	public String getInterfaceName() {
 		
-		return INTERFACE_NAME;
+		//return INTERFACE_NAME;
+		return WebConfig.getWirelessInterfaceName();
 	}
 }

@@ -49,21 +49,6 @@ public final class Util {
 
 	public final static String LINE_SEP = System.getProperty("line.separator");
 	
-	public static File TEMP_DIR = null;
-	
-	static {
-		try {
-			String tmpDir = "/tmp";
-			File f = new File(tmpDir);
-			if (f.exists() && f.isDirectory()) {
-				if (LOGGER.isDebugEnabled()) {
-					LOGGER.debug("Setting dir for tmp file creation: " + tmpDir);
-				}
-				TEMP_DIR = f;
-			}
-		} catch (Exception e) {}
-	}
-	
 	/**
 	 * 
 	 */
@@ -86,8 +71,9 @@ public final class Util {
 				prefix + ", suffix=" + suffix + ")");
 		}
 		
-		if (TEMP_DIR != null) {
-			return File.createTempFile(prefix, suffix, TEMP_DIR);
+		File tmpDir = WebConfig.getTempDir();
+		if (tmpDir != null) {
+			return File.createTempFile(prefix, suffix, tmpDir);
 		} else {
 			return File.createTempFile(prefix, suffix);
 		}

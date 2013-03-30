@@ -36,6 +36,7 @@ import org.communitysqueeze.util.Commands;
 import org.communitysqueeze.util.ExecuteProcess;
 import org.communitysqueeze.util.Util;
 import org.communitysqueeze.util.Validate;
+import org.communitysqueeze.util.WebConfig;
 
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
@@ -222,7 +223,7 @@ public class SqueezeliteAction extends SystemctlAction {
 		 * the default network interface
 		 */
 		if (mac == null || mac.trim().length() != Validate.MAC_STRING_LENGTH) {
-			String tempMac = Util.getMacAddress(EthernetAction.INTERFACE_NAME);
+			String tempMac = Util.getMacAddress(WebConfig.getWiredInterfaceName());
 			if (tempMac != null && tempMac.length() > 0) {
 				mac = tempMac;
 			}

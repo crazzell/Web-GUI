@@ -20,6 +20,7 @@
 package org.communitysqueeze.web;
 
 import org.apache.log4j.Logger;
+import org.communitysqueeze.util.WebConfig;
 
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
@@ -33,7 +34,7 @@ public class EthernetAction extends InterfaceAction {
 	
 	//public final static String INTERFACE_NAME = "p20p1";
 	//public final static String INTERFACE_NAME = "p4p1";
-	public final static String INTERFACE_NAME = "eth0";
+	//public final static String INTERFACE_NAME = "eth0";
 
 	/**
 	 * 
@@ -52,6 +53,7 @@ public class EthernetAction extends InterfaceAction {
 	 */
 	public String getInterfaceName() {
 		
-		return INTERFACE_NAME;
+		//return INTERFACE_NAME;
+		return WebConfig.getWiredInterfaceName();
 	}
 }
