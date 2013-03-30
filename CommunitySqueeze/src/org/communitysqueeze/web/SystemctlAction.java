@@ -103,7 +103,7 @@ public abstract class SystemctlAction extends ActionSupport {
 		File outFile = null;
 		try {
 			String serviceName = getServiceName();
-			outFile = File.createTempFile(serviceName + "_status_", ".txt");
+			outFile = Util.createTempFile(serviceName + "_status_", ".txt");
 			status = Util.getServiceStatus(serviceName, outFile);
 		} finally {
 			if (outFile != null) {

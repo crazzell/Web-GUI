@@ -701,7 +701,7 @@ public class SqueezeliteAction extends SystemctlAction {
 
 		BufferedWriter bw = null;
 		try {
-			File tempFile = File.createTempFile(NAME + "_config_", ".txt");
+			File tempFile = Util.createTempFile(NAME + "_config_", ".txt");
 			bw = new BufferedWriter(new FileWriter(tempFile));
 			bw.write(Util.getModifiedComment());
 			Iterator<String> it = argList.iterator();

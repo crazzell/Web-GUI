@@ -773,7 +773,7 @@ public abstract class InterfaceAction extends ActionSupport {
 		File outFile = null;
 		try {
 			String interfaceName = getInterfaceName();
-			outFile = File.createTempFile(interfaceName + "_status_", ".txt");
+			outFile = Util.createTempFile(interfaceName + "_status_", ".txt");
 			status = Util.getInterfaceStatus(interfaceName, outFile);
 		} finally {
 			if (outFile != null) {
@@ -880,7 +880,7 @@ public abstract class InterfaceAction extends ActionSupport {
 		
 		try {
 			String interfaceName = getInterfaceName();
-			tmpFile = File.createTempFile(KEYS_PREFIX + interfaceName + "_", ".txt");
+			tmpFile = Util.createTempFile(KEYS_PREFIX + interfaceName + "_", ".txt");
 			Writer writer = new FileWriter(tmpFile);
 
 			String[] cmdLineArgs = new String[] {
@@ -914,7 +914,7 @@ public abstract class InterfaceAction extends ActionSupport {
 		BufferedWriter writer = null;
 		try {
 			String interfaceName = getInterfaceName();
-			File file = File.createTempFile(KEYS_PREFIX + interfaceName + "_", ".txt");
+			File file = Util.createTempFile(KEYS_PREFIX + interfaceName + "_", ".txt");
 			writer = new BufferedWriter(new FileWriter(file));
 			writer.write(Util.getModifiedComment());
 			Set<Entry<String, String>> set = keysProperties.entrySet();
@@ -950,7 +950,7 @@ public abstract class InterfaceAction extends ActionSupport {
 
 		BufferedWriter writer = null;
 		try {
-			File file = File.createTempFile(IFCFG_PREFIX + getInterfaceName() + "_", ".txt");
+			File file = Util.createTempFile(IFCFG_PREFIX + getInterfaceName() + "_", ".txt");
 			writer = new BufferedWriter(new FileWriter(file));
 			writer.write(Util.getModifiedComment());
 			Set<Entry<String, String>> set = interfaceProperties.entrySet();

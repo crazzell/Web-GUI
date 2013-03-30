@@ -49,12 +49,43 @@ public final class Util {
 
 	public final static String LINE_SEP = System.getProperty("line.separator");
 	
+	public static File TEMP_DIR = null;
+	
+	static {
+		try {
+			String tmpDir = "/tmp";
+			File f = new File(tmpDir);
+			if (f.exists() && f.isDirectory()) {
+				if (LOGGER.isTraceEnabled()) {
+					LOGGER.trace("Setting dir for tmp file creation: " + tmpDir);
+				}
+				TEMP_DIR = f;
+			}
+		} catch (Exception e) {}
+	}
+	
 	/**
 	 * 
 	 */
 	private Util() {
 		
 		super();
+	}
+	
+	/**
+	 * @param prefix
+	 * @param suffix
+	 * @return
+	 * @throws IOException
+	 */
+	public final static File createTempFile(String prefix,  String suffix) 
+			throws IOException {
+		
+		if (TEMP_DIR != null) {
+			return File.createTempFile(prefix, suffix, TEMP_DIR);
+		} else {
+			return File.createTempFile(prefix, suffix);
+		}
 	}
 	
 	/**
@@ -141,7 +172,7 @@ public final class Util {
 		File tmpFile = null;
 		BufferedReader reader = null;
 		try {
-			tmpFile = File.createTempFile(interfaceName + "_mac_", ".txt");
+			tmpFile = Util.createTempFile(interfaceName + "_mac_", ".txt");
 			Writer writer = new FileWriter(tmpFile);
 
 			String[] cmdLineArgs = new String[] {
@@ -192,7 +223,7 @@ public final class Util {
 		File tmpFile = null;
 		BufferedReader reader = null;
 		try {
-			tmpFile = File.createTempFile("wpa_cli_scan_", ".txt");
+			tmpFile = Util.createTempFile("wpa_cli_scan_", ".txt");
 			Writer writer = new FileWriter(tmpFile);
 
 			String[] cmdLineArgs = new String[] {
@@ -238,7 +269,7 @@ public final class Util {
 		
 		if (scanWirelessNetworks(interfaceName)) {
 			
-			File tmpFile = File.createTempFile("wpa_cli_scan_results_", ".txt");
+			File tmpFile = Util.createTempFile("wpa_cli_scan_results_", ".txt");
 			BufferedReader reader = null;
 			try {
 				Writer writer = new FileWriter(tmpFile);
@@ -374,7 +405,7 @@ public final class Util {
 	public static List<String> getAudioDevList() 
 			throws IOException, InterruptedException {
 		
-		File tmpFile = File.createTempFile("audioDev", ".txt");
+		File tmpFile = Util.createTempFile("audioDev", ".txt");
 		BufferedReader reader = null;
 		try {
 			Writer writer = new FileWriter(tmpFile);
