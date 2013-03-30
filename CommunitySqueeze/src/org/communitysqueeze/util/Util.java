@@ -235,7 +235,6 @@ public final class Util {
 			throws IOException, InterruptedException {
 		
 		List<String> networkList = new ArrayList<String>();
-		networkList.add("");
 		
 		if (scanWirelessNetworks(interfaceName)) {
 			
@@ -257,14 +256,14 @@ public final class Util {
 						int index = line.lastIndexOf("\t");
 						if (index > -1) {
 							String name = line.substring(index + 1).trim();
-							if (name.matches(Validate.REGEX_MAC_ADDRESS)) {
-								networkList.add(name);
+							if (LOGGER.isTraceEnabled()) {
+								LOGGER.trace("Adding ESSID: '" + name + "'.");
 							}
+							networkList.add(name);
 						}
 					}
 				}
 				Collections.sort(networkList, StringIgnoreCaseComparator.COMPARATOR);
-				networkList.add(0, "");
 			} finally {
 				if (reader != null) {
 					try {
@@ -279,6 +278,8 @@ public final class Util {
 				}
 			}
 		}
+		
+		networkList.add(0, "");
 		
 		return networkList;
 	}
