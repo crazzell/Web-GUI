@@ -50,6 +50,59 @@ public class WebConfig {
 	
 	static {
 		
+		init();
+	}
+	
+	/**
+	 * 
+	 */
+	private WebConfig() {
+		
+		super();
+	}
+	
+	/**
+	 * @return
+	 */
+	private final static String getValue(String line) {
+		
+		int index = line.indexOf("=");
+		if (index > -1) {
+			return line.substring(index + 1).trim(); 
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * @return
+	 */
+	public final static String getWiredInterfaceName() {
+		
+		return WIRED_INTERFACE_NAME;
+	}
+	
+	/**
+	 * @return
+	 */
+	public final static String getWirelessInterfaceName() {
+		
+		return WIRELESS_INTERFACE_NAME;
+	}
+	
+	/**
+	 * @return
+	 */
+	public final static File getTempDir() {
+		
+		return TEMP_DIR;
+	}
+	
+	/**
+	 * 
+	 */
+	private final static void init() {
+		
 		BufferedReader br = null;
 		try {
 			File configFile = new File(SYSCONFIG_WEB_FILE);
@@ -117,50 +170,5 @@ public class WebConfig {
 				}
 			} catch (Exception e) {}
 		}
-	}
-	
-	/**
-	 * 
-	 */
-	private WebConfig() {
-		
-		super();
-	}
-	
-	/**
-	 * @return
-	 */
-	private final static String getValue(String line) {
-		
-		int index = line.indexOf("=");
-		if (index > -1) {
-			return line.substring(index + 1).trim(); 
-		}
-		
-		return null;
-	}
-	
-	/**
-	 * @return
-	 */
-	public final static String getWiredInterfaceName() {
-		
-		return WIRED_INTERFACE_NAME;
-	}
-	
-	/**
-	 * @return
-	 */
-	public final static String getWirelessInterfaceName() {
-		
-		return WIRELESS_INTERFACE_NAME;
-	}
-	
-	/**
-	 * @return
-	 */
-	public final static File getTempDir() {
-		
-		return TEMP_DIR;
 	}
 }
