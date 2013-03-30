@@ -38,10 +38,6 @@ public class ExecuteProcess {
 	private ExecuteProcess() {
 		
 		super();
-		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("ExecuteProcess()");
-		}
 	}
 	
 	/**
@@ -53,8 +49,9 @@ public class ExecuteProcess {
 	public final static int executeCommand(final String[] cmdLineArgs) 
 				throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("executeCommand(cmdLineArgs=" + Util.arrayToString(cmdLineArgs) + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("executeCommand(cmdLineArgs=" + 
+					Util.arrayToString(cmdLineArgs) + ")");
 		}
 
 		return executeCommand(cmdLineArgs, null, null);
@@ -72,9 +69,11 @@ public class ExecuteProcess {
 		Writer stdOutWriter, Writer stdErrWriter) 
 			throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("executeCommand(cmdLineArgs=" + Util.arrayToString(cmdLineArgs) + 
-					", stdOutWriter=" + stdOutWriter + ", stdErrWriter=" + stdErrWriter + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("executeCommand(cmdLineArgs=" + 
+					Util.arrayToString(cmdLineArgs) + 
+					", stdOutWriter=" + stdOutWriter + 
+					", stdErrWriter=" + stdErrWriter + ")");
 		}
 
 		Process process = null;

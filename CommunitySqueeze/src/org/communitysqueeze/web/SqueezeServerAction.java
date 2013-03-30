@@ -41,8 +41,8 @@ public class SqueezeServerAction extends SystemctlAction {
 		
 		super();
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("SqueezeServerAction()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("SqueezeServerAction()");
 		}
 	}
 	

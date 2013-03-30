@@ -134,8 +134,8 @@ public abstract class InterfaceAction extends ActionSupport {
 		
 		super();
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("InterfaceAction()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("InterfaceAction()");
 		}
 	}
 	
@@ -477,8 +477,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	protected void validate_() {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("validate_()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("validate_()");
 		}
 		
 		if (ipAddr0 != null && ipAddr0.trim().length() > 0) {
@@ -523,8 +523,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String execute() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("execute()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute()");
 		}
 
 		return populate();
@@ -536,8 +536,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String populate() throws Exception {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("populate()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populate()");
 		}
 
 		try {
@@ -557,8 +557,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	protected String save_() throws Exception {		
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("save_()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("save_()");
 		}
 
 		File tmpInterfaceFile = null;
@@ -613,8 +613,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String up() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("up()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("up()");
 		}
 
 		try {
@@ -633,8 +633,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String down() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("down()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("down()");
 		}
 
 		try {
@@ -653,8 +653,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String downUp() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("downUp()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("downUp()");
 		}
 
 		try {
@@ -674,9 +674,7 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	public String reboot() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("reboot()");
-		}
+		LOGGER.info("reboot()");
 
 		try {
 			Util.reboot();
@@ -693,8 +691,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	 */
 	protected void saveProperties() {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("saveProperties()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("saveProperties()");
 		}
 
 		/*
@@ -766,8 +764,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected void populateInterfaceStatus() 
 			throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("populateInterfaceStatus()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populateInterfaceStatus()");
 		}
 
 		File outFile = null;
@@ -791,8 +789,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected void populatePropertiesFromConfigFile() 
 			throws IOException, FileNotFoundException, InterruptedException {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("populatePropertiesFromConfigFile()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populatePropertiesFromConfigFile()");
 		}
 
 		readInterfaceConfigProperties();
@@ -855,8 +853,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected void readInterfaceConfigProperties() 
 			throws FileNotFoundException, IOException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("readInterfaceConfigProperties()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("readInterfaceConfigProperties()");
 		}
 		
 		Util.readConfigProperties(
@@ -872,8 +870,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected void readKeysConfigProperties() 
 			throws FileNotFoundException, IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("readKeysConfigProperties()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("readKeysConfigProperties()");
 		}
 
 		File tmpFile = null;
@@ -907,8 +905,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected File writeTempKeysProperties() 
 			throws IOException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("writeTempKeysProperties()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("writeTempKeysProperties()");
 		}
 
 		BufferedWriter writer = null;
@@ -944,8 +942,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected File writeTempInterfaceProperties() 
 			throws IOException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("writeTempInterfaceProperties()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("writeTempInterfaceProperties()");
 		}
 
 		BufferedWriter writer = null;
@@ -982,8 +980,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected int replaceInterfaceConfig(File tmpFile)
 			throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("replaceInterfaceConfig(tmpFile=" + tmpFile + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("replaceInterfaceConfig(tmpFile=" + tmpFile + ")");
 		}
 
 		String[] cmdLineArgs = new String[] {
@@ -1003,8 +1001,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected int replaceKeysConfig(File tmpFile)
 			throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("replaceKeysConfig(tmpFile=" + tmpFile + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("replaceKeysConfig(tmpFile=" + tmpFile + ")");
 		}
 
 		String[] cmdLineArgs = new String[] {
@@ -1023,8 +1021,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	private int[] interfaceDownUp() 
 			throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("interfaceDownUp()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("interfaceDownUp()");
 		}
 
 		return new int[] {
@@ -1041,8 +1039,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	private int interfaceUp() 
 			throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("interfaceUp()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("interfaceUp()");
 		}
 
 		String[] cmdLineArgs = new String[] {
@@ -1060,8 +1058,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	private int interfaceDown() 
 			throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("interfaceDown()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("interfaceDown()");
 		}
 
 		String[] cmdLineArgs = new String[] {

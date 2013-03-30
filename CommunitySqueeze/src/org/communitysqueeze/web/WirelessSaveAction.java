@@ -38,8 +38,8 @@ public class WirelessSaveAction extends WirelessAction {
 		
 		super();
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("WirelessSaveAction()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("WirelessSaveAction()");
 		}
 	}
 	
@@ -49,8 +49,8 @@ public class WirelessSaveAction extends WirelessAction {
 	@Override
 	public void validate() {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("validate()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("validate()");
 		}
 		
 		validate_();
@@ -61,8 +61,8 @@ public class WirelessSaveAction extends WirelessAction {
 	 */
 	public String execute() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("execute()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute()");
 		}
 		
 		return save_();

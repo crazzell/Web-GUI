@@ -47,9 +47,8 @@ public class StdReaderLogger extends ShouldRunnable {
 	 * @param logPrefix
 	 */
 	public StdReaderLogger(InputStream is, String logPrefix) {
-		
-		br = new BufferedReader(new InputStreamReader(is));
-		this.logPrefix = logPrefix;
+
+		this(is, logPrefix, null);
 	}
 
 	/**
@@ -59,11 +58,18 @@ public class StdReaderLogger extends ShouldRunnable {
 	 */
 	public StdReaderLogger(InputStream is, String logPrefix, Writer writer) {
 		
+		super();
 		if (writer != null) {
 			bw = new BufferedWriter(writer);
 		}
 		br = new BufferedReader(new InputStreamReader(is));
 		this.logPrefix = logPrefix;
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("StdReaderLogger(is=" + is + 
+					", logPrefix=" + logPrefix + 
+					", writer=" + writer + ")");
+		}
 	}
 
 	/* (non-Javadoc)
@@ -71,8 +77,8 @@ public class StdReaderLogger extends ShouldRunnable {
 	 */
 	public void run() {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("Started");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("run()");
 		}
 		
 		try {
@@ -103,8 +109,8 @@ public class StdReaderLogger extends ShouldRunnable {
  			}
 		}
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("Finished");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("run(): Finished");
 		}
 	}
 

@@ -56,8 +56,8 @@ public final class Util {
 			String tmpDir = "/tmp";
 			File f = new File(tmpDir);
 			if (f.exists() && f.isDirectory()) {
-				if (LOGGER.isTraceEnabled()) {
-					LOGGER.trace("Setting dir for tmp file creation: " + tmpDir);
+				if (LOGGER.isDebugEnabled()) {
+					LOGGER.debug("Setting dir for tmp file creation: " + tmpDir);
 				}
 				TEMP_DIR = f;
 			}
@@ -78,8 +78,13 @@ public final class Util {
 	 * @return
 	 * @throws IOException
 	 */
-	public final static File createTempFile(String prefix,  String suffix) 
+	public final static File createTempFile(String prefix, String suffix) 
 			throws IOException {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("createTempFile(prefix=" + 
+				prefix + ", suffix=" + suffix + ")");
+		}
 		
 		if (TEMP_DIR != null) {
 			return File.createTempFile(prefix, suffix, TEMP_DIR);
@@ -93,6 +98,10 @@ public final class Util {
 	 */
 	public final static String getModifiedFullDate() {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("getModifiedFullDate()");
+		}
+		
 		synchronized (DF_FULL) {
 			return DF_FULL.format(new Date());
 		}
@@ -103,6 +112,10 @@ public final class Util {
 	 */
 	public final static String getModifiedComment() {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("getModifiedComment()");
+		}
+		
 		return ("# Updated by Community Squeeze web-gui at " + 
 					getModifiedFullDate() + LINE_SEP);
 	}
@@ -112,6 +125,10 @@ public final class Util {
 	 * @return
 	 */
 	public final static String arrayToString(String[] array) {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("arrayToString(array=" + array + ")");
+		}
 		
 		String out = "";;
 		for (int i = 0; i < array.length; i++) {
@@ -130,6 +147,11 @@ public final class Util {
 	 */
 	public final static boolean contains(final String[] list, final String name) {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("contains(list=" + list + 
+					", name=" + name + ")");
+		}
+		
 		for (int j = 0; j < list.length; j++) {
 			if (list[j].equals(name)) {
 				return true;
@@ -140,25 +162,29 @@ public final class Util {
 	}
 	
 	/**
-	 * @param p
+	 * @param process
 	 */
-	public static void closeProcessStreams(Process p) {
+	public static void closeProcessStreams(Process process) {
 		
-		if (p != null) {
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("closeProcessStreams(process=" + process + ")");
+		}
+		
+		if (process != null) {
 			/*
 			 * Close the 3 streams IN/OUT/ERR that are automatically opened behind the scenes 
 			 * for each Process. Otherwise, "too many files open..."
 			 */
 			try {
-				p.getInputStream().close();
+				process.getInputStream().close();
 			} catch (IOException ioe) {}
 			
 			try {
-				p.getOutputStream().close();
+				process.getOutputStream().close();
 			} catch (IOException ioe) {}
 	
 			try {
-				p.getErrorStream().close();			
+				process.getErrorStream().close();			
 			} catch (IOException ioe) {}
 		}
 	}
@@ -168,6 +194,10 @@ public final class Util {
 	 * @return
 	 */
 	public final static String getMacAddress(String interfaceName) {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("getMacAddress(interfaceName=" + interfaceName + ")");
+		}
 		
 		File tmpFile = null;
 		BufferedReader reader = null;
@@ -220,6 +250,11 @@ public final class Util {
 	private static boolean scanWirelessNetworks(String interfaceName) 
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("scanWirelessNetworks(interfaceName=" + 
+					interfaceName + ")");
+		}
+		
 		File tmpFile = null;
 		BufferedReader reader = null;
 		try {
@@ -264,6 +299,11 @@ public final class Util {
 	 */
 	private static List<String> scanResultsWirelessNetworks(String interfaceName) 
 			throws IOException, InterruptedException {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("scanResultsWirelessNetworks(interfaceName=" + 
+							interfaceName + ")");
+		}
 		
 		List<String> networkList = new ArrayList<String>();
 		
@@ -324,6 +364,11 @@ public final class Util {
 	public static List<String> getAvailableNetworks(String interfaceName) 
 			throws IOException, InterruptedException {
 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("getAvailableNetworks(interfaceName=" + 
+							interfaceName + ")");
+		}
+		
 		return scanResultsWirelessNetworks(interfaceName);
 	}
 	
@@ -336,6 +381,11 @@ public final class Util {
 	 */
 	public static String getInterfaceStatus(String interfaceName, File tmpFile) 
 			throws IOException, InterruptedException {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("getInterfaceStatus(interfaceName=" + 
+							interfaceName + ", tmpFile=" + tmpFile + ")");
+		}
 		
 		BufferedReader reader = null;
 		try {
@@ -372,6 +422,11 @@ public final class Util {
 	public static String getServiceStatus(String serviceName, File tmpFile) 
 			throws IOException, InterruptedException {
 		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("getServiceStatus(serviceName=" + 
+							serviceName + ", tmpFile=" + tmpFile + ")");
+		}
+		
 		BufferedReader reader = null;
 		try {
 			Writer writer = new FileWriter(tmpFile);
@@ -404,6 +459,10 @@ public final class Util {
 	 */
 	public static List<String> getAudioDevList() 
 			throws IOException, InterruptedException {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("getAudioDevList()");
+		}
 		
 		File tmpFile = Util.createTempFile("audioDev", ".txt");
 		BufferedReader reader = null;
@@ -452,6 +511,10 @@ public final class Util {
 	 */
 	public final static List<String> generatePriorityList(int max) {
 		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("generatePriorityList(max=" + max + ")");
+		}
+		
 		ArrayList<String> list = new ArrayList<String>();
 		list.add("");
 		for (int i = 1; i <= max; i++) {
@@ -489,6 +552,11 @@ public final class Util {
 	 */
 	public final static void readConfigProperties(Reader reader, Map<String, String> properties) 
 			throws FileNotFoundException, IOException {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("readConfigProperties(reader=" + 
+							reader + ", properties=" + properties + ")");
+		}
 		
 		BufferedReader br = null;
 		try {
@@ -554,18 +622,12 @@ public final class Util {
 	 * @param serviceName
 	 * @return
 	 */
-	public final static String[] getSystemctlStatusCmd(String serviceName) {
-		
-		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
-				Commands.SYSTEMCTL_STATUS, serviceName};
-	}
-	
-	/**
-	 * @param serviceName
-	 * @return
-	 */
 	public final static String[] getSystemctlStatusCmdLine(String serviceName) {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("getSystemctlStatusCmdLine(serviceName=" + serviceName + ")");
+		}
+
 		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
 				Commands.SYSTEMCTL_STATUS, serviceName};
 	}
@@ -576,6 +638,10 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlStartCmdLine(String serviceName) {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("getSystemctlStartCmdLine(serviceName=" + serviceName + ")");
+		}
+
 		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
 				Commands.SYSTEMCTL_START, serviceName};
 	}
@@ -586,6 +652,10 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlStopCmdLine(String serviceName) {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("getSystemctlStopCmdLine(serviceName=" + serviceName + ")");
+		}
+
 		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
 				Commands.SYSTEMCTL_STOP, serviceName};
 	}
@@ -596,6 +666,10 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlEnableCmdLine(String serviceName) {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("getSystemctlEnableCmdLine(serviceName=" + serviceName + ")");
+		}
+
 		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
 				Commands.SYSTEMCTL_ENABLE, serviceName};
 	}
@@ -606,6 +680,10 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlDisableCmdLine(String serviceName) {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("getSystemctlDisableCmdLine(serviceName=" + serviceName + ")");
+		}
+
 		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
 				Commands.SYSTEMCTL_DISABLE, serviceName};
 	}
@@ -616,6 +694,10 @@ public final class Util {
 	 */
 	public final static String[] getSystemctlRestartCmdLine(String serviceName) {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("getSystemctlRestartCmdLine(serviceName=" + serviceName + ")");
+		}
+
 		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
 				Commands.SYSTEMCTL_RESTART, serviceName};
 	}
@@ -628,8 +710,9 @@ public final class Util {
 	public final static int reboot() 
 			throws IOException, InterruptedException {
 		
+		LOGGER.info("reboot()");
+
 		String[] cmdLineArgs = new String[] {
-				//Commands.CMD_SUDO, Commands.CMD_NOHUP, Commands.CMD_REBOOT
 				Commands.CMD_SUDO, Commands.SCRIPT_REBOOT
 		};
 		

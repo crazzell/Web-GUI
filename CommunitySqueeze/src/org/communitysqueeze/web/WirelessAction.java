@@ -40,8 +40,8 @@ public class WirelessAction extends InterfaceAction {
 		
 		super();
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("WirelessAction()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("WirelessAction()");
 		}
 	}
 

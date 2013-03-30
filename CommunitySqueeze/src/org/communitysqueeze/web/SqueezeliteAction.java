@@ -114,8 +114,8 @@ public class SqueezeliteAction extends SystemctlAction {
 		
 		super();
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("SqueezeliteAction()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("SqueezeliteAction()");
 		}
 	}
 
@@ -135,8 +135,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	private void populatePropertiesFromConfigFile() 
 			throws IOException, FileNotFoundException {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("populatePropertiesFromConfigFile()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populatePropertiesFromConfigFile()");
 		}
 
 		readSqueezeliteConfigProperties(SQUEEZELITE_CONFIG_FILE_NAME);
@@ -169,8 +169,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	 */
 	public String populate() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("populate()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populate()");
 		}
 
 		try {
@@ -200,8 +200,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	 */
 	protected String save_() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("save_()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("save_()");
 		}
 
 		ArrayList<String> list = new ArrayList<String>();
@@ -604,8 +604,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	private void readSqueezeliteConfigProperties(String configName) 
 			throws FileNotFoundException, IOException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("readSqueezeliteConfigProperties(configName=" + 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("readSqueezeliteConfigProperties(configName=" + 
 							configName + ")");
 		}
 
@@ -694,8 +694,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	private File writeTempSqueezeliteProperties(String configName, ArrayList<String> argList) 
 			throws IOException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("writeTempSqueezeliteProperties(configName=" + 
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("writeTempSqueezeliteProperties(configName=" + 
 							configName + ", argList=" + argList + ")");
 		}
 
@@ -731,8 +731,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	private int replaceSqueezeliteConfig(File tmpFile)
 			throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("replaceSqueezeliteConfig(tmpFile=" + tmpFile + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("replaceSqueezeliteConfig(tmpFile=" + tmpFile + ")");
 		}
 
 		String[] cmdLineArgs = new String[] {

@@ -40,8 +40,8 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 		
 		super();
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("SqueezeliteSaveAction()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("SqueezeliteSaveAction()");
 		}
 	}
 	
@@ -50,8 +50,8 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 	 */
 	public void validate() {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("validate()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("validate()");
 		}
 		
 		if (name != null && name.trim().length() > 0) {
@@ -149,8 +149,8 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 	 */
 	public String execute() throws Exception {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("execute()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute()");
 		}
 		
 		//Thread.sleep(5000);
@@ -167,6 +167,10 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 	 */
 	private final static boolean validateLogName(final String name) {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("validateLogName(name=" + name + ")");
+		}
+		
 		return Util.contains(Validate.SQUEEZELITE_LOG_NAMES, name);
 	}
 
@@ -176,6 +180,10 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 	 */
 	private final static boolean validateLogLevel(final String level) {
 		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("validateLogLevel(level=" + level + ")");
+		}
+		
 		return Util.contains(Validate.SQUEEZELITE_LOG_LEVELS, level);
 	}
 	
@@ -184,6 +192,10 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 	 * @return
 	 */
 	private final static boolean validateCodec(final String codec) {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("validateCodec(codec=" + codec + ")");
+		}
 		
 		return Util.contains(Validate.SQUEEZELITE_CODECS, codec);
 	}

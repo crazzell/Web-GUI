@@ -47,8 +47,8 @@ public abstract class SystemctlAction extends ActionSupport {
 		
 		super();
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("SystemctlAction()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("SystemctlAction()");
 		}
 	}
 	
@@ -57,8 +57,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String execute() throws Exception {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("execute()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute()");
 		}
 
 		return populate();
@@ -75,8 +75,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String populate() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("populate()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populate()");
 		}
 
 		try {
@@ -96,8 +96,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	protected void populateServiceStatus() 
 			throws IOException, InterruptedException {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("populateServiceStatus()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populateServiceStatus()");
 		}
 
 		File outFile = null;
@@ -121,8 +121,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String stopService() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("stopService()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("stopService()");
 		}
 
 		try {
@@ -141,8 +141,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String restartService() throws Exception {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("restartService()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("restartService()");
 		}
 
 		try {
@@ -161,8 +161,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String startService() throws Exception {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("startService()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("startService()");
 		}
 
 		try {
@@ -181,8 +181,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String enableService() throws Exception {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("enableService()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("enableService()");
 		}
 
 		try {
@@ -201,8 +201,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	 */
 	public String disableService() throws Exception {
 
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("disableService()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("disableService()");
 		}
 
 		try {
@@ -224,8 +224,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int restartService(String serviceName) 
 				throws IOException, InterruptedException{
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("restartService(serviceName=" + serviceName + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("restartService(serviceName=" + serviceName + ")");
 		}
 
 		return ExecuteProcess.executeCommand(
@@ -241,8 +241,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int startService(String serviceName) 
 			throws IOException, InterruptedException{
 	
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("startService(serviceName=" + serviceName + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("startService(serviceName=" + serviceName + ")");
 		}
 
 		return ExecuteProcess.executeCommand(
@@ -258,8 +258,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int stopService(String serviceName) 
 			throws IOException, InterruptedException{
 	
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("stopService(serviceName=" + serviceName + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("stopService(serviceName=" + serviceName + ")");
 		}
 
 		return ExecuteProcess.executeCommand(
@@ -275,8 +275,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int enableService(String serviceName) 
 			throws IOException, InterruptedException{
 	
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("enableService(serviceName=" + serviceName + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("enableService(serviceName=" + serviceName + ")");
 		}
 
 		return ExecuteProcess.executeCommand(
@@ -292,8 +292,8 @@ public abstract class SystemctlAction extends ActionSupport {
 	private int disableService(String serviceName) 
 			throws IOException, InterruptedException{
 	
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("disableService(serviceName=" + serviceName + ")");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("disableService(serviceName=" + serviceName + ")");
 		}
 
 		return ExecuteProcess.executeCommand(

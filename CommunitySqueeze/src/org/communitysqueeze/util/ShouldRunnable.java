@@ -19,20 +19,37 @@
  */
 package org.communitysqueeze.util;
 
+import org.apache.log4j.Logger;
+
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
  */
 public abstract class ShouldRunnable implements Runnable {
 	
+	private final static Logger LOGGER = Logger.getLogger(ShouldRunnable.class);
+	
 	protected String context = null;
 	protected boolean shouldRun = true;
 	protected Thread t;
+	
+	public ShouldRunnable() {
+		
+		super();
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("ShouldRunnable()");
+		}
+	}
 	
 	/**
 	 * @return
 	 */
 	public synchronized Thread execute() {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute()");
+		}
 		
 		return execute(false, null, Thread.NORM_PRIORITY);
 	}
@@ -43,6 +60,10 @@ public abstract class ShouldRunnable implements Runnable {
 	 */
 	public synchronized Thread execute(int priority) {
 		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute(priority=" + priority + ")");
+		}
+		
 		return execute(false, null, priority);
 	}
 	
@@ -52,6 +73,10 @@ public abstract class ShouldRunnable implements Runnable {
 	 */
 	public synchronized Thread execute(boolean daemon) {
 		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute(daemon=" + daemon + ")");
+		}
+
 		return execute(daemon, null, Thread.NORM_PRIORITY);
 	}
 	
@@ -62,6 +87,11 @@ public abstract class ShouldRunnable implements Runnable {
 	 */
 	public synchronized Thread execute(boolean daemon, int priority) {
 		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute(daemon=" + daemon + 
+					", priority=" + priority + ")");
+		}
+
 		return execute(daemon, null, priority);
 	}
 	
@@ -72,6 +102,11 @@ public abstract class ShouldRunnable implements Runnable {
 	 */
 	public synchronized Thread execute(boolean daemon, String context) {
 		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute(daemon=" + daemon + 
+					", context=" + context + ")");
+		}
+
 		return execute(daemon, context, Thread.NORM_PRIORITY);
 	}
 	
@@ -83,6 +118,12 @@ public abstract class ShouldRunnable implements Runnable {
 	 */
 	public synchronized Thread execute(boolean daemon, String context, int priority) {
 		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute(daemon=" + daemon + 
+					", context=" + context + 
+					", priority=" + priority + ")");
+		}
+
 		if (t == null) {
 			this.context = context;
 			t = new Thread(this);
@@ -100,6 +141,10 @@ public abstract class ShouldRunnable implements Runnable {
 	 */
 	public synchronized Thread end() {
 		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("end()");
+		}
+
 		shouldRun = false;
 		if (t != null  && t.isAlive()) {
 			t.interrupt();

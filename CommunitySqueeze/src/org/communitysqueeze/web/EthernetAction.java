@@ -42,8 +42,8 @@ public class EthernetAction extends InterfaceAction {
 		
 		super();
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("EthernetAction()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("EthernetAction()");
 		}
 	}
 	

@@ -38,8 +38,8 @@ public class EthernetSaveAction extends EthernetAction {
 	
 		super();
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("EthernetSaveAction()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("EthernetSaveAction()");
 		}
 	}
 
@@ -49,8 +49,8 @@ public class EthernetSaveAction extends EthernetAction {
 	@Override
 	public void validate() {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("validate()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("validate()");
 		}
 		
 		validate_();
@@ -61,8 +61,8 @@ public class EthernetSaveAction extends EthernetAction {
 	 */
 	public String execute() throws Exception {
 		
-		if (LOGGER.isTraceEnabled()) {
-			LOGGER.trace("execute()");
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute()");
 		}
 		
 		return save_();
