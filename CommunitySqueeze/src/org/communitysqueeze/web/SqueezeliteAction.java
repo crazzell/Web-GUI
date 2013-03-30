@@ -581,14 +581,6 @@ public class SqueezeliteAction extends SystemctlAction {
 	}
 
 	/**
-	 * @param priorityList
-	 */
-	public void setPriorityList(List<String> priorityList) {
-		
-		//this.priorityList = priorityList;
-	}
-
-	/**
 	 * @return
 	 */
 	public List<String> getAudioDevList() {
