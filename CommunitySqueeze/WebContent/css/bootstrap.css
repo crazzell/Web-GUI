@@ -111,3 +111,9 @@ a img {
 .pull-left {
   float: left;
 }
+
+.errorMessage {
+	font-weight: bold;
+	color: red;
+	list-style: square;
+}
