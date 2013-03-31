@@ -742,29 +742,6 @@ public abstract class InterfaceAction extends ActionSupport {
 	}
 	
 	/**
-	 * @return
-	 * @throws Exception
-	 */
-	public String reboot() throws Exception {
-		
-		LOGGER.info("reboot()");
-
-		try {
-			Util.reboot();
-		} catch (Exception e) {
-			LOGGER.warn("Caught exception rebooting!", e);
-			throw e;
-		}
-		
-		String result = SUCCESS;
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("reboot() returns " + result);
-		}
-		
-		return result;
-	}
-	
-	/**
 	 * 
 	 */
 	protected void saveProperties() {

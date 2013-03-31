@@ -71,12 +71,11 @@ pageEncoding="ISO-8859-1"%>
 	<s:textfield name="dns3" label="DNS3" />
 	<s:textfield name="domain" label="Domain" />
 		
-	<s:submit value="Save" action="Wireless_save" align="left" />
-	<s:reset key="button.reset" align="left" />
-
 	<s:hidden name="status" />
 	
-	<s:submit value="Reboot" action="Wireless_reboot" />
+	<s:submit value="Save" action="Wireless_save" align="left" />
+	<s:reset key="button.reset" align="left" />
+	<s:submit value="Reboot" action="Reboot" />
 	<!--
 	<s:submit value="Interface Up" action="Wireless_up" />
 	<s:submit value="Interface Down" action="Wireless_down" />

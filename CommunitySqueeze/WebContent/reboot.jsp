@@ -4,8 +4,8 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-<meta http-equiv="refresh" content="1;url=<s:url includeParams="all" />" />
-<title>Community Squeeze OS Web Configuration: Processing...</title>
+<meta http-equiv="refresh" content="60;url=index.jsp" />
+<title>Community Squeeze OS Web Configuration: Rebooting...</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -13,10 +13,10 @@
  
 <body>
 <center>
-<h1>Processing...</h1>
+<h1>Rebooting...</h1>
 <img src="images/cs-logo-541x288.png" alt="Community Squeeze Logo" 
   width="541" height="288" />
-<h2>Please wait while we process your request...</h2>
+<h2>Please wait for the device to reboot...</h2>
 </center>
 </body>
 </html>
