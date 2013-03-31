@@ -195,7 +195,12 @@ public class SqueezeliteAction extends SystemctlAction {
 			throw e;
 		}
  		
-		return "populate";
+		String result = "populate";
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populate() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -357,7 +362,12 @@ public class SqueezeliteAction extends SystemctlAction {
 			}
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("save_() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**

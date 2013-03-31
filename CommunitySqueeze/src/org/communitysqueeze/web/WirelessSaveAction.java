@@ -64,7 +64,14 @@ public class WirelessSaveAction extends WirelessAction {
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("execute()");
 		}
+	
+		//Thread.sleep(10000);
 		
-		return save_();
+		String result = save_();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute() returns " + result);
+		}
+		
+		return result;
 	}
 }

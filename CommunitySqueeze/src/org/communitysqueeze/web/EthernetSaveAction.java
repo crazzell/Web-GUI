@@ -65,6 +65,13 @@ public class EthernetSaveAction extends EthernetAction {
 			LOGGER.debug("execute()");
 		}
 		
-		return save_();
+		//Thread.sleep(10000);
+		
+		String result = save_();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute() returns " + result);
+		}
+		
+		return result;
 	}
 }

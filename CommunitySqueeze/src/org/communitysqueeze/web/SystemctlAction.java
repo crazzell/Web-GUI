@@ -61,7 +61,12 @@ public abstract class SystemctlAction extends ActionSupport {
 			LOGGER.debug("execute()");
 		}
 
-		return populate();
+		String result = populate();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute() returns " + result);
+		}
+		
+		return result;
 	}
 		
 	/**
@@ -86,7 +91,12 @@ public abstract class SystemctlAction extends ActionSupport {
 			throw e;
 		}
  		
-		return "populate";
+		String result = "populate";
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populate() returns " + result);
+		}
+		
+		return result;
 	}	
 
 	/**
@@ -132,7 +142,12 @@ public abstract class SystemctlAction extends ActionSupport {
 			throw e;
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("stopService() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -152,7 +167,12 @@ public abstract class SystemctlAction extends ActionSupport {
 			throw e;
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("restartService() returns " + result);
+		}
+		
+		return result;
 	}
 
 	/**
@@ -172,7 +192,12 @@ public abstract class SystemctlAction extends ActionSupport {
 			throw e;
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("startService() returns " + result);
+		}
+		
+		return result;
 	}
 
 	/**
@@ -192,7 +217,12 @@ public abstract class SystemctlAction extends ActionSupport {
 			throw e;
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("enableService() returns " + result);
+		}
+		
+		return result;
 	}
 
 	/**
@@ -212,7 +242,12 @@ public abstract class SystemctlAction extends ActionSupport {
 			throw e;
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("disableService() returns " + result);
+		}
+		
+		return result;
 	}
 
 	/**

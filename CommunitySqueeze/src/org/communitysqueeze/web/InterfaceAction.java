@@ -570,7 +570,12 @@ public abstract class InterfaceAction extends ActionSupport {
 			LOGGER.debug("execute()");
 		}
 
-		return populate();
+		String result = populate();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -591,7 +596,12 @@ public abstract class InterfaceAction extends ActionSupport {
 			throw e;
 		}
 		
-		return "populate";
+		String result = "populate";
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("populate() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -647,7 +657,12 @@ public abstract class InterfaceAction extends ActionSupport {
 			}
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("save_() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -667,7 +682,12 @@ public abstract class InterfaceAction extends ActionSupport {
 			throw e;
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("up() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -687,7 +707,12 @@ public abstract class InterfaceAction extends ActionSupport {
 			throw e;
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("down() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -708,7 +733,12 @@ public abstract class InterfaceAction extends ActionSupport {
 			throw e;
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("downUp() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**
@@ -726,7 +756,12 @@ public abstract class InterfaceAction extends ActionSupport {
 			throw e;
 		}
 		
-		return SUCCESS;
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("reboot() returns " + result);
+		}
+		
+		return result;
 	}
 	
 	/**

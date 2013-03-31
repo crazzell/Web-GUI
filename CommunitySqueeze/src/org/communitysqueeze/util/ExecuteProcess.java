@@ -96,7 +96,7 @@ public class ExecuteProcess {
 			t1.join();
 			t2.join();
 			int exitValue = process.exitValue();
-			LOGGER.info("Finished: '" + cmdLine + "' Exit Code: " + exitValue);
+			LOGGER.info("Finished: '" + cmdLine + "'. Exit Value: " + exitValue);
 			return exitValue;
 		} finally {
 			if (process != null) {

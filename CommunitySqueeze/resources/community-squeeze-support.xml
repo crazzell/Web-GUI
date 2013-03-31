@@ -11,8 +11,10 @@
 			class="org.communitysqueeze.web.EthernetSaveAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+			<!--
 		        <param name="delay">1000</param>
 		        <param name="delaySleepInterval">500</param>
+		    -->
 		    </interceptor-ref>
 		    <result name="wait">/wait.jsp</result>
 			<result name="input">/ethernet.jsp</result>
@@ -23,8 +25,10 @@
 			class="org.communitysqueeze.web.EthernetAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+		        <!--
 		        <param name="delay">1000</param>
 		        <param name="delaySleepInterval">500</param>
+		        -->
 		    </interceptor-ref>
 		    <result name="wait">/wait.jsp</result>
 			<result name="populate">/ethernet.jsp</result>
@@ -36,8 +40,10 @@
 			class="org.communitysqueeze.web.WirelessSaveAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+		        <!--
 		        <param name="delay">1000</param>
 		        <param name="delaySleepInterval">500</param>
+		        -->
 		    </interceptor-ref>
 		    <result name="wait">/wait.jsp</result>
 			<result name="input">/wireless.jsp</result>
@@ -48,8 +54,10 @@
 			class="org.communitysqueeze.web.WirelessAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+		        <!--
 		        <param name="delay">1000</param>
 		        <param name="delaySleepInterval">500</param>
+		        -->
 		    </interceptor-ref>
 		    <result name="wait">/wait.jsp</result>
 			<result name="populate">/wireless.jsp</result>
@@ -61,8 +69,10 @@
 			class="org.communitysqueeze.web.SqueezeServerAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+		        <!--
 		        <param name="delay">1000</param>
 		        <param name="delaySleepInterval">500</param>
+		        -->
 		    </interceptor-ref>
 		    <result name="wait">/wait.jsp</result>
 			<result name="populate">/squeezeserver.jsp</result>
@@ -74,8 +84,10 @@
 			class="org.communitysqueeze.web.SqueezeliteSaveAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+		        <!--
 		        <param name="delay">1000</param>
 		        <param name="delaySleepInterval">500</param>
+		        -->
 		    </interceptor-ref>
 		    <result name="wait">/wait.jsp</result>
 			<result name="input">/squeezelite.jsp</result> 
@@ -86,8 +98,10 @@
 			class="org.communitysqueeze.web.SqueezeliteAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+		        <!--
 		        <param name="delay">1000</param>
 		        <param name="delaySleepInterval">500</param>
+		        -->
 		    </interceptor-ref>
 		    <result name="wait">/wait.jsp</result>
 			<result name="populate">/squeezelite.jsp</result>
