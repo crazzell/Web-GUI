@@ -52,6 +52,17 @@ public abstract class InterfaceAction extends ActionSupport {
 	
 	private final static Logger LOGGER = Logger.getLogger(InterfaceAction.class);
 	
+	private final static String[][] NETMASK_PREFIX_LIST = {
+		{"255.255.255.0", "24"},
+		{"255.255.255.128", "25"},
+		{"255.255.255.192", "26"},
+		{"255.255.255.224", "27"},
+		{"255.255.255.240", "28"},
+		{"255.255.255.248", "29"},
+		{"255.255.255.252", "30"},
+		{"255.255.255.254", "31"}
+	};
+	
 	private final static String NETWORK_CONFIG_PATH = "/etc/sysconfig/network-scripts/";
 	private final static String IFCFG_PREFIX = "ifcfg-";
 	private final static String KEYS_PREFIX = "keys-";
@@ -68,6 +79,7 @@ public abstract class InterfaceAction extends ActionSupport {
 	public final static String CFG_IPADDR0 = "IPADDR0";
 	public final static String CFG_PREFIX0 = "PREFIX0";
 	public final static String CFG_GATEWAY0 = "GATEWAY0";
+	public final static String CFG_NETMASK0 = "NETMASK0";
 	public final static String CFG_DNS1 = "DNS1";
 	public final static String CFG_DNS2 = "DNS2";
 	public final static String CFG_DNS3 = "DNS3";
@@ -106,7 +118,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected String hwAddr;
 	
 	protected String ipAddr0;
-	protected String prefix0;
+	//protected String prefix0;
+	protected String netmask0;
 	protected String gateway0;
 	
 	protected String dns1;
@@ -299,18 +312,36 @@ public abstract class InterfaceAction extends ActionSupport {
 	/**
 	 * @return
 	 */
+	public String getNetmask0() {
+		
+		return netmask0;
+	}
+	
+	/**
+	 * @param netmask0
+	 */
+	public void setNetmask0(String netmask0) {
+		
+		this.netmask0 = netmask0;
+	}
+	
+	/**
+	 * @return
+	 *
 	public String getPrefix0() {
 		
 		return prefix0;
 	}
+	*/
 
 	/**
 	 * @param prefix0
-	 */
+	 *
 	public void setPrefix0(String prefix0) {
 		
 		this.prefix0 = prefix0;
 	}
+	*/
 
 	/**
 	 * @return
@@ -484,6 +515,12 @@ public abstract class InterfaceAction extends ActionSupport {
 		if (ipAddr0 != null && ipAddr0.trim().length() > 0) {
 			if (!ipAddr0.trim().matches(Validate.REGEX_IP_ADDRESS)) {
 				addActionError("Invalid IP Address! Format is dotted quad. eg. 192.168.0.1");
+			}
+		}
+		
+		if (netmask0 != null && netmask0.trim().length() > 0) {
+			if (!netmask0.trim().matches(Validate.REGEX_IP_ADDRESS)) {
+				addActionError("Invalid Netmask! Format is dotted quad. eg. 255.255.255.0");
 			}
 		}
 
@@ -716,10 +753,12 @@ public abstract class InterfaceAction extends ActionSupport {
 		 * static IP
 		 */
 		if (ipAddr0 != null && ipAddr0.trim().length() > 0 &&
-				prefix0 != null && prefix0.trim().length() > 0 &&
+				//prefix0 != null && prefix0.trim().length() > 0 &&
+				netmask0 != null && netmask0.trim().length() > 0 &&
 				gateway0 != null && gateway0.trim().length() > 0) {
 			interfaceProperties.put(CFG_IPADDR0, ipAddr0.trim());
-			interfaceProperties.put(CFG_PREFIX0, prefix0.trim());
+			//interfaceProperties.put(CFG_PREFIX0, prefix0.trim());
+			interfaceProperties.put(CFG_NETMASK0, netmask0.trim());
 			interfaceProperties.put(CFG_GATEWAY0, gateway0.trim());
 			interfaceProperties.put(CFG_BOOTPROTO, CFG_BOOTPROTO_NONE);
 		/*
@@ -727,7 +766,8 @@ public abstract class InterfaceAction extends ActionSupport {
 		 */
 		} else {
 			interfaceProperties.remove(CFG_IPADDR0);
-			interfaceProperties.remove(CFG_PREFIX0);
+			//interfaceProperties.remove(CFG_PREFIX0);
+			interfaceProperties.remove(CFG_NETMASK0);
 			interfaceProperties.remove(CFG_GATEWAY0);
 			interfaceProperties.put(CFG_BOOTPROTO, CFG_BOOTPROTO_DHCP);
 		}
@@ -800,7 +840,8 @@ public abstract class InterfaceAction extends ActionSupport {
 		uuid = interfaceProperties.get(CFG_UUID);
 		hwAddr = interfaceProperties.get(CFG_HWADDR);
 		ipAddr0 = interfaceProperties.get(CFG_IPADDR0);
-		prefix0 = interfaceProperties.get(CFG_PREFIX0);
+		//prefix0 = interfaceProperties.get(CFG_PREFIX0);
+		netmask0 = interfaceProperties.get(CFG_NETMASK0);
 		gateway0 = interfaceProperties.get(CFG_GATEWAY0);
 		dns1 = interfaceProperties.get(CFG_DNS1);
 		dns2 = interfaceProperties.get(CFG_DNS2);
@@ -860,6 +901,26 @@ public abstract class InterfaceAction extends ActionSupport {
 		Util.readConfigProperties(
 				new FileReader(INTERFACE_PATH_PREFIX + getInterfaceName()), 
 				interfaceProperties);
+		
+		/*
+		 * Use netmask, not prefix
+		 */
+		if (interfaceProperties.containsKey(CFG_PREFIX0)) {
+			boolean found = false;
+			String prefix = interfaceProperties.remove(CFG_PREFIX0);
+			for (int i = 0; i < NETMASK_PREFIX_LIST.length; i++) {
+				if (prefix.equals(NETMASK_PREFIX_LIST[i][1])) {
+					interfaceProperties.put(CFG_NETMASK0, 
+							NETMASK_PREFIX_LIST[i][0]);
+					found = true;
+					break;
+				}
+			}
+			
+			if (!found) {
+				LOGGER.warn("Unable to map prefix: '" + prefix + "'!");
+			}
+		}
 	}
 	
 	/**

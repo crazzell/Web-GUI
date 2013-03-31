@@ -61,7 +61,8 @@ pageEncoding="ISO-8859-1"%>
 	On Boot: <s:property value="onBoot" /><br />
 
 	<s:textfield name="ipAddr0" label="IP Address" />
-	<s:textfield name="prefix0" label="Prefix" />
+	<!-- s:textfield name="prefix0" label="Prefix" / -->
+	<s:textfield name="netmask0" label="Netmask" />
 	<s:textfield name="gateway0" label="Gateway" />
 	<s:textfield name="dns1" label="DNS1" />
 	<s:textfield name="dns2" label="DNS2" />
