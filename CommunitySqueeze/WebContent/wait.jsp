@@ -4,7 +4,7 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <html>
 <head>
-<meta http-equiv="refresh" content="5;url=<s:url includeParams="all" />" />
+<meta http-equiv="refresh" content="1;url=<s:url includeParams="all" />" />
 <title>Community Squeeze OS Web Configuration: Processing...</title>
 <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
