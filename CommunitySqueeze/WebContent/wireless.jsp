@@ -77,9 +77,11 @@ pageEncoding="ISO-8859-1"%>
 	<s:hidden name="status" />
 	
 	<s:submit value="Reboot" action="Wireless_reboot" />
+	<!--
 	<s:submit value="Interface Up" action="Wireless_up" />
 	<s:submit value="Interface Down" action="Wireless_down" />
 	<s:submit value="Interface Down / Interface Up" action="Wireless_downUp" />
+	-->
 			
 </s:form>
 

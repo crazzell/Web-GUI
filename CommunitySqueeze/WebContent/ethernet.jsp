@@ -68,9 +68,11 @@ pageEncoding="ISO-8859-1"%>
 	<s:submit value="Save" action="Ethernet_save" align="left" />
 	<s:reset key="button.reset" align="left" />
 	<s:submit value="Reboot" action="Ethernet_reboot" />
+	<!--
 	<s:submit value="Interface Up" action="Ethernet_up" />
 	<s:submit value="Interface Down" action="Ethernet_down" />
 	<s:submit value="Interface Down / Interface Up" action="Ethernet_downUp" />
+	-->
 	
 </s:form>
 
