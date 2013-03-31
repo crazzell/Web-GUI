@@ -11,6 +11,9 @@ pageEncoding="ISO-8859-1"%>
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
+
+<jsp:include page="Header.jsp"/>
+
 <table>
   <tr>
     <td>

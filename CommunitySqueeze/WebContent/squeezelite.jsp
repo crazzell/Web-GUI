@@ -12,6 +12,8 @@
 </head>
 <body>
 
+<jsp:include page="Header.jsp"/>
+
 <table>
   <tr>
     <td>

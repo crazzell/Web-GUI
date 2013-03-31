@@ -4,6 +4,9 @@
 </head>
  
 <body>
+
+<jsp:include page="Header.jsp"/>
+
 <h1>Struts 2 execAndWait example</h1>
  
 <h3>Done</h3>

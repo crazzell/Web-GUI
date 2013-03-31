@@ -9,32 +9,23 @@
 </head>
 <body>
 <center>
+
+<div id="navigation" class="curved container">
+  <span id="nav-home"><a href="">Home</a></span>
+  <span id="nav-wired"><a href="Ethernet_populate.action">Ethernet Interface</a></span>
+  <span id="nav-wireless"><a href="Wireless_populate.action">Wireless Interface</a></span>
+  <span id="nav-squeezelite"><a href="Squeezelite_populate.action">Squeezelite Player</a></span>
+  <span id="nav-squeezeserver"><a href="SqueezeServer_populate.action">Squeeze Server</a></span>
+  <span id="nav-help"><a href="">Help</a></span>
+  <br class="separator" />
+</div>
+
 <h2>Community Squeeze OS Web Configuration</h2>
 <img src="images/cs-logo-541x288.png" alt="Community Squeeze Logo" 
   width="541" height="288" />
-<br />
-<a href="Ethernet_populate.action">Ethernet Interface</a>
-&nbsp;
-<a href="Wireless_populate.action">Wireless Interface</a>
-&nbsp;
-<a href="Squeezelite_populate.action">Squeezelite Player</a>
-&nbsp;
-<a href="SqueezeServer_populate.action">Squeeze Server</a>
-<br />
 </center>
 
-<hr/>
-
-<div class="pull-left">
-  <a href="http://struts.apache.org/">
-    <img src="images/struts-power.gif"
-         alt="Powered by Struts" border="0px"/>
-  </a>
-</div>
-
-<div class="pull-right">
-  Copyright &copy; 2013 Community Squeeze
-</div>
+<jsp:include page="Footer.jsp"/>
 
 </body>
 </html>

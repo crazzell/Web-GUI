@@ -13,6 +13,8 @@ pageEncoding="ISO-8859-1"%>
 
 <body>
 
+<jsp:include page="Header.jsp"/>
+
 <table>
   <tr>
     <td>
