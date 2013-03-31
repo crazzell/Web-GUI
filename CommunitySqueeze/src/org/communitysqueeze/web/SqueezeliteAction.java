@@ -61,7 +61,10 @@ public class SqueezeliteAction extends SystemctlAction {
 
 	private final static int SQUEEZELITE_MAX_RT_PRIORITY = 46;
 
-	private final static String WANDBOARD_DEFAULT_AUDIO_DEVICE = "sgtl5000audio";
+	private final static String WANDBOARD_DEFAULT_AUDIO_DEVICE = 
+			"sgtl5000audio";
+	private final static String WANDBOARD_DEFAULT_AUDIO_DEVICE_ALSA_PARAMS = 
+			"40::16:";
 	
 	private final static String CFG_NAME = "NAME";
 	private final static String CFG_NAME_OPTION = "-n ";
@@ -219,12 +222,12 @@ public class SqueezeliteAction extends SystemctlAction {
 		}
 
 		/*
-		 * If mac is not populated by the user, get the mac of 
-		 * the default network interface
+		 * If mac has not populated by the user, get the mac of 
+		 * the default wired network interface
 		 */
 		if (mac == null || mac.trim().length() != Validate.MAC_STRING_LENGTH) {
 			String tempMac = Util.getMacAddress(WebConfig.getWiredInterfaceName());
-			if (tempMac != null && tempMac.length() > 0) {
+			if (tempMac != null && tempMac.length() == Validate.MAC_STRING_LENGTH) {
 				mac = tempMac;
 			}
 		} 
@@ -243,16 +246,10 @@ public class SqueezeliteAction extends SystemctlAction {
 		 * when squeezelite is started
 		 */
 		if (maxRate != null && maxRate.trim().length() > 0) {
-			try {
-				/*
-				 * make sure it is a number
-				 */
-				Integer.parseInt(maxRate.trim());
-				list.add(CFG_MAX_RATE + "=\"" + CFG_MAX_RATE_OPTION + maxRate.trim() + "\"");
-			} catch (NumberFormatException nfe) {}
+			list.add(CFG_MAX_RATE + "=\"" + CFG_MAX_RATE_OPTION + maxRate.trim() + "\"");
 		}
 		
-		String tmpAlsaParams = "";
+		String tmpAlsaParams = null;
 		/*
 		 * -o <output device>
 		 * Specify output device, default "default" 
@@ -263,7 +260,7 @@ public class SqueezeliteAction extends SystemctlAction {
 			 * If the user chooses sgtl5000audio device, but doesn't set alsaParams, use these
 			 */
 			if (audioDev.contains(WANDBOARD_DEFAULT_AUDIO_DEVICE)) {
-				tmpAlsaParams = "40::16:";
+				tmpAlsaParams = WANDBOARD_DEFAULT_AUDIO_DEVICE_ALSA_PARAMS;
 			}
 		}
 		
@@ -316,15 +313,7 @@ public class SqueezeliteAction extends SystemctlAction {
 		 * Set real time priority of output thread (1-99)
 		 */
 		if (priority != null && priority.trim().length() > 0) {
-			try {
-				/*
-				 * make sure it is a number > 0 && <= 99
-				 */
-				int number = Integer.parseInt(priority.trim());
-				if (number > 0 && number <= 99) {
-					list.add(CFG_PRIORITY + "=\"" + CFG_PRIORITY_OPTION + priority.trim() + "\"");
-				}
-			} catch (NumberFormatException nfe) {}
+			list.add(CFG_PRIORITY + "=\"" + CFG_PRIORITY_OPTION + priority.trim() + "\"");
 		}
 		
 		/*
@@ -332,21 +321,9 @@ public class SqueezeliteAction extends SystemctlAction {
 		 * Specify internal Stream and Output buffer sizes in Kbytes
 		 */
 		if (buffer != null && buffer.trim().length() > 0) {
-			/*
-			 * let's do a little validation
-			 * make sure we have two integers separated by a ':'
-			 */
-			String[] argList = buffer.trim().split(":");
-			if (argList.length == 2) {
-				try {
-					Integer.parseInt(argList[0]);
-					Integer.parseInt(argList[1]);
-					list.add(CFG_BUFFER + "=\"" + CFG_BUFFER_OPTION + buffer.trim() + "\"");
-				} catch (NumberFormatException nfe) {}
-			}
+			list.add(CFG_BUFFER + "=\"" + CFG_BUFFER_OPTION + buffer.trim() + "\"");
 		}
 		
-		boolean setAlsaParams = false;
 		/*
 		 * -a <b>:<c>:<f>:<m>
 		 * Specify ALSA params to open output device, 
@@ -356,23 +333,9 @@ public class SqueezeliteAction extends SystemctlAction {
 		 * m = use mmap (0|1)
 		 */
 		if (alsaParams != null && alsaParams.trim().length() > 0) {
-			/*
-			 * basic validation, lets make sure we have 3x ':'
-			 */
-			String temp = alsaParams.trim();
-			int count = 0;
-			for (int i = 0; i < temp.length(); i++) {
-				if (temp.charAt(i) == ':') {
-					count++;
-				}
-			}
-			if (count == 3) {
-				list.add(CFG_ALSA_PARAMS + "=\"" + CFG_ALSA_PARAMS_OPTION + alsaParams.trim() + "\"");
-				setAlsaParams = true;
-			}
-		}
-		if (!setAlsaParams && !tmpAlsaParams.equals("")) {
-			list.add(CFG_ALSA_PARAMS + "=\"" + CFG_ALSA_PARAMS_OPTION + tmpAlsaParams + "\"");
+			list.add(CFG_ALSA_PARAMS + "=\"" + CFG_ALSA_PARAMS_OPTION + alsaParams.trim() + "\"");
+		} else if (tmpAlsaParams != null && tmpAlsaParams.trim().length() > 0) {
+			list.add(CFG_ALSA_PARAMS + "=\"" + CFG_ALSA_PARAMS_OPTION + tmpAlsaParams.trim() + "\"");
 		}
 		
 		if (serverIp != null && serverIp.trim().length() > 0) {
