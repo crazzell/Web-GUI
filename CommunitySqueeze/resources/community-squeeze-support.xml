@@ -11,6 +11,7 @@
 			class="org.communitysqueeze.web.EthernetSaveAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
 		        <param name="delay">0</param>
 		        <param name="delaySleepInterval">50</param>
 		    </interceptor-ref>
@@ -23,6 +24,7 @@
 			class="org.communitysqueeze.web.EthernetAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
 		        <param name="delay">0</param>
 		        <param name="delaySleepInterval">50</param>
 		    </interceptor-ref>
@@ -36,6 +38,7 @@
 			class="org.communitysqueeze.web.WirelessSaveAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
 		        <param name="delay">0</param>
 		        <param name="delaySleepInterval">50</param>
 		    </interceptor-ref>
@@ -48,6 +51,7 @@
 			class="org.communitysqueeze.web.WirelessAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
 		        <param name="delay">0</param>
 		        <param name="delaySleepInterval">50</param>
 		    </interceptor-ref>
@@ -61,6 +65,7 @@
 			class="org.communitysqueeze.web.SqueezeServerAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
 		        <param name="delay">0</param>
 		        <param name="delaySleepInterval">50</param>
 		    </interceptor-ref>
@@ -74,6 +79,7 @@
 			class="org.communitysqueeze.web.SqueezeliteSaveAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
 		        <param name="delay">0</param>
 		        <param name="delaySleepInterval">50</param>
 		    </interceptor-ref>
@@ -86,6 +92,7 @@
 			class="org.communitysqueeze.web.SqueezeliteAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
 		        <param name="delay">0</param>
 		        <param name="delaySleepInterval">50</param>
 		    </interceptor-ref>
@@ -99,6 +106,7 @@
 			class="org.communitysqueeze.web.RebootAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
 		        <param name="delay">0</param>
 		        <param name="delaySleepInterval">50</param>
 		    </interceptor-ref>
