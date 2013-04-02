@@ -116,14 +116,15 @@ public final class Util {
 			LOGGER.trace("arrayToString(array=" + array + ")");
 		}
 		
-		String out = "";;
+		StringBuffer buffer = new StringBuffer();
 		for (int i = 0; i < array.length; i++) {
-			out += array[i];
+			buffer.append(array[i]);
 			if (i + 1 < array.length) {
-				out +=  " ";
+				buffer.append(" ");
 			}
 		}
-		return out;
+
+		return buffer.toString();
 	}
 	
 	/**
@@ -135,7 +136,7 @@ public final class Util {
 		
 		if (LOGGER.isTraceEnabled()) {
 			LOGGER.trace("contains(list=" + list + 
-					", name=" + name + ")");
+					"], name=" + name + ")");
 		}
 		
 		for (int j = 0; j < list.length; j++) {
@@ -314,7 +315,7 @@ public final class Util {
 						if (index > -1) {
 							String name = line.substring(index + 1).trim();
 							if (LOGGER.isTraceEnabled()) {
-								LOGGER.trace("Adding ESSID: '" + name + "'.");
+								LOGGER.trace("Adding ESSID: '" + name + "' to networkList.");
 							}
 							networkList.add(name);
 						}
