@@ -34,7 +34,7 @@ public class TestAction extends ActionSupport {
 	 */
 	public String execute() throws Exception {
 	
-		//Thread.sleep(2000);
+		Thread.sleep(10000);
 		return SUCCESS;
 	}
 }
