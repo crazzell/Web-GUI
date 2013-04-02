@@ -37,7 +37,7 @@
 	<s:checkbox name="cbCifs" label="cifs" />
 	<s:checkbox name="cbExt4" label="ext4" />
 	<s:checkbox name="cbNfs" label="nfs" />
-	<p>Mounted</p>
+	<h4>Mounted File Systems</h4>
 	<s:textarea name="status" cols="100" rows="12" readonly="true" />
 	<s:submit action="Fstab_populate" value="Refresh" />
 </s:form>
