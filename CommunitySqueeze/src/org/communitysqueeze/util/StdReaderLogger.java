@@ -84,8 +84,8 @@ public class StdReaderLogger extends ShouldRunnable {
 		try {
 			String line = null;
 			while (shouldRun && (line = br.readLine()) != null) {
-				if (LOGGER.isDebugEnabled()) {
-					LOGGER.debug(logPrefix + " " + line);
+				if (LOGGER.isTraceEnabled()) {
+					LOGGER.trace(logPrefix + " " + line);
 				}
 				if (bw != null) {
 					bw.write(line + Util.LINE_SEP);
