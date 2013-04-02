@@ -37,6 +37,7 @@ public class Commands {
 	public final static String CMD_IFCONFIG = "ifconfig";
 	public final static String CMD_IFUP = "ifup";
 	public final static String CMD_IFDOWN = "ifdown";
+	public final static String CMD_MOUNT = "mount";
 	
 	public final static String CMD_APLAY = "aplay";
 	public final static String APLAY_LIST = "-L";

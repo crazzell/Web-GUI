@@ -114,6 +114,20 @@
 			<result name="success">/index.jsp</result>
 		</action>
 
+		<action name="Fstab_*" method="{1}"
+			class="org.communitysqueeze.web.FstabAction">
+			<interceptor-ref name="defaultStack" /> 
+			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
+		        <param name="delay">0</param>
+		        <param name="delaySleepInterval">50</param>
+		    </interceptor-ref>
+		    <result name="wait">/wait.jsp</result>
+			<result name="populate">/fstab.jsp</result>
+			<result name="input">/fstab.jsp</result>
+			<result name="success" type="redirectAction">Fstab_populate</result>
+		</action>
+
 		<!-- 
 		<action name="Test" 
 			class="org.communitysqueeze.web.TestAction">

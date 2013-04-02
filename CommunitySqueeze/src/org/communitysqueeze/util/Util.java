@@ -177,6 +177,53 @@ public final class Util {
 	}
 
 	/**
+	 * @return
+	 */
+	public final static String getMounts(String regex) {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("getMounts()");
+		}
+		
+		StringBuffer buffer = new StringBuffer();
+		File tmpFile = null;
+		BufferedReader reader = null;
+		try {
+			tmpFile = Util.createTempFile("mount", ".txt");
+			Writer writer = new FileWriter(tmpFile);
+
+			String[] cmdLineArgs = new String[] {
+					Commands.CMD_MOUNT
+			};
+			
+			ExecuteProcess.executeCommand(cmdLineArgs, writer, null);
+			reader = new BufferedReader(new FileReader(tmpFile));
+			String line = null;
+			while ((line = reader.readLine()) != null) {
+				if (line.matches(regex)) {
+					buffer.append(line + LINE_SEP);
+				}
+			}
+		} catch (Exception e) {
+			LOGGER.warn("getMounts()", e);
+		} finally {
+			if (reader != null) {
+				try {
+					reader.close();
+				} catch (Exception e) {}
+			}
+			
+			if (tmpFile != null) {
+				try {
+					tmpFile.delete();
+				} catch (Exception e) {}
+			}
+		}
+		
+		return buffer.toString();
+	}
+	
+	/**
 	 * @param interfaceName
 	 * @return
 	 */

@@ -6,6 +6,7 @@
   <span id="nav-wireless"><a href="Wireless_populate.action">Wireless Interface</a></span>
   <span id="nav-squeezelite"><a href="Squeezelite_populate.action">Squeezelite Player</a></span>
   <span id="nav-squeezeserver"><a href="SqueezeServer_populate.action">Squeeze Server</a></span>
+  <span id="nav-fstab"><a href="Fstab_populate.action">File Systems</a></span>
   <span id="nav-help"><a href="index.jsp">Help</a></span>
   <br class="separator" />
 </div>
