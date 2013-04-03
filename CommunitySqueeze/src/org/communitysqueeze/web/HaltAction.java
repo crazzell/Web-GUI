@@ -28,21 +28,21 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
  */
-public class RebootAction extends ActionSupport {
+public class HaltAction extends ActionSupport {
 
 	private static final long serialVersionUID = 2521215570420058372L;
 
-	private final static Logger LOGGER = Logger.getLogger(RebootAction.class);
+	private final static Logger LOGGER = Logger.getLogger(HaltAction.class);
 	
 	/**
 	 * 
 	 */
-	public RebootAction() {
+	public HaltAction() {
 		
 		super();
 		
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("RebootAction()");
+			LOGGER.debug("HaltAction()");
 		}
 	}
 	
@@ -52,7 +52,7 @@ public class RebootAction extends ActionSupport {
 			LOGGER.debug("execute()");
 		}
 		
-		String result = reboot();
+		String result = halt();
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("execute() returns " + result);
 		}
@@ -64,20 +64,20 @@ public class RebootAction extends ActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
-	private String reboot() throws Exception {
+	private String halt() throws Exception {
 		
-		LOGGER.info("reboot()");
+		LOGGER.info("halt()");
 
 		try {
-			Util.reboot();
+			Util.halt();
 		} catch (Exception e) {
-			LOGGER.warn("Caught exception rebooting device!", e);
+			LOGGER.warn("Caught exception halting device!", e);
 			throw e;
 		}
 		
 		String result = SUCCESS;
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("reboot() returns " + result);
+			LOGGER.debug("halt() returns " + result);
 		}
 		
 		return result;

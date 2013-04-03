@@ -114,6 +114,18 @@
 			<result name="success">/index.jsp</result>
 		</action>
 
+		<action name="Halt" method="execute"
+			class="org.communitysqueeze.web.HaltAction">
+			<interceptor-ref name="defaultStack" /> 
+			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
+		        <param name="delay">0</param>
+		        <param name="delaySleepInterval">50</param>
+		    </interceptor-ref>
+		    <result name="wait">/halt.jsp</result>
+			<result name="success">/index.jsp</result>
+		</action>
+
 		<action name="Fstab_*" method="{1}"
 			class="org.communitysqueeze.web.FstabAction">
 			<interceptor-ref name="defaultStack" /> 

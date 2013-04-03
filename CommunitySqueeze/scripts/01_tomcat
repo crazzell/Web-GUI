@@ -5,6 +5,7 @@ tomcat ALL = NOPASSWD:\
  /usr/sbin/csos-keysUpdate,\
  /usr/sbin/csos-squeezeliteConfigUpdate,\
  /usr/sbin/csos-reboot,\
+ /usr/sbin/csos-halt,\
  /usr/bin/systemctl,\
  /usr/bin/aplay,\
  /usr/sbin/ifconfig,\

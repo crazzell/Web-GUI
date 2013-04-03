@@ -752,4 +752,21 @@ public final class Util {
 		
 		return ExecuteProcess.executeCommand(cmdLineArgs);
 	}
+
+	/**
+	 * @return
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	public final static int halt() 
+			throws IOException, InterruptedException {
+		
+		LOGGER.info("halt()");
+
+		String[] cmdLineArgs = new String[] {
+				Commands.CMD_SUDO, Commands.SCRIPT_HALT
+		};
+		
+		return ExecuteProcess.executeCommand(cmdLineArgs);
+	}
 }
