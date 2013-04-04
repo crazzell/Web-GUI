@@ -49,6 +49,11 @@ public final class Util {
 
 	public final static String LINE_SEP = System.getProperty("line.separator");
 	
+	private final static String ALSA_DEFAULT = "default:"; 
+	private final static String ALSA_SYSDEFAULT = "sysdefault:"; 
+	private final static String ALSA_HW = "hw:"; 
+	private final static String ALSA_PLUGHW = "plughw:"; 
+	
 	/**
 	 * 
 	 */
@@ -498,6 +503,12 @@ public final class Util {
 			LOGGER.debug("getAudioDevList()");
 		}
 		
+		ArrayList<String> list = new ArrayList<String>();
+		/*
+		 * Add blank entry
+		 */
+		list.add("");
+
 		File tmpFile = Util.createTempFile("audioDev", ".txt");
 		BufferedReader reader = null;
 		try {
@@ -509,20 +520,39 @@ public final class Util {
 
 			ExecuteProcess.executeCommand(cmdLineArgs, writer, null);
 			reader = new BufferedReader(new FileReader(tmpFile));
-			ArrayList<String> list = new ArrayList<String>();
-			/*
-			 * Add blank entry
-			 */
-			list.add("");
 			/*
 			 * Parse devices from "aplay -L" stdout
 			 */
 			String line = null;
 			while ((line = reader.readLine()) != null) {
 				if (!line.startsWith(" ") && !line.startsWith("\t")) {
-					list.add(line.trim());
+					line = line.trim();
+					if (line.startsWith(ALSA_DEFAULT)) {
+						String tmpDev = line.substring(8);
+						String tmpHwDev = ALSA_HW + tmpDev;
+						if (!list.contains(tmpHwDev)) {
+							list.add(tmpHwDev);
+						}
+						String tmpPlugDev = ALSA_PLUGHW + tmpDev;
+						if (!list.contains(tmpPlugDev)) {
+							list.add(tmpPlugDev);
+						}
+					} else if (line.startsWith(ALSA_SYSDEFAULT)) {
+						String tmpDev = line.substring(11);
+						String tmpHwDev = ALSA_HW + tmpDev;
+						if (!list.contains(tmpHwDev)) {
+							list.add(tmpHwDev);
+						}
+						String tmpPlugDev = ALSA_PLUGHW + tmpDev;
+						if (!list.contains(tmpPlugDev)) {
+							list.add(tmpPlugDev);
+						}
+					} else {
+						list.add(line);
+					}
 				}
 			}
+
 			return list;
 		} finally {
 			if (reader != null) {
