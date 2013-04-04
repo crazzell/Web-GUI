@@ -26,6 +26,8 @@
 </table>
 
 <hr />
+
+<s:form action="Reboot" theme="simple" >
 <p>The device can be halted or rebooted.</p>
 <table>
 <tr>
@@ -38,6 +40,7 @@ for the process to complete.</td>
 <td>To reboot the device, press the <b>Reboot</b> button.<td>
 </tr>
 </table>
+</s:form>
 <hr />
 
 <jsp:include page="Footer.jsp"/>
