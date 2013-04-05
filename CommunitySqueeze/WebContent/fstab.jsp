@@ -30,16 +30,32 @@
 </table>
 
 <hr />
-<s:actionerror />
-
-<s:form action="Fstab" theme="xhtml">
+<h4>Mounted File Systems</h4>
+<s:form action="Fstab" theme="simple">
+<table>
+<tr>
+<td>
 	<s:checkbox name="cbAll" label="All Filesystem Types" />
+	<s:label>All Filesystem Types</s:label>
 	<s:checkbox name="cbCifs" label="cifs" />
+	<s:label>cifs</s:label>
 	<s:checkbox name="cbExt4" label="ext4" />
+	<s:label>ext4</s:label>
 	<s:checkbox name="cbNfs" label="nfs" />
-	<h4>Mounted File Systems</h4>
+	<s:label>nfs</s:label>
+</td>
+</tr>
+<tr>
+<td>
 	<s:textarea name="status" cols="100" rows="12" readonly="true" />
+</td>
+</tr>
+<tr>
+<td align="right">
 	<s:submit action="Fstab_populate" value="Refresh" />
+</td>
+</tr>
+</table>
 </s:form>
 
 <hr />

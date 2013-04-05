@@ -129,6 +129,44 @@ public abstract class SystemctlAction extends ActionSupport {
 	 * @return
 	 * @throws Exception
 	 */
+	public String enableAndStartService() throws Exception {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("enableAndStartService()");
+		}
+
+		String result = enableService();
+		result = startService();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("enableAndStartService() returns " + result);
+		}
+		
+		return result;		
+	}
+	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
+	public String disableAndStopService() throws Exception {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("disableAndStopService()");
+		}
+
+		String result = disableService();
+		result = stopService();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("disableAndStopService() returns " + result);
+		}
+		
+		return result;		
+	}
+	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
 	public String stopService() throws Exception {
 		
 		if (LOGGER.isDebugEnabled()) {
@@ -170,6 +208,32 @@ public abstract class SystemctlAction extends ActionSupport {
 		String result = SUCCESS;
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("restartService() returns " + result);
+		}
+		
+		return result;
+	}
+
+	/**
+	 * @return
+	 * @throws Exception
+	 */
+	public String condRestartService() throws Exception {
+
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("condRestartService()");
+		}
+
+		try {
+			condRestartService(getServiceName());
+		} catch (Exception e) {
+			LOGGER.error("Caught exception conditionally restarting " + 
+							getServiceName() + "!", e);
+			throw e;
+		}
+		
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("condRestartService() returns " + result);
 		}
 		
 		return result;
@@ -248,6 +312,23 @@ public abstract class SystemctlAction extends ActionSupport {
 		}
 		
 		return result;
+	}
+
+	/**
+	 * @param serviceName
+	 * @return
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	private int condRestartService(String serviceName) 
+				throws IOException, InterruptedException{
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("condRestartService(serviceName=" + serviceName + ")");
+		}
+
+		return ExecuteProcess.executeCommand(
+				Util.getSystemctlCondRestartCmdLine(serviceName));
 	}
 
 	/**

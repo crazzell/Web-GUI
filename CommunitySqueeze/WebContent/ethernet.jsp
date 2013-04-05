@@ -26,54 +26,113 @@ pageEncoding="ISO-8859-1"%>
 </table>
 
 <hr />
-
-<s:form action="Ethernet" theme="simple" >
+<h4>Status</h4>
+<s:form action="Ethernet_populate" theme="simple" >
+<table>
+<tr>
+<td>
   <s:textarea name="status" cols="100" rows="7" readonly="true" />
-  <br />
-  <s:submit action="Ethernet_populate" value="Status" />
+</td>
+</tr>
+<tr>
+<td align="right">
+  <s:submit action="Ethernet_populate" value="Refresh" />
+</td>
+</tr>
+</table>
 </s:form>
 
 <hr />
 
-<s:actionerror label="Please attend to the following..." />
-
-<s:form action="Ethernet" >
+<h4>Configuration</h4>
+<s:actionerror />
+<s:form action="EthernetSave_save" theme="simple">
 	
 	<s:hidden name="name" />
-	Name: <s:property value="name" /><br />
 	<s:hidden name="type" />
-	Type: <s:property value="type" /><br />
 	<s:hidden name="uuid" />
-	UUID: <s:property value="uuid" /><br />
 	<s:hidden name="hwAddr" />
-	MAC Addr: <s:property value="hwAddr" /><br />
 	<s:hidden name="zone" />
-	Firewall Zone: <s:property value="zone" /><br />
 	<s:hidden name="bootProto" />
-	Boot Proto: <s:property value="bootProto" /><br />
 	<s:hidden name="onBoot" />
-	On Boot: <s:property value="onBoot" /><br />
-
-	<s:textfield name="ipAddr0" label="IP Address" />
-	<!-- s:textfield name="prefix0" label="Prefix" / -->
-	<s:textfield name="netmask0" label="Netmask" />
-	<s:textfield name="gateway0" label="Gateway" />
-	<s:textfield name="dns1" label="DNS1" />
-	<s:textfield name="dns2" label="DNS2" />
-	<s:textfield name="dns3" label="DNS3" />
-	<s:textfield name="domain" label="Domain" />
-		
+	
 	<s:hidden name="status" />
 	
-	<s:submit value="Save" action="Ethernet_save" align="left" />
-	<s:reset key="button.reset" align="left" />
-	<s:submit value="Reboot" action="Reboot" />
+<table>
+<tr>
+<td align="right">Name</td>
+<td><font color="blue"><s:property value="name" /></font></td>
+</tr>
+<tr>
+<td align="right">Type</td>
+<td><font color="blue"><s:property value="type" /></font></td>
+</tr>
+<tr>
+<td align="right">UUID</td>
+<td><font color="blue"><s:property value="uuid" /></font></td>
+</tr>
+<tr>
+<td align="right">MAC&nbsp;Addr</td>
+<td><font color="blue"><s:property value="hwAddr" /></font></td>
+</tr>
+<tr>
+<td align="right">Firewall&nbsp;Zone</td>
+<td><font color="blue"><s:property value="zone" /></font></td>
+</tr>
+<tr>
+<td align="right">Boot&nbsp;Proto</td>
+<td><font color="blue"><s:property value="bootProto" /></font></td>
+</tr>
+<tr>
+<td align="right">On&nbsp;Boot</td>
+<td><font color="blue"><s:property value="onBoot" /></font></td>
+</tr>
+<tr>
+<td align="right">IP&nbsp;Address</td>
+<td><s:textfield name="ipAddr0" label="IP Address" size="30" /></td>
+</tr>
+<tr>
+<td align="right">Netmask</td>
+<td><s:textfield name="netmask0" label="Netmask" size="30" /></td>
+</tr>
+<tr>
+<td align="right">Gateway</td>
+<td><s:textfield name="gateway0" label="Gateway" size="30" /></td>
+</tr>
+<tr>
+<td align="right">DNS1</td>
+<td><s:textfield name="dns1" label="DNS1" size="30" /></td>
+</tr>
+<tr>
+<td align="right">DNS2</td>
+<td><s:textfield name="dns2" label="DNS2" size="30" /></td>
+</tr>
+<tr>
+<td align="right">DNS3</td>
+<td><s:textfield name="dns3" label="DNS3" size="30" /></td>
+</tr>
+<tr>
+<td align="right">Domain</td>
+<td><s:textfield name="domain" label="Domain" size="30" /></td>
+</tr>
+
+<tr>
+<td colspan="2" align="right">
+	<s:reset key="button.reset" />
+	<s:submit value="Save" action="EthernetSave_save" />
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+	<s:submit value="Save and Reboot" action="EthernetSave_saveAndReboot" />
+</td>
+</tr>
 	<!--
 	<s:submit value="Interface Up" action="Ethernet_up" />
 	<s:submit value="Interface Down" action="Ethernet_down" />
 	<s:submit value="Interface Down / Interface Up" action="Ethernet_downUp" />
 	-->
-	
+</table>
 </s:form>
 
 <hr />

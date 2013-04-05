@@ -767,6 +767,20 @@ public final class Util {
 	}
 	
 	/**
+	 * @param serviceName
+	 * @return
+	 */
+	public final static String[] getSystemctlCondRestartCmdLine(String serviceName) {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("getSystemctlCondRestartCmdLine(serviceName=" + serviceName + ")");
+		}
+
+		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
+				Commands.SYSTEMCTL_COND_RESTART, serviceName};
+	}
+	
+	/**
 	 * @return
 	 * @throws IOException
 	 * @throws InterruptedException

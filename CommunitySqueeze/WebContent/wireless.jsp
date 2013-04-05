@@ -27,61 +27,159 @@ pageEncoding="ISO-8859-1"%>
 </table>
 
 <hr />
-
+<h4>Status</h4>
 <s:form action="Wireless" theme="simple" >
+<table>
+<tr>
+<td>
 	<s:textarea name="status" cols="100" rows="7" readonly="true" />
-	<br />
-	<s:submit action="Wireless_populate" value="Status" />
+</td>
+</tr>
+<tr>
+<td align="right">
+	<s:submit action="Wireless_populate" value="Refresh" />
+</td>
+</tr>
+</table>
 </s:form>
 
 <hr />
 
+<h4>Configuration</h4>
 <s:actionerror />
-
-<s:form action="Wireless" >
-	<s:select name="wirelessEssid" list="networkList" label="ESSID" 
-		tooltip="Choose Network" />
-	<s:textfield name="wirelessWpaPsk" label="Wireless PSK" />
+<s:form action="WirelessSave_save" theme="simple">
 
 	<s:hidden name="name" />
-	Name: <s:property value="name" /><br />
 	<s:hidden name="type" />
-	Type: <s:property value="type" /><br />
 	<s:hidden name="wirelessMode" />
-	Wireless Mode: <s:property value="wirelessMode" /><br />
 	<s:hidden name="wirelessKeyMgmt" />
-	Wireless Key Mgmt: <s:property value="wirelessKeyMgmt" /><br />
 	<s:hidden name="uuid" />
-	UUID: <s:property value="uuid" /><br />
 	<s:hidden name="hwAddr" />
-	MAC Addr: <s:property value="hwAddr" /><br />
 	<s:hidden name="zone" />
-	Firewall Zone: <s:property value="zone" /><br />
 	<s:hidden name="bootProto" />
-	Boot Proto: <s:property value="bootProto" /><br />
 	<s:hidden name="onBoot" />
-	On Boot: <s:property value="onBoot" /><br />
 
-	<s:textfield name="ipAddr0" label="IP Address" />
-	<!-- s:textfield name="prefix0" label="Prefix" / -->
-	<s:textfield name="netmask0" label="Netmask" />
-	<s:textfield name="gateway0" label="Gateway" />
-	<s:textfield name="dns1" label="DNS1" />
-	<s:textfield name="dns2" label="DNS2" />
-	<s:textfield name="dns3" label="DNS3" />
-	<s:textfield name="domain" label="Domain" />
-		
 	<s:hidden name="status" />
-	
-	<s:submit value="Save" action="Wireless_save" align="left" />
-	<s:reset key="button.reset" align="left" />
-	<s:submit value="Reboot" action="Reboot" />
+
+	<!-- hidden store the networkList -->
+	<s:iterator value="networkList" status="stat">
+	  <s:hidden name="networkList[%{#stat.index}]" value="%{networkList[#stat.index]}" />
+	</s:iterator>
+
+<table>
+<tr>
+<td align="right">Name</td>
+<td><font color="blue"><s:property value="name" /></font></td>
+</tr>
+<tr>
+<td align="right">Type</td>
+<td><font color="blue"><s:property value="type" /></font></td>
+</tr>
+<tr>
+<td align="right">Wireless&nbsp;Mode</td>
+<td><font color="blue"><s:property value="wirelessMode" /></font></td>
+</tr>
+<tr>
+<td align="right">Wireless&nbsp;Key&nbsp;Mgmt</td>
+<td><font color="blue"><s:property value="wirelessKeyMgmt" /></font></td>
+</tr>
+<tr>
+<td align="right">UUID</td>
+<td><font color="blue"><s:property value="uuid" /></font></td>
+</tr>
+<tr>
+<td align="right">MAC&nbsp;Addr</td>
+<td><font color="blue"><s:property value="hwAddr" /></font></td>
+</tr>
+<tr>
+<td align="right">Firewall&nbsp;Zone</td>
+<td><font color="blue"><s:property value="zone" /></font></td>
+</tr>
+<tr>
+<td align="right">Boot&nbsp;Proto</td>
+<td><font color="blue"><s:property value="bootProto" /></font></td>
+</tr>
+<tr>
+<td align="right">On&nbsp;Boot</td>
+<td><font color="blue"><s:property value="onBoot" /></font></td>
+</tr>
+<tr>
+<td align="right">Network&nbsp;Name</td>
+<td>
+	<s:select name="wirelessEssid" list="networkList" label="ESSID" 
+		tooltip="Choose Network" />
+</td>
+</tr>
+<tr>
+<td align="right">Wireless&nbsp;Password</td>
+<td>
+	<s:textfield name="wirelessWpaPsk" label="Wireless PSK" size="30" />
+</td>
+</tr>
+<tr>
+<td align="right">IP&nbsp;Address</td>
+<td>
+	<s:textfield name="ipAddr0" label="IP Address" size="30" />
+</td>
+</tr>
+<tr>
+<td align="right">Netmask</td>
+<td>
+	<s:textfield name="netmask0" label="Netmask" size="30" />
+</td>
+</tr>
+<tr>
+<td align="right">Gateway</td>
+<td>
+	<s:textfield name="gateway0" label="Gateway" size="30" />
+</td>
+</tr>
+<tr>
+<td align="right">DNS1</td>
+<td>
+	<s:textfield name="dns1" label="DNS1" size="30" />
+</td>
+</tr>
+<tr>
+<td align="right">DNS2</td>
+<td>
+	<s:textfield name="dns2" label="DNS2" size="30" />
+</td>
+</tr>
+<tr>
+<td align="right">DNS3</td>
+<td>
+	<s:textfield name="dns3" label="DNS3" size="30" />
+</td>
+</tr>
+<tr>
+<td align="right">Domain</td>
+<td>
+	<s:textfield name="domain" label="Domain" size="30" />
+</td>
+</tr>			
+<tr>
+<td colspan="2" align="right">
+	<s:reset key="button.reset" />
+	<s:submit value="Save" action="WirelessSave_save" />
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+	<s:submit value="Save and Reboot" action="WirelessSave_saveAndReboot" />
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+	<s:submit value="Refresh Network List" action="Wireless_populate" />
+</td>
+</tr>
 	<!--
 	<s:submit value="Interface Up" action="Wireless_up" />
 	<s:submit value="Interface Down" action="Wireless_down" />
 	<s:submit value="Interface Down / Interface Up" action="Wireless_downUp" />
 	-->
-			
+</table>
 </s:form>
 
 <hr />

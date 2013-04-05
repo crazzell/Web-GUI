@@ -56,6 +56,7 @@ public class Commands {
 	public final static String SYSTEMCTL_ENABLE = "enable"; 
 	public final static String SYSTEMCTL_DISABLE = "disable"; 
 	public final static String SYSTEMCTL_RESTART = "restart"; 
+	public final static String SYSTEMCTL_COND_RESTART = "try-restart"; 
 
 	/**
 	 * 

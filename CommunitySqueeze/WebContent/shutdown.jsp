@@ -27,8 +27,8 @@
 
 <hr />
 
+<h4>The device can be halted or rebooted.</h4>
 <s:form action="Reboot" theme="simple" >
-<p>The device can be halted or rebooted.</p>
 <table>
 <tr>
 <td align="right"><s:submit value="Halt" action="Halt" theme="simple" /></td>

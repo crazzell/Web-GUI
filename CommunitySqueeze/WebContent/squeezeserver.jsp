@@ -26,17 +26,32 @@
 </table>
 
 <hr />
-<s:actionerror />
 
-<s:form action="SqueezeServer" theme="simple" >
+<h4>Service</h4>
+<s:form action="SqueezeServer_polpulate" theme="simple" >
+<table>
+<tr>
+<td>
 	<s:textarea name="status" cols="100" rows="8" readonly="true" />
-	<br />
-	<s:submit action="SqueezeServer_populate" value="Status" />
+</td>
+</tr>
+<tr>
+<td align="right">
+	<s:submit action="SqueezeServer_populate" value="Refresh" />
 	<s:submit action="SqueezeServer_enableService" value="Enable" />
 	<s:submit action="SqueezeServer_disableService" value="Disable" />
 	<s:submit action="SqueezeServer_startService" value="Start" />
 	<s:submit action="SqueezeServer_stopService" value="Stop" />
 	<s:submit action="SqueezeServer_restartService" value="Restart" />
+</td>
+</tr>
+<tr>
+<td align="right">
+	<s:submit action="SqueezeServer_enableAndStartService" value="Enable and Start" />
+	<s:submit action="SqueezeServer_disableAndStopService" value="Disable and Stop" />
+</td>
+</tr>
+</table>
 </s:form>
 
 <hr />

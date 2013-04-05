@@ -164,6 +164,13 @@ public abstract class InterfaceAction extends ActionSupport {
 		
 		return networkList;
 	}
+	
+	/**
+	 * @param networkList
+	 */
+	public void setNetworkList(List<String> networkList) {
+		this.networkList = networkList;
+	}
 
 	/**
 	 * @return the wirelessWpaPsk

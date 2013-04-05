@@ -155,6 +155,43 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 		}
 	}
 	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
+	public String saveAndRestart() throws Exception {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("saveAndRestart()");
+		}
+		
+		String result = save();
+		result = condRestartService();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("saveAndRestart() returns " + result);
+		}
+		
+		return result;
+	}
+	
+	/**
+	 * @return
+	 * @throws Exception
+	 */
+	public String save() throws Exception {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("save()");
+		}
+		
+		String result = save_();
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("save() returns " + result);
+		}
+		
+		return result;
+	}
+	
 	/* (non-Javadoc)
 	 * @see org.communitysqueeze.web.SystemctlAction#execute()
 	 */
@@ -164,9 +201,7 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 			LOGGER.debug("execute()");
 		}
 		
-		//Thread.sleep(10000);
-		
-		String result = save_();
+		String result = save();
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("execute() returns " + result);
 		}
