@@ -69,6 +69,7 @@ public class RebootAction extends ActionSupport {
 		LOGGER.info("reboot()");
 
 		try {
+			Thread.sleep(1000);
 			Util.reboot();
 		} catch (Exception e) {
 			LOGGER.warn("Caught exception rebooting device!", e);

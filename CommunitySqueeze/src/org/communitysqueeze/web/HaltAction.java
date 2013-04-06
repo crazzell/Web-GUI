@@ -69,6 +69,7 @@ public class HaltAction extends ActionSupport {
 		LOGGER.info("halt()");
 
 		try {
+			Thread.sleep(1000);
 			Util.halt();
 		} catch (Exception e) {
 			LOGGER.warn("Caught exception halting device!", e);
