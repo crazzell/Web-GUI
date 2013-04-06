@@ -104,6 +104,10 @@ a img {
     margin-right: 0;
 }
 
+.pull-center {
+  float: center;
+}
+
 .pull-right {
   float: right;
 }
@@ -116,4 +120,8 @@ a img {
 	font-weight: bold;
 	color: red;
 	list-style: square;
+}
+
+.max-width {
+	width: 100%;
 }
