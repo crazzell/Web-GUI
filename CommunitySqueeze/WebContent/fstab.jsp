@@ -59,6 +59,10 @@
 </s:form>
 
 <hr />
+<h4>Notes</h4>
+<p>This configuration page is for viewing the mounted File Systems.</p>
+
+<hr />
 <jsp:include page="Footer.jsp"/>
 
 </body>

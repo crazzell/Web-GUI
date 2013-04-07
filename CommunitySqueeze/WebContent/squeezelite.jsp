@@ -71,7 +71,7 @@
 <td>
 	<s:textfield name="name" label="Name" 
 		tooltip="Set the player name" 
-		size="30" />
+		cssClass="size-300px" />
 </td>      
 </tr>
 <tr>
@@ -84,7 +84,7 @@
 <td>
 	<s:textfield name="mac" label="MAC Address" 
 		tooltip="Set mac address, format: ab:cd:ef:12:34:56" 
-		size="30" />
+		cssClass="size-300px" />
 </td>
 </tr>
 <tr>
@@ -109,7 +109,7 @@
 <td>
 	<s:textfield name="maxRate" label="Max Sample Rate" 
 		tooltip="Max sample rate for output device, enables output device to be off when squeezelite is started, format: <rate>" 
-		size="30" />
+		cssClass="size-300px" />
 </td>
 </tr>
 <tr>
@@ -122,7 +122,7 @@
 <td>
 	<s:textfield name="logFile" label="Log File" 
 		tooltip="Write debug to logfile, format: <logfile>" 
-		size="30" />
+		cssClass="size-300px" />
 </td>
 </tr>
 <tr>
@@ -141,7 +141,7 @@
 		tooltip="Set logging level, format: <log>=<level> [<log>=<level> <log>=<level> ...],
 		 logs: all|slimproto|stream|decode|output, 
 		 level: info|debug|sdebug" 
-		size="30"/>
+		cssClass="size-300px" />
 </td>
 </tr>
 <tr>
@@ -166,7 +166,7 @@
 <td>
 	<s:textfield name="buffer" label="Buffer" 
 		tooltip="Specify internal Stream and Output buffer sizes in Kbytes, format: <stream>:<output>" 
-		size="30" />
+		cssClass="size-300px" />
 </td>
 </tr>
 <tr>
@@ -185,7 +185,7 @@
 		tooltip="Restrict codecs those specified, otherwise loads all available codecs; 
 		 format: <codec1>[,<codec2>,<codec3>,...]
 		 known codecs: flac,pcm,mp3,ogg,aac (mad,mpg for specific mp3 codec)" 
-		size="30" />
+		cssClass="size-300px" />
 </td>
 </tr>
 <tr>
@@ -210,7 +210,7 @@
 		 c = period count, 
 		 f = sample format (16|24|24_3|32), 
 		 m = use mmap (0|1)" 
-		size="30" />
+		cssClass="size-300px" />
 </td>
 </tr>
 <tr>
@@ -223,7 +223,7 @@
 <td>
 	<s:textfield name="serverIp" label="Server IP Address" 
 		tooltip="Connect to specified server, otherwise uses autodiscovery to find server"
-		size="30" />
+		cssClass="size-300px" />
 </td>
 </tr>
 <tr>
@@ -248,6 +248,74 @@
 <s:hidden name="status" />
 	
 </s:form>
+
+<hr />
+<h4>Notes</h4>
+<p>This configuration page is for the Squeezelite Player Service.</p>
+<ul>
+<li>The Squeezelite Player runs on the device as a systemd service, under  
+user <i>squeezelite</i>, group <i>squeezelite</i>, with RT privileges, 
+allowing ALSA memory to be locked and the process output thread to run 
+at a higher priority. The default output thread priority if not explicitly set, 
+(using the drop-down field in the <i>Configuration</i> section above), is 46. 
+The process is started with a nice value of -10. The service configuration file 
+that you are editing using this web interface is 
+&quot;/etc/sysconfig/squeezelite&quot;.</li>
+<li>The <i>Service</i> status area at the top of the page, shows the current 
+Squeezelite Player service status and is the output returned from running 
+the command, &quot;systemctl&nbsp;status&nbsp;squeezelite&quot;.</li>
+<li>The <i>Service</i> status area may be refreshed by pressing the 
+<i>Refresh</i> button.
+The service can be <i>Enable</i>d, <i>Disable</i>d, <i>Start</i>ed, 
+(if not already running), <i>Stop</i>ped, (if running), or <i>Restart</i>ed, 
+(stopped and started if running, or started if not running), using the 
+respective control buttons.</li>
+<li>Each configuration item has a tooltip, which provides an explanation of 
+what the option does as well as the expected format for the option. 
+Your web browser should display the tooltips when you move the mouse pointer 
+over the &quot;i&quot; image icon next to the option.</li>
+<li>By default on the Wandboard, the sgtl5000 codec is configured as the audio device, 
+and the player name is set to &quot;SqueezeliteWAND&quot;</li>
+<li>If the selected <i>Audio Device</i> name contains the string, 
+&quot;sgtl5000&quot;, and the <i>Alsa Params</i> field is left unpopulated, 
+a default value of &quot;40::16:&quot; will be submitted to the squeezelite config 
+file, forcing the output of 16 bit audio. Althought the sgtl5000 codec is 24 bit capable, 
+at the present time it results in distorted sound. Please be aware that once this 
+value has been set and saved, it will remain if you change the selected 
+<i>Audio Device</i>. So if you choose another device which is 24 bit capable, 
+before saving, remember to delete the contents of the <i>Alsa Params</i> field.</li>
+<li>Although a <i>plughw</i> selection should appear in the <i>Audio Device</i> 
+drop-down for each available audio device, you should choose the <i>hw</i> selection. 
+Squeezelite will automatically try and open the audio hardware device at the 
+requested sample rate, and fallback to re-opening it using <i>plughw</i> if the 
+hardware does not directly support the requested sample rate.</li>
+<li>If the <i>Name</i> field is not populated before saving the configuration, 
+the default value, &quot;SqueezeliteWAND&quot;, will be written to the 
+config file.</li>
+<li>If the <i>MAC Address</i> field is not populated before saving the configuration, 
+the MAC address of the ethernet interface will be written to the config file.</li>
+<li>If the <i>Log File</i> field is not populated before saving the configuration, 
+the default value, &quot;/var/log/squeezelite/squeezelite.log&quot; will be 
+written to the config file.</li>
+<li>The configuration can be saved by pressing the <i>Save</i> button, in which case 
+it will not take effect until the service is next manually started or restarted. 
+Alternatively, the configuration may be saved using the 
+<i>Save and Conditionally Restart</i> button, 
+in which case the configuration will be saved and the service will be 
+conditionally restarted. ie. If the service is running it will be restarted. 
+If it is not already running, it will not be started. You will need to 
+manually start it by pressing the <i>Start</i> button.</li>
+<li>When you submit the configuration to be saved, it will be validated 
+on the server-side. If any of the configuration parameters fail server-side 
+validation, the web page will return with one (or more) messages, 
+<font color="red">highlighted in red</font>, at 
+the beginning of the <i>Configuration</i> section. These messages should be 
+self-explanatory and enable you to &quot;adjust&quot; the 
+indicated parameters, before you attempt to submit them again.</li>
+<li>The Squeezelite program was written by and is Copyright &copy; 2013 Adrian Smith, 
+otherwise known as <i>Triode</i> on the SlimDevices Forum. It is free software and 
+released under the GNU GPL. Thank you, Adrian!</li>
+</ul>
 
 <hr />
 <jsp:include page="Footer.jsp"/>

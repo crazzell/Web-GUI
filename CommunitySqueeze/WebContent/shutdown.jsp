@@ -20,14 +20,14 @@
       <a href="index.jsp"><img src="images/cs-logo-146x50.png" alt="Community Squeeze Logo" width="146" height="50" /></a>
     </td>
     <td>
-      <h2>Shutdown</h2>
+      <h2>Shutdown: Reboot or Halt the device</h2>
     </td>
   </tr>
 </table>
 
 <hr />
 
-<h4>The device can be halted or rebooted.</h4>
+<h4>Control</h4>
 <s:form action="Reboot" theme="simple" >
 <table>
 <tr>
@@ -41,8 +41,12 @@ for the process to complete.</td>
 </tr>
 </table>
 </s:form>
-<hr />
 
+<hr />
+<h4>Notes</h4>
+<p>This configuration page is for the Rebooting and Halting the device.</p>
+
+<hr />
 <jsp:include page="Footer.jsp"/>
 
 </body>

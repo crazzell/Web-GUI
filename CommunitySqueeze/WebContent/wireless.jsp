@@ -150,12 +150,15 @@ from the <i>Network Name</i> drop-down list and manually enter your
 <i>Network Name</i> (ESSID) in the field below.</li>
 <li>Having configured the Wireless Network Interface, press the 
 &quot;Save and Reboot&quot; button. The web page will submit the 
-parameters you have entered. If any of the values fail server-side validation, 
-the web page will return will one (or more) messages, 
+parameters you have entered. If any of the configuration parameters 
+fail server-side validation, 
+the web page will return with one (or more) messages, 
 <font color="red">highlighted in red</font>, at 
 the beginning of the <i>Configuration</i> section. These messages should be 
 self-explanatory and enable you to &quot;adjust&quot; the 
-indicated parameters, before you attempt to &quot;Save&quot; again.</li>
+indicated parameters, before you attempt to submit them again. 
+If the parameters you have entered pass validation, the device will be rebooted 
+and the network interface initialised using the saved parameters.</li>
 <li><b>Please take care when you enter the <i>Wireless Password</i>! At present, 
 it is not validated and if incorrect will prevent the interface from associating 
 with your router!</b></li>

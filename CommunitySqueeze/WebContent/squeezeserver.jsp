@@ -55,6 +55,10 @@
 </s:form>
 
 <hr />
+<h4>Notes</h4>
+<p>This configuration page is for the Squeeze Server Service.</p>
+
+<hr />
 <jsp:include page="Footer.jsp"/>
 
 </body>

@@ -88,12 +88,15 @@ server IP Address (eg. <i>DNS1</i>) and optionally the local network
 <i>Domain</i> name.</li>
 <li>Having configured the Ethernet Network Interface, press the 
 &quot;Save and Reboot&quot; button. The web page will submit the 
-parameters you have entered. If any of the values fail server-side validation, 
-the web page will return will one (or more) messages, 
+parameters you have entered. If any of the configuration parameters 
+fail server-side validation, 
+the web page will return with one (or more) messages, 
 <font color="red">highlighted in red</font>, at 
 the beginning of the <i>Configuration</i> section. These messages should be 
 self-explanatory and enable you to &quot;adjust&quot; the 
-indicated parameters, before you attempt to &quot;Save&quot; again.</li>
+indicated parameters, before you attempt to submit them again.
+If the parameters you have entered pass validation, the device will be rebooted 
+and the network interface initialised using the saved parameters.</li>
 </ul>
 
 <hr />
