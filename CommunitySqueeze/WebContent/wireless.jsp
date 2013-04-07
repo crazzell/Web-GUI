@@ -49,17 +49,8 @@ pageEncoding="ISO-8859-1"%>
 <s:actionerror />
 <s:form action="WirelessSave_save" theme="simple">
 
-	<s:hidden name="name" />
-	<s:hidden name="type" />
 	<s:hidden name="wirelessMode" />
 	<s:hidden name="wirelessKeyMgmt" />
-	<s:hidden name="uuid" />
-	<s:hidden name="hwAddr" />
-	<s:hidden name="zone" />
-	<s:hidden name="bootProto" />
-	<s:hidden name="onBoot" />
-
-	<s:hidden name="status" />
 
 	<!-- hidden store the networkList -->
 	<s:iterator value="networkList" status="stat">
@@ -67,14 +58,9 @@ pageEncoding="ISO-8859-1"%>
 	</s:iterator>
 
 <table>
-<tr>
-<td align="right">Name</td>
-<td><font color="blue"><s:property value="name" /></font></td>
-</tr>
-<tr>
-<td align="right">Type</td>
-<td><font color="blue"><s:property value="type" /></font></td>
-</tr>
+
+<jsp:include page="interface-non-editable.jsp"/>
+
 <tr>
 <td align="right">Wireless&nbsp;Mode</td>
 <td><font color="blue"><s:property value="wirelessMode" /></font></td>
@@ -84,81 +70,38 @@ pageEncoding="ISO-8859-1"%>
 <td><font color="blue"><s:property value="wirelessKeyMgmt" /></font></td>
 </tr>
 <tr>
-<td align="right">UUID</td>
-<td><font color="blue"><s:property value="uuid" /></font></td>
-</tr>
-<tr>
-<td align="right">MAC&nbsp;Addr</td>
-<td><font color="blue"><s:property value="hwAddr" /></font></td>
-</tr>
-<tr>
-<td align="right">Firewall&nbsp;Zone</td>
-<td><font color="blue"><s:property value="zone" /></font></td>
-</tr>
-<tr>
-<td align="right">Boot&nbsp;Proto</td>
-<td><font color="blue"><s:property value="bootProto" /></font></td>
-</tr>
-<tr>
-<td align="right">On&nbsp;Boot</td>
-<td><font color="blue"><s:property value="onBoot" /></font></td>
-</tr>
-<tr>
-<td align="right">Network&nbsp;Name</td>
-<td>
-	<s:select name="wirelessEssid" list="networkList" label="ESSID" 
-		tooltip="Choose Network" />
+<td align="right">
+  <s:label>Network&nbsp;Name</s:label>
+  <img src='struts/tooltip.gif'
+	  title="Choose the Network to connect to. Select a Network ESSID from the drop-down list or select 'User Specified' and enter a value in the box below."
+      alt="Choose the Network to connect to. Select a Network ESSID from the drop-down list or select 'User Specified' and enter a value in the box below." />
+</td>
+<td align="left">
+  <s:select name="wirelessEssid" list="networkList" label="ESSID" 
+	  tooltip="Choose Network" />
 </td>
 </tr>
 <tr>
-<td align="right">Wireless&nbsp;Password</td>
-<td>
-	<s:textfield name="wirelessWpaPsk" label="Wireless PSK" size="30" />
+<td />
+<td align="left">
+  <s:textfield name="wirelessEssidOther" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
-<td align="right">IP&nbsp;Address</td>
+<td align="right">
+  <s:label>Wireless&nbsp;Password</s:label>
+  <img src='struts/tooltip.gif'
+	  title="Set the Wireless Pre Shared Key"
+      alt="Set the Wireless Pre Shared Key" />
+</td>
 <td>
-	<s:textfield name="ipAddr0" label="IP Address" size="30" />
+	<s:textfield name="wirelessWpaPsk" label="Wireless PSK" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
-<td align="right">Netmask</td>
-<td>
-	<s:textfield name="netmask0" label="Netmask" size="30" />
-</td>
-</tr>
-<tr>
-<td align="right">Gateway</td>
-<td>
-	<s:textfield name="gateway0" label="Gateway" size="30" />
-</td>
-</tr>
-<tr>
-<td align="right">DNS1</td>
-<td>
-	<s:textfield name="dns1" label="DNS1" size="30" />
-</td>
-</tr>
-<tr>
-<td align="right">DNS2</td>
-<td>
-	<s:textfield name="dns2" label="DNS2" size="30" />
-</td>
-</tr>
-<tr>
-<td align="right">DNS3</td>
-<td>
-	<s:textfield name="dns3" label="DNS3" size="30" />
-</td>
-</tr>
-<tr>
-<td align="right">Domain</td>
-<td>
-	<s:textfield name="domain" label="Domain" size="30" />
-</td>
-</tr>			
-<tr>
+
+<jsp:include page="interface-editable.jsp"/>
+
 <td colspan="2" align="right">
 	<s:reset key="button.reset" />
 	<s:submit value="Save" action="WirelessSave_save" />
@@ -182,6 +125,41 @@ pageEncoding="ISO-8859-1"%>
 </table>
 </s:form>
 
+<hr />
+<h4>Notes</h4>
+<p>This configuration page is for the Wireless Network Interface.</p>
+<ul>
+<li>The <i>Status</i> area at the top of the page, shows the current interface status and 
+is the output returned from running the command, <i>ifconfig&nbsp;&lt;interface_name&gt;</i>.
+It may be refreshed by pressing the <i>Refresh</i> button.</li>
+<li>The <i>Configuration</i> section is used to set interface parameters.</li>
+<li>By default, none of the field values are populated. To use the Wireless 
+Network Interface you will need to choose a Network to connect to from the 
+<i>Network Name</i> (ESSID) drop-down list and enter the <i>Wireless Password</i> 
+(pre-shared key).</li>
+<li>With none of the other network parameters set, the interface will 
+try to obtain an IP Address via dhcp. If you wish to use a static IP Address, 
+you should populate the <i>IP Address</i>, <i>Netmask</i> and <i>Gateway</i> 
+fields. To enable DNS resolution, you should also populate at least one DNS 
+server IP Address (eg. <i>DNS1</i>) and optionally the local network 
+<i>Domain</i> name.</li>
+<li>If your <i>Network Name</i> (ESSID) is not shown in the drop-down list, 
+(perhaps you have set it to &quot;hidden&quot; on your router so it is 
+not being broadcast), you may select &quot;User Specified (below):&quot; 
+from the <i>Network Name</i> drop-down list and manually enter your 
+<i>Network Name</i> (ESSID) in the field below.</li>
+<li>Having configured the Wireless Network Interface, press the 
+&quot;Save and Reboot&quot; button. The web page will submit the 
+parameters you have entered. If any of the values fail server-side validation, 
+the web page will return will one (or more) messages, 
+<font color="red">highlighted in red</font>, at 
+the beginning of the <i>Configuration</i> section. These messages should be 
+self-explanatory and enable you to &quot;adjust&quot; the 
+indicated parameters, before you attempt to &quot;Save&quot; again.</li>
+<li><b>Please take care when you enter the <i>Wireless Password</i>! At present, 
+it is not validated and if incorrect will prevent the interface from associating 
+with your router!</b></li>
+</ul>
 <hr />
 <jsp:include page="Footer.jsp"/>
 

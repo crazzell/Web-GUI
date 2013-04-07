@@ -106,6 +106,7 @@ public abstract class InterfaceAction extends ActionSupport {
 	
 	public final static String DUMMY_ESSID = "YOUR_ESSID_HERE";
 	public final static String DUMMY_WPA_PSK = "YOUR_PSK_HERE";
+	public final static String ESSID_SELECT_OTHER = "User Specified (below):";
 	
 	protected SortedMap<String, String> interfaceProperties = 
 			new TreeMap<String, String>(StringIgnoreCaseComparator.COMPARATOR);
@@ -118,7 +119,6 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected String hwAddr;
 	
 	protected String ipAddr0;
-	//protected String prefix0;
 	protected String netmask0;
 	protected String gateway0;
 	
@@ -132,6 +132,7 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected String bootProto;
 
 	protected String wirelessEssid;
+	protected String wirelessEssidOther;
 	protected String wirelessMode;
 	protected String wirelessKeyMgmt;
 	protected String wirelessWpaPsk;
@@ -202,6 +203,22 @@ public abstract class InterfaceAction extends ActionSupport {
 	public void setWirelessEssid(String wirelessEssid) {
 		
 		this.wirelessEssid = wirelessEssid;
+	}
+
+	/**
+	 * @return the wirelessEssidOther
+	 */
+	public String getWirelessEssidOther() {
+		
+		return wirelessEssidOther;
+	}
+
+	/**
+	 * @param wirelessEssidOther the wirelessEssidOther to set
+	 */
+	public void setWirelessEssidOther(String wirelessEssidOther) {
+		
+		this.wirelessEssidOther = wirelessEssidOther;
 	}
 
 	/**
@@ -332,24 +349,6 @@ public abstract class InterfaceAction extends ActionSupport {
 		this.netmask0 = netmask0;
 	}
 	
-	/**
-	 * @return
-	 *
-	public String getPrefix0() {
-		
-		return prefix0;
-	}
-	*/
-
-	/**
-	 * @param prefix0
-	 *
-	public void setPrefix0(String prefix0) {
-		
-		this.prefix0 = prefix0;
-	}
-	*/
-
 	/**
 	 * @return
 	 */
@@ -762,7 +761,15 @@ public abstract class InterfaceAction extends ActionSupport {
 		 */
 		if (type != null && type.equalsIgnoreCase(CFG_TYPE_WIRELESS)) {
 			if (wirelessEssid != null && wirelessEssid.trim().length() > 0) {
-				interfaceProperties.put(CFG_ESSID, "\"" + wirelessEssid.trim() + "\"");
+				if (wirelessEssid.trim().equals(ESSID_SELECT_OTHER)) {
+					if (wirelessEssidOther != null && wirelessEssidOther.trim().length() > 0) {
+						interfaceProperties.put(CFG_ESSID, "\"" + wirelessEssidOther.trim() + "\"");
+					} else {
+						interfaceProperties.put(CFG_ESSID, "\"" + DUMMY_ESSID + "\"");
+					}
+				} else {
+					interfaceProperties.put(CFG_ESSID, "\"" + wirelessEssid.trim() + "\"");
+				}
 			} else {
 				interfaceProperties.put(CFG_ESSID, "\"" + DUMMY_ESSID + "\"");
 			}
@@ -778,11 +785,9 @@ public abstract class InterfaceAction extends ActionSupport {
 		 * static IP
 		 */
 		if (ipAddr0 != null && ipAddr0.trim().length() > 0 &&
-				//prefix0 != null && prefix0.trim().length() > 0 &&
 				netmask0 != null && netmask0.trim().length() > 0 &&
 				gateway0 != null && gateway0.trim().length() > 0) {
 			interfaceProperties.put(CFG_IPADDR0, ipAddr0.trim());
-			//interfaceProperties.put(CFG_PREFIX0, prefix0.trim());
 			interfaceProperties.put(CFG_NETMASK0, netmask0.trim());
 			interfaceProperties.put(CFG_GATEWAY0, gateway0.trim());
 			interfaceProperties.put(CFG_BOOTPROTO, CFG_BOOTPROTO_NONE);
@@ -791,7 +796,6 @@ public abstract class InterfaceAction extends ActionSupport {
 		 */
 		} else {
 			interfaceProperties.remove(CFG_IPADDR0);
-			//interfaceProperties.remove(CFG_PREFIX0);
 			interfaceProperties.remove(CFG_NETMASK0);
 			interfaceProperties.remove(CFG_GATEWAY0);
 			interfaceProperties.put(CFG_BOOTPROTO, CFG_BOOTPROTO_DHCP);
@@ -865,7 +869,6 @@ public abstract class InterfaceAction extends ActionSupport {
 		uuid = interfaceProperties.get(CFG_UUID);
 		hwAddr = interfaceProperties.get(CFG_HWADDR);
 		ipAddr0 = interfaceProperties.get(CFG_IPADDR0);
-		//prefix0 = interfaceProperties.get(CFG_PREFIX0);
 		netmask0 = interfaceProperties.get(CFG_NETMASK0);
 		gateway0 = interfaceProperties.get(CFG_GATEWAY0);
 		dns1 = interfaceProperties.get(CFG_DNS1);
@@ -899,6 +902,7 @@ public abstract class InterfaceAction extends ActionSupport {
 			 * get the available networks
 			 */
 			networkList = Util.getAvailableNetworks(getInterfaceName());
+			networkList.add(ESSID_SELECT_OTHER);
 			/*
 			 * Make sure the network list contains the currently configured 
 			 * wireless network. It might be temporaily unavailable, or the scan

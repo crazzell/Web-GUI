@@ -47,74 +47,11 @@ pageEncoding="ISO-8859-1"%>
 <h4>Configuration</h4>
 <s:actionerror />
 <s:form action="EthernetSave_save" theme="simple">
-	
-	<s:hidden name="name" />
-	<s:hidden name="type" />
-	<s:hidden name="uuid" />
-	<s:hidden name="hwAddr" />
-	<s:hidden name="zone" />
-	<s:hidden name="bootProto" />
-	<s:hidden name="onBoot" />
-	
-	<s:hidden name="status" />
-	
+					
 <table>
-<tr>
-<td align="right">Name</td>
-<td><font color="blue"><s:property value="name" /></font></td>
-</tr>
-<tr>
-<td align="right">Type</td>
-<td><font color="blue"><s:property value="type" /></font></td>
-</tr>
-<tr>
-<td align="right">UUID</td>
-<td><font color="blue"><s:property value="uuid" /></font></td>
-</tr>
-<tr>
-<td align="right">MAC&nbsp;Addr</td>
-<td><font color="blue"><s:property value="hwAddr" /></font></td>
-</tr>
-<tr>
-<td align="right">Firewall&nbsp;Zone</td>
-<td><font color="blue"><s:property value="zone" /></font></td>
-</tr>
-<tr>
-<td align="right">Boot&nbsp;Proto</td>
-<td><font color="blue"><s:property value="bootProto" /></font></td>
-</tr>
-<tr>
-<td align="right">On&nbsp;Boot</td>
-<td><font color="blue"><s:property value="onBoot" /></font></td>
-</tr>
-<tr>
-<td align="right">IP&nbsp;Address</td>
-<td><s:textfield name="ipAddr0" label="IP Address" size="30" /></td>
-</tr>
-<tr>
-<td align="right">Netmask</td>
-<td><s:textfield name="netmask0" label="Netmask" size="30" /></td>
-</tr>
-<tr>
-<td align="right">Gateway</td>
-<td><s:textfield name="gateway0" label="Gateway" size="30" /></td>
-</tr>
-<tr>
-<td align="right">DNS1</td>
-<td><s:textfield name="dns1" label="DNS1" size="30" /></td>
-</tr>
-<tr>
-<td align="right">DNS2</td>
-<td><s:textfield name="dns2" label="DNS2" size="30" /></td>
-</tr>
-<tr>
-<td align="right">DNS3</td>
-<td><s:textfield name="dns3" label="DNS3" size="30" /></td>
-</tr>
-<tr>
-<td align="right">Domain</td>
-<td><s:textfield name="domain" label="Domain" size="30" /></td>
-</tr>
+
+<jsp:include page="interface-non-editable.jsp"/>
+<jsp:include page="interface-editable.jsp"/>
 
 <tr>
 <td colspan="2" align="right">
@@ -134,6 +71,30 @@ pageEncoding="ISO-8859-1"%>
 	-->
 </table>
 </s:form>
+
+<hr />
+<h4>Notes</h4>
+<p>This configuration page is for the Ethernet Network Interface.</p>
+<ul>
+<li>The <i>Status</i> area at the top of the page, shows the current interface status and 
+is the output returned from running the command, <i>ifconfig&nbsp;&lt;interface_name&gt;</i>.
+It may be refreshed by pressing the <i>Refresh</i> button.</li>
+<li>The <i>Configuration</i> section is used to set interface parameters.</li>
+<li>By default, none of the field values are populated and the interface will 
+try to obtain an IP Address via dhcp. If you wish to use a static IP Address, 
+you should populate the <i>IP Address</i>, <i>Netmask</i> and <i>Gateway</i> 
+fields. To enable DNS resolution, you should also populate at least one DNS 
+server IP Address (eg. <i>DNS1</i>) and optionally the local network 
+<i>Domain</i> name.</li>
+<li>Having configured the Ethernet Network Interface, press the 
+&quot;Save and Reboot&quot; button. The web page will submit the 
+parameters you have entered. If any of the values fail server-side validation, 
+the web page will return will one (or more) messages, 
+<font color="red">highlighted in red</font>, at 
+the beginning of the <i>Configuration</i> section. These messages should be 
+self-explanatory and enable you to &quot;adjust&quot; the 
+indicated parameters, before you attempt to &quot;Save&quot; again.</li>
+</ul>
 
 <hr />
 <jsp:include page="Footer.jsp"/>
