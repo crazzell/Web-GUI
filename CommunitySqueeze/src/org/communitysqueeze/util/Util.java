@@ -781,35 +781,53 @@ public final class Util {
 	}
 	
 	/**
+	 * @param force
 	 * @return
 	 * @throws IOException
 	 * @throws InterruptedException
 	 */
-	public final static int reboot() 
+	public final static int reboot(boolean force) 
 			throws IOException, InterruptedException {
 		
-		LOGGER.info("reboot()");
+		LOGGER.info("reboot(force=" + force + ")");
 
-		String[] cmdLineArgs = new String[] {
-				Commands.CMD_SUDO, Commands.SCRIPT_REBOOT
-		};
+		String[] cmdLineArgs = null;
+		if (force) {
+			cmdLineArgs = new String[] {
+					Commands.CMD_SUDO, Commands.SCRIPT_REBOOT, 
+					Commands.SHUTDOWN_FORCE
+			};
+		} else {
+			cmdLineArgs = new String[] {
+					Commands.CMD_SUDO, Commands.SCRIPT_REBOOT
+			};
+		}
 		
 		return ExecuteProcess.executeCommand(cmdLineArgs);
 	}
 
 	/**
+	 * @param force
 	 * @return
 	 * @throws IOException
 	 * @throws InterruptedException
 	 */
-	public final static int halt() 
+	public final static int halt(boolean force) 
 			throws IOException, InterruptedException {
 		
-		LOGGER.info("halt()");
+		LOGGER.info("halt(force=" + force + ")");
 
-		String[] cmdLineArgs = new String[] {
-				Commands.CMD_SUDO, Commands.SCRIPT_HALT
-		};
+		String[] cmdLineArgs = null;
+		if (force) {
+			cmdLineArgs = new String[] {
+					Commands.CMD_SUDO, Commands.SCRIPT_HALT, 
+					Commands.SHUTDOWN_FORCE
+			};
+		} else {
+			cmdLineArgs = new String[] {
+					Commands.CMD_SUDO, Commands.SCRIPT_HALT
+			};
+		}
 		
 		return ExecuteProcess.executeCommand(cmdLineArgs);
 	}

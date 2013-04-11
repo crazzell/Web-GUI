@@ -140,6 +140,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected List<String> networkList;
 	
 	protected String status;
+	
+	protected boolean cbForce = false;
 
 	/**
 	 * 
@@ -493,6 +495,20 @@ public abstract class InterfaceAction extends ActionSupport {
 		this.status = status;
 	}
 	
+	/**
+	 * @return the cbForce
+	 */
+	public boolean isCbForce() {
+		return cbForce;
+	}
+
+	/**
+	 * @param cbForce the cbForce to set
+	 */
+	public void setCbForce(boolean cbForce) {
+		this.cbForce = cbForce;
+	}
+
 	/**
 	 * @return
 	 */

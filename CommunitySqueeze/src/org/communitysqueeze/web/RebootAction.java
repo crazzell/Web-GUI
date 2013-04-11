@@ -22,13 +22,11 @@ package org.communitysqueeze.web;
 import org.apache.log4j.Logger;
 import org.communitysqueeze.util.Util;
 
-import com.opensymphony.xwork2.ActionSupport;
-
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
  */
-public class RebootAction extends ActionSupport {
+public class RebootAction extends ShutdownAction {
 
 	private static final long serialVersionUID = 2521215570420058372L;
 
@@ -70,7 +68,7 @@ public class RebootAction extends ActionSupport {
 
 		try {
 			Thread.sleep(1000);
-			Util.reboot();
+			Util.reboot(cbForce);
 		} catch (Exception e) {
 			LOGGER.warn("Caught exception rebooting device!", e);
 			throw e;

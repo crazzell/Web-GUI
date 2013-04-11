@@ -20,65 +20,49 @@
 package org.communitysqueeze.web;
 
 import org.apache.log4j.Logger;
-import org.communitysqueeze.util.Util;
+
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
  */
-public class HaltAction extends ShutdownAction {
+public abstract class ShutdownAction extends ActionSupport {
 
-	private static final long serialVersionUID = 2521215570420058372L;
-
-	private final static Logger LOGGER = Logger.getLogger(HaltAction.class);
+	private static final long serialVersionUID = -4872499992773664480L;
 	
+	private final static Logger LOGGER = Logger.getLogger(ShutdownAction.class);
+	
+	protected boolean cbForce = false;
+
 	/**
 	 * 
 	 */
-	public HaltAction() {
+	public ShutdownAction() {
 		
 		super();
 		
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("HaltAction()");
+			LOGGER.debug("ShutdownAction()");
 		}
 	}
-	
-	public String execute() throws Exception {
-		
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("execute()");
-		}
-		
-		String result = halt();
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("execute() returns " + result);
-		}
-		
-		return result;
-	}
+
+	/* (non-Javadoc)
+	 * @see com.opensymphony.xwork2.ActionSupport#execute()
+	 */
+	public abstract String execute() throws Exception;
 	
 	/**
-	 * @return
-	 * @throws Exception
+	 * @return the cbForce
 	 */
-	private String halt() throws Exception {
-		
-		LOGGER.info("halt()");
+	public boolean isCbForce() {
+		return cbForce;
+	}
 
-		try {
-			Thread.sleep(1000);
-			Util.halt(cbForce);
-		} catch (Exception e) {
-			LOGGER.warn("Caught exception halting device!", e);
-			throw e;
-		}
-		
-		String result = SUCCESS;
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("halt() returns " + result);
-		}
-		
-		return result;
-	}	
+	/**
+	 * @param cbForce the cbForce to set
+	 */
+	public void setCbForce(boolean cbForce) {
+		this.cbForce = cbForce;
+	}
 }

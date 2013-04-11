@@ -115,13 +115,28 @@ pageEncoding="ISO-8859-1"%>
 <tr>
 <td colspan="2" align="right">
 	<s:submit value="Refresh Network List" action="Wireless_populate" />
-</td>
-</tr>
 	<!--
 	<s:submit value="Interface Up" action="Wireless_up" />
 	<s:submit value="Interface Down" action="Wireless_down" />
 	<s:submit value="Interface Down / Interface Up" action="Wireless_downUp" />
 	-->
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td />
+<td align="right">
+  <s:checkbox name="cbForce" />
+  <s:label>Force (-f) reboot</s:label>
+</td>
+</tr>
 </table>
 </s:form>
 

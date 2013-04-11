@@ -18,7 +18,7 @@
 		    <result name="wait">/wait.jsp</result>
 			<result name="input">/ethernet.jsp</result>
 			<result name="success" type="redirectAction">Ethernet_populate</result>
-			<result name="reboot" type="redirectAction">Reboot</result>
+			<result name="reboot" type="chain">Reboot</result>
 		</action>
 
 		<action name="Ethernet_*" method="{1}"
@@ -46,7 +46,7 @@
 		    <result name="wait">/wait.jsp</result>
 			<result name="input">/wireless.jsp</result>
 			<result name="success" type="redirectAction">Wireless_populate</result>
-			<result name="reboot" type="redirectAction">Reboot</result>
+			<result name="reboot" type="chain">Reboot</result>
 		</action>
 
 		<action name="Wireless_*" method="{1}"

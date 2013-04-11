@@ -62,13 +62,28 @@ pageEncoding="ISO-8859-1"%>
 <tr>
 <td colspan="2" align="right">
 	<s:submit value="Save and Reboot" action="EthernetSave_saveAndReboot" />
-</td>
-</tr>
 	<!--
 	<s:submit value="Interface Up" action="Ethernet_up" />
 	<s:submit value="Interface Down" action="Ethernet_down" />
 	<s:submit value="Interface Down / Interface Up" action="Ethernet_downUp" />
 	-->
+</td>
+</tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td />
+<td align="right">
+  <s:checkbox name="cbForce" />
+  <s:label>Force (-f) reboot</s:label>
+</td>
+</tr>
 </table>
 </s:form>
 

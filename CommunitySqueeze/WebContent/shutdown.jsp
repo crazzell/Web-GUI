@@ -39,6 +39,22 @@ for the process to complete.</td>
 <td align="right"><s:submit value="Reboot" action="Reboot" theme="simple" /></td>
 <td>To reboot the device, press the <b>Reboot</b> button.<td>
 </tr>
+<tr>
+<td>
+&nbsp;
+</td>
+<td>
+&nbsp;
+</td>
+</tr>
+<tr>
+<td align="right">
+  <s:checkbox name="cbForce" />
+</td>
+<td>
+  <s:label>Force (-f) reboot/halt</s:label>
+</td>
+</tr>
 </table>
 </s:form>
 
