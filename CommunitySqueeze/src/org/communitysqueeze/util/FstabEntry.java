@@ -156,4 +156,52 @@ public class FstabEntry {
 		
 		return buffer.toString();
 	}
+	
+	/**
+	 * @param line
+	 * @return
+	 */
+	public final static FstabEntry parseEntry(String line) {
+		
+		// spec file vfsType mntOps freq passNo
+		FstabEntry entry = new FstabEntry();
+		
+		int word = 0;
+		int index = 0;
+		String tmp = "";
+		while (index < line.length()) {
+			char ch = line.charAt(index);
+			if (ch != ' ' && ch != '\t') {
+				tmp += ch;
+			} else {
+				switch (word) {
+					case 0:
+						entry.setSpec(tmp);
+						break;
+					case 1:
+						entry.setFile(tmp);
+						break;
+					case 2:
+						entry.setVfsType(tmp);
+						break;
+					case 3:
+						entry.setMntOps(tmp);
+						break;
+					case 5:
+						entry.setFreq(Integer.parseInt(tmp));
+						break;
+					case 6:
+						entry.setPassNo(Integer.parseInt(tmp));
+						break;
+					default:
+						LOGGER.warn("");
+						break;
+				}
+				tmp = "";
+				word++;
+			}
+		}
+		
+		return null;
+	}
 }
