@@ -39,6 +39,7 @@ public class Commands {
 	public final static String CMD_IFUP = "ifup";
 	public final static String CMD_IFDOWN = "ifdown";
 	public final static String CMD_MOUNT = "mount";
+	public final static String CMD_WALL = "wall";
 	
 	public final static String SHUTDOWN_FORCE = "-f";
 	

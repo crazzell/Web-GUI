@@ -45,15 +45,22 @@ public final class Util {
 	
 	private final static Logger LOGGER = Logger.getLogger(Util.class);
 	
-	private final static DateFormat DF_FULL = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss z");
+	private final static DateFormat DF_FULL = 
+			new SimpleDateFormat("yyyy/MM/dd HH:mm:ss z");
 
-	public final static String LINE_SEP = System.getProperty("line.separator");
+	public final static String LINE_SEP = 
+			System.getProperty("line.separator");
 	
 	private final static String ALSA_DEFAULT = "default:"; 
 	private final static String ALSA_SYSDEFAULT = "sysdefault:"; 
 	private final static String ALSA_HW = "hw:"; 
 	private final static String ALSA_PLUGHW = "plughw:"; 
 	
+	private final static String WALL_REBOOT_MSG = "web-gui requests reboot";
+	private final static String WALL_HALT_MSG = "web-gui requests halt";
+	private final static String WALL_FORCE_OPTION_MSG = " with force (" + 
+			Commands.SHUTDOWN_FORCE + ") option";
+
 	/**
 	 * 
 	 */
@@ -781,6 +788,24 @@ public final class Util {
 	}
 	
 	/**
+	 * @param message
+	 * @return
+	 * @throws IOException
+	 * @throws InterruptedException
+	 */
+	public final static int wall(String message) 
+			throws IOException, InterruptedException {
+		
+		LOGGER.info("wall(message=" + message + ")");
+
+		String[] cmdLineArgs = new String[] {
+				Commands.CMD_WALL, message
+		};
+		
+		return ExecuteProcess.executeCommand(cmdLineArgs);
+	}
+
+	/**
 	 * @param force
 	 * @return
 	 * @throws IOException
@@ -791,16 +816,25 @@ public final class Util {
 		
 		LOGGER.info("reboot(force=" + force + ")");
 
+		String msg = WALL_REBOOT_MSG;
 		String[] cmdLineArgs = null;
 		if (force) {
 			cmdLineArgs = new String[] {
 					Commands.CMD_SUDO, Commands.SCRIPT_REBOOT, 
 					Commands.SHUTDOWN_FORCE
 			};
+			msg += WALL_FORCE_OPTION_MSG;
 		} else {
 			cmdLineArgs = new String[] {
 					Commands.CMD_SUDO, Commands.SCRIPT_REBOOT
 			};
+		}
+		
+		try {
+			wall(msg);
+		} catch (Exception e) {
+			LOGGER.warn("Caught exception sending wall message: '" + 
+					msg + "'!", e);
 		}
 		
 		return ExecuteProcess.executeCommand(cmdLineArgs);
@@ -817,16 +851,25 @@ public final class Util {
 		
 		LOGGER.info("halt(force=" + force + ")");
 
+		String msg = WALL_HALT_MSG;
 		String[] cmdLineArgs = null;
 		if (force) {
 			cmdLineArgs = new String[] {
 					Commands.CMD_SUDO, Commands.SCRIPT_HALT, 
 					Commands.SHUTDOWN_FORCE
 			};
+			msg += WALL_FORCE_OPTION_MSG;
 		} else {
 			cmdLineArgs = new String[] {
 					Commands.CMD_SUDO, Commands.SCRIPT_HALT
 			};
+		}
+		
+		try {
+			wall(msg);
+		} catch (Exception e) {
+			LOGGER.warn("Caught exception sending wall message: '" + 
+					msg + "'!", e);
 		}
 		
 		return ExecuteProcess.executeCommand(cmdLineArgs);
