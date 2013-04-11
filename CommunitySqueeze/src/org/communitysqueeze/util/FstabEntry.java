@@ -270,10 +270,10 @@ public class FstabEntry {
 						!line.startsWith("\t")) {
 					FstabEntry entry = parseEntry(line.trim() + " ");
 					if (entry != null && 
-							!entry.getVfsType().equals("swap") && 
+							!entry.getVfsType().equals("swap") /*&& 
 							!entry.getFile().equals("/") &&
 							!entry.getFile().equals("/boot") &&
-							!entry.getFile().equals("/home")) {
+							!entry.getFile().equals("/home")*/) {
 						list.add(entry);
 					}
 				}

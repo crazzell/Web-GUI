@@ -75,12 +75,12 @@
 <table>
 <thead>
 <tr>
-<td>Spec</td>
+<td>Specification</td>
 <td>Mount Point</td>
-<td>FS Type</td>
+<td>Type</td>
 <td>Mount Options</td>
-<td>Frequency</td>
-<td>Pass No</td>
+<td>Freq</td>
+<td>Pass</td>
 <td>Action</td>
 <td>Delete</td>
 </tr>
