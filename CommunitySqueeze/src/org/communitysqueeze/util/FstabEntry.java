@@ -19,6 +19,15 @@
  */
 package org.communitysqueeze.util;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 /**
@@ -36,16 +45,64 @@ public class FstabEntry {
 	private int freq = 0;
 	private int passNo = 0;
 	
+	private boolean delete = false;
+	private String action = null;
+	
+	public final static String ACTION_MOUNT = "Mount";
+	public final static String ACTION_UMOUNT = "Umount";
+	public final static String ACTION_REMOUNT = "Remount";
+	
 	/**
-	 * 
+	 * @param spec
+	 * @param file
+	 * @param vfsType
+	 * @param mntOps
+	 * @param freq
+	 * @param passNo
 	 */
-	public FstabEntry() {
+	public FstabEntry(String spec, String file, String vfsType, String mntOps, int freq, int passNo) {
 		
 		super();
 		
+		this.spec = spec;
+		this.file = file;
+		this.vfsType = vfsType;
+		this.mntOps = mntOps;
+		this.freq = freq;
+		this.passNo = passNo;
+		
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("FstabEntry()");
+			LOGGER.debug("FstabEntry(spec=" + spec + ", file=" + file + ", vfsType=" + vfsType + 
+					", mntOps=" + mntOps + ", freq=" + freq + ", passNo=" + passNo + ")");
 		}
+	}
+
+	/**
+	 * @return the delete
+	 */
+	public boolean isDelete() {
+		return delete;
+	}
+
+	/**
+	 * @param delete the delete to set
+	 */
+	public void setDelete(boolean delete) {
+		this.delete = delete;
+	}
+
+	/**
+	 * @return the action
+	 */
+	public String getAction() {
+		return action;
+	}
+
+	/**
+	 * @param action the action to set
+	 */
+	public void setAction(String action) {
+		this.action = action;
 	}
 
 	/**
@@ -132,6 +189,105 @@ public class FstabEntry {
 		this.passNo = passNo;
 	}
 
+	/**
+	 * @param line
+	 * @return
+	 */
+	public final static FstabEntry parseEntry(String line) {
+
+		String spec = null;
+		String file = null;
+		String vfsType = null;
+		String mntOps = null;
+		int freq = 0;
+		int passNo = 0;
+		
+		int word = 0;
+		int index = 0;
+		String tmp = "";
+		while (index < line.length()) {
+			char ch = line.charAt(index);
+			if (ch != ' ' && ch != '\t') {
+				tmp += ch;
+				index++;
+			} else {
+				if (tmp.length() > 0) {
+					switch (word) {
+						case 0:
+							spec = tmp;
+							break;
+						case 1:
+							file = tmp;
+							break;
+						case 2:
+							vfsType = tmp;
+							break;
+						case 3:
+							mntOps = tmp;
+							break;
+						case 4:
+							freq = Integer.parseInt(tmp);
+							break;
+						case 5:
+							passNo = Integer.parseInt(tmp);
+							break;
+						default:
+							LOGGER.warn("Fstab entry contains more than 6 values: '" + line + "'");
+							break;
+					}
+					tmp = "";
+					word++;
+				} else {
+					index++;
+				}
+			}
+		}
+		
+		if (word == 6) {
+			return new FstabEntry(spec, file, vfsType, mntOps, freq, passNo);
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * @return
+	 */
+	public final static List<FstabEntry> parseFstab() 
+			throws FileNotFoundException, IOException {
+		
+		File file = new File("/etc/fstab");
+		BufferedReader br = null;
+		try {
+			ArrayList<FstabEntry> list = new ArrayList<FstabEntry>();
+			
+			br = new BufferedReader(new FileReader(file));
+			String line = null;
+			while ((line = br.readLine()) != null) {
+				if (line.trim().length() > 0 && 
+						!line.startsWith("#") && 
+						!line.startsWith(" ") && 
+						!line.startsWith("\t")) {
+					FstabEntry entry = parseEntry(line.trim() + " ");
+					if (entry != null && 
+							!entry.getVfsType().equals("swap") && 
+							!entry.getFile().equals("/") &&
+							!entry.getFile().equals("/boot") &&
+							!entry.getFile().equals("/home")) {
+						list.add(entry);
+					}
+				}
+			}
+			return list;
+		} finally {
+			if (br != null) {
+				try {
+					br.close();
+				} catch (Exception e) {}
+			}
+		}
+	}
+	
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
@@ -139,7 +295,7 @@ public class FstabEntry {
 	public String toString() {
 		
 		StringBuffer buffer = new StringBuffer();
-		buffer.append("FstabEntry(");
+		buffer.append("FstabEntry[");
 		buffer.append("spec=");
 		buffer.append(spec);
 		buffer.append(", file=");
@@ -152,56 +308,23 @@ public class FstabEntry {
 		buffer.append(freq);
 		buffer.append(", passNo=");
 		buffer.append(passNo);
-		buffer.append(")");
+		buffer.append("]");
 		
 		return buffer.toString();
 	}
 	
 	/**
-	 * @param line
-	 * @return
+	 * @param args
 	 */
-	public final static FstabEntry parseEntry(String line) {
-		
-		// spec file vfsType mntOps freq passNo
-		FstabEntry entry = new FstabEntry();
-		
-		int word = 0;
-		int index = 0;
-		String tmp = "";
-		while (index < line.length()) {
-			char ch = line.charAt(index);
-			if (ch != ' ' && ch != '\t') {
-				tmp += ch;
-			} else {
-				switch (word) {
-					case 0:
-						entry.setSpec(tmp);
-						break;
-					case 1:
-						entry.setFile(tmp);
-						break;
-					case 2:
-						entry.setVfsType(tmp);
-						break;
-					case 3:
-						entry.setMntOps(tmp);
-						break;
-					case 5:
-						entry.setFreq(Integer.parseInt(tmp));
-						break;
-					case 6:
-						entry.setPassNo(Integer.parseInt(tmp));
-						break;
-					default:
-						LOGGER.warn("");
-						break;
-				}
-				tmp = "";
-				word++;
+	public final static void main(String[] args) {
+		try {
+			List<FstabEntry> list = parseFstab();
+			Iterator<FstabEntry> it = list.iterator();
+			while (it.hasNext()) {
+				LOGGER.debug(it.next());
 			}
+		} catch (Exception e) {
+			LOGGER.warn("Caught exception processing /etc/fstab!", e);
 		}
-		
-		return null;
 	}
 }

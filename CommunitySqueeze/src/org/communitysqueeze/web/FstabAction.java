@@ -21,9 +21,11 @@ package org.communitysqueeze.web;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.communitysqueeze.util.FsType;
+import org.communitysqueeze.util.FstabEntry;
 import org.communitysqueeze.util.Util;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -38,12 +40,20 @@ public class FstabAction extends ActionSupport {
 	
 	private static final long serialVersionUID = 6170755172059220738L;
 
-	private boolean cbExt4 = true;
-	private boolean cbNfs = true;
-	private boolean cbCifs = true;
-	private boolean cbAll = false;
+	protected final static List<String> FSTAB_ENTRY_ACTION_LIST = generateFstabEntryActionList();
+	
+	protected boolean cbExt4 = true;
+	protected boolean cbExt3 = true;
+	protected boolean cbExt2 = true;
+	protected boolean cbNfs = true;
+	protected boolean cbCifs = true;
+	protected boolean cbAll = false;
 
-	private String status;
+	protected String status = null;
+	
+	protected List<FstabEntry> fstabList = null;
+	
+	protected List<String> fstabEntryActionList = FSTAB_ENTRY_ACTION_LIST;
 	
 	/**
 	 * 
@@ -86,6 +96,7 @@ public class FstabAction extends ActionSupport {
 		}
 		
 		populateMounts();
+		fstabList = FstabEntry.parseFstab();
 		
 		String result = "populate";
 		if (LOGGER.isDebugEnabled()) {
@@ -109,10 +120,16 @@ public class FstabAction extends ActionSupport {
 		String regex = "";
 		if (cbAll) {
 			regex = ".*";
-		} else if (cbExt4 || cbCifs || cbNfs) {
+		} else if (cbExt4 || cbExt3 || cbExt2 || cbCifs || cbNfs) {
 			ArrayList<String> fsTypeList = new ArrayList<String>();
 			if (cbExt4) {
 				fsTypeList.add(FsType.EXT4);
+			}
+			if (cbExt3) {
+				fsTypeList.add(FsType.EXT3);
+			}
+			if (cbExt2) {
+				fsTypeList.add(FsType.EXT2);
 			}
 			if (cbCifs) {
 				fsTypeList.add(FsType.CIFS);
@@ -136,6 +153,13 @@ public class FstabAction extends ActionSupport {
 		}
 		
 		status = Util.getMounts(regex);
+	}
+
+	/**
+	 * @return the fstabEntryActionList
+	 */
+	public List<String> getFstabEntryActionList() {
+		return fstabEntryActionList;
 	}
 
 	/**
@@ -170,6 +194,34 @@ public class FstabAction extends ActionSupport {
 		this.cbExt4 = cbExt4;
 	}
 	
+	/**
+	 * @return the cbExt3
+	 */
+	public boolean isCbExt3() {
+		return cbExt3;
+	}
+
+	/**
+	 * @param cbExt3 the cbExt3 to set
+	 */
+	public void setCbExt3(boolean cbExt3) {
+		this.cbExt3 = cbExt3;
+	}
+
+	/**
+	 * @return the cbExt2
+	 */
+	public boolean isCbExt2() {
+		return cbExt2;
+	}
+
+	/**
+	 * @param cbExt2 the cbExt2 to set
+	 */
+	public void setCbExt2(boolean cbExt2) {
+		this.cbExt2 = cbExt2;
+	}
+
 	/**
 	 * @return the cbNfs
 	 */
@@ -216,5 +268,36 @@ public class FstabAction extends ActionSupport {
 	public void setCbAll(boolean cbAll) {
 		
 		this.cbAll = cbAll;
+	}
+
+	/**
+	 * @return the fstabList
+	 */
+	public List<FstabEntry> getFstabList() {
+		return fstabList;
+	}
+
+	/**
+	 * @param fstabList the fstabList to set
+	 */
+	public void setFstabList(List<FstabEntry> fstabList) {
+		this.fstabList = fstabList;
+	}
+	
+	/**
+	 * @return
+	 */
+	public final static List<String> generateFstabEntryActionList() {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("generateFstabEntryActionList()");
+		}
+		
+		ArrayList<String> list = new ArrayList<String>();
+		list.add("");
+		list.add("Mount");
+		list.add("Umount");
+		list.add("Remount");
+		return list;
 	}
 }

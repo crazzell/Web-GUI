@@ -26,6 +26,8 @@ package org.communitysqueeze.util;
 public class FsType {
 
 	public final static String EXT4 = "ext4";
+	public final static String EXT3 = "ext3";
+	public final static String EXT2 = "ext2";
 	public final static String NFS = "nfs";
 	public final static String CIFS = "cifs";
 	
