@@ -8,5 +8,5 @@
   </a>
 </div>
 <div class="pull-left">
-  <p class="copyright">Copyright &copy; 2013 Community Squeeze</p>
+  <p class="copyright">Copyright &copy; 2013 Community Squeeze (Version 30)</p>
 </div>

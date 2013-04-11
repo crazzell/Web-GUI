@@ -87,7 +87,7 @@
 </thead>
 <s:iterator value="fstabList" id="fstabList">
 <tr>
-<td><s:textfield name="spec" /></td>
+<td><s:textfield name="spec" readonly="true" /></td>
 <td><s:textfield name="file" /></td>
 <td><s:textfield name="vfsType" cssClass="size-50px" /></td>
 <td><s:textfield name="mntOps" /></td>
