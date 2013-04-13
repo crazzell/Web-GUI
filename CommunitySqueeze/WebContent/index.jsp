@@ -1,25 +1,24 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@ taglib prefix="s" uri="/struts-tags" %><html>
+
+<html>
+
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-  <title>Community Squeeze OS Web Configuration</title>
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Community Squeeze OS Web Configuration</title>
+	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+	<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
+	<link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
+
 <body>
-
-<jsp:include page="Header.jsp"/>
-
-<center>
-<h2>Community Squeeze OS Web Configuration</h2>
-<img src="images/cs-logo-541x288.png" alt="Community Squeeze Logo" 
-  width="541" height="288" />
-</center>
-
-<jsp:include page="Footer.jsp"/>
-
+	<jsp:include page="Header.jsp" />
+	<center>
+		<h2>Community Squeeze OS Web Configuration (Version 1-32)</h2>
+		<img src="images/cs-logo-541x288.png" alt="Community Squeeze Logo"
+			 width="541" height="288" />
+	</center>
+	<jsp:include page="Footer.jsp" />
 </body>
+
 </html>
