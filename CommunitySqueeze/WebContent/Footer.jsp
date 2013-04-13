@@ -10,5 +10,5 @@
 </div>
 <div class="pull-left">
 	<p class="copyright">Copyright &copy; 2013 Community Squeeze</p>
-	<p>Version 1-32</p>
+	<p class="copyright">Version 1-32</p>
 </div>

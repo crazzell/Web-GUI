@@ -14,7 +14,7 @@
 <body>
 	<jsp:include page="Header.jsp" />
 	<center>
-		<h2>Community Squeeze OS Web Configuration (Version 1-32)</h2>
+		<h2>Community Squeeze OS Web Configuration</h2>
 		<img src="images/cs-logo-541x288.png" alt="Community Squeeze Logo"
 			 width="541" height="288" />
 	</center>
