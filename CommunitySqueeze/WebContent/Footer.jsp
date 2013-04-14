@@ -1,3 +1,4 @@
+<%@ taglib uri="/struts-tags" prefix="s" %>
 
 <hr />
 
@@ -9,6 +10,11 @@
 	</a>
 </div>
 <div class="pull-left">
-	<p class="copyright">Copyright &copy; 2013 Community Squeeze</p>
-	<p class="copyright">Version 1-32</p>
+	<p class="copyright">
+		<s:text name="copyright" />
+	</p>
+	<p class="copyright">
+		<s:text name="version" />
+		<s:text name="versionNumber" />
+	</p>
 </div>

@@ -128,6 +128,12 @@
 			<result name="success">/index.jsp</result>
 		</action>
 
+		<action name="Shutdown" method="execute"
+			class="org.communitysqueeze.web.ShutdownAction">
+		    <result name="input">/shutdown.jsp</result>
+			<result name="success">/shutdown.jsp</result>
+		</action>
+
 		<action name="Fstab_*" method="{1}"
 			class="org.communitysqueeze.web.FstabAction">
 			<interceptor-ref name="defaultStack" /> 
@@ -166,6 +172,12 @@
 		    <result name="wait">/wait.jsp</result>
 			<result name="input">/fstabAdd.jsp</result> 
 			<result name="success" type="redirectAction">Fstab_populate</result>
+		</action>
+
+		<action name="Index" 
+			class="org.communitysqueeze.web.IndexAction">
+			<result name="input">/index.jsp</result> 
+		    <result name="success">/index.jsp</result>
 		</action>
 
 		<!-- 

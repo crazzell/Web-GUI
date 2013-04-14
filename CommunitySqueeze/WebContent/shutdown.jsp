@@ -5,7 +5,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-  <title>Community Squeeze OS: Shutdown</title>
+  <title><s:text name="shutdown.title" /></title>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
   <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -17,50 +17,57 @@
 <table>
   <tr>
     <td>
-      <a href="index.jsp"><img src="images/cs-logo-146x50.png" alt="Community Squeeze Logo" width="146" height="50" /></a>
+      <a href="index.jsp">
+        <img src="images/cs-logo-146x50.png" 
+             alt="Community Squeeze Logo" 
+             width="146" height="50" />
+      </a>
     </td>
     <td>
-      <h2>Shutdown: Reboot or Halt the device</h2>
+      <h2><s:text name="shutdown.header" /></h2>
     </td>
   </tr>
 </table>
 
 <hr />
 
-<h4>Control</h4>
+<h4><s:text name="header.control" /></h4>
 <s:form action="Reboot" theme="simple" >
 <table>
 <tr>
-<td align="right"><s:submit value="Halt" action="Halt" theme="simple" /></td>
-<td>To halt the device, press the <b>Halt</b> button and wait at least 30 seconds before removing power 
-for the process to complete.</td>
-</tr>
-<tr>
-<td align="right"><s:submit value="Reboot" action="Reboot" theme="simple" /></td>
-<td>To reboot the device, press the <b>Reboot</b> button.<td>
-</tr>
-<tr>
-<td>
-&nbsp;
+<td align="right">
+  <s:submit key="button.halt" action="Halt" />
 </td>
 <td>
-&nbsp;
+  <s:text name="shutdown.halt.mesg" />
 </td>
 </tr>
 <tr>
 <td align="right">
-  <s:checkbox name="cbForce" />
+  <s:submit key="button.reboot" action="Reboot" />
 </td>
 <td>
-  <s:label>Force (-f) reboot/halt</s:label>
+  <s:text name="shutdown.reboot.mesg" />
+<td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td align="right">
+  <s:checkbox name="cbForceReboot" />
+</td>
+<td>
+  <s:text name="cb.forceReboot" />
 </td>
 </tr>
 </table>
 </s:form>
 
 <hr />
-<h4>Notes</h4>
-<p>This configuration page is for the Rebooting and Halting the device.</p>
+<h4><s:text name="header.notes" /></h4>
+<p><s:text name="shutdown.notes.desc" /></p>
 
 <hr />
 <jsp:include page="Footer.jsp"/>

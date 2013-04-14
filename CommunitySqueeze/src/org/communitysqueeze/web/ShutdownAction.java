@@ -27,13 +27,13 @@ import com.opensymphony.xwork2.ActionSupport;
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
  */
-public abstract class ShutdownAction extends ActionSupport {
+public class ShutdownAction extends ActionSupport {
 
 	private static final long serialVersionUID = -4872499992773664480L;
 	
 	private final static Logger LOGGER = Logger.getLogger(ShutdownAction.class);
 	
-	protected boolean cbForce = false;
+	protected boolean cbForceReboot = false;
 
 	/**
 	 * 
@@ -50,19 +50,31 @@ public abstract class ShutdownAction extends ActionSupport {
 	/* (non-Javadoc)
 	 * @see com.opensymphony.xwork2.ActionSupport#execute()
 	 */
-	public abstract String execute() throws Exception;
+	public String execute() throws Exception {
+		
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute()");
+		}
+		
+		String result = SUCCESS;
+		if (LOGGER.isDebugEnabled()) {
+			LOGGER.debug("execute() returns " + result);
+		}
+		
+		return result;
+	}
 	
 	/**
-	 * @return the cbForce
+	 * @return the cbForceReboot
 	 */
-	public boolean isCbForce() {
-		return cbForce;
+	public boolean isCbForceReboot() {
+		return cbForceReboot;
 	}
 
 	/**
-	 * @param cbForce the cbForce to set
+	 * @param cbForceReboot the cbForceReboot to set
 	 */
-	public void setCbForce(boolean cbForce) {
-		this.cbForce = cbForce;
+	public void setCbForceReboot(boolean cbForceReboot) {
+		this.cbForceReboot = cbForceReboot;
 	}
 }

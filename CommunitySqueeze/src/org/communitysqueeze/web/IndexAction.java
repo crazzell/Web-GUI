@@ -20,65 +20,45 @@
 package org.communitysqueeze.web;
 
 import org.apache.log4j.Logger;
-import org.communitysqueeze.util.Util;
+
+import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * @author Clive Messer <clive.m.messer@gmail.com>
  *
  */
-public class RebootAction extends ShutdownAction {
+public class IndexAction extends ActionSupport {
 
-	private static final long serialVersionUID = 2521215570420058372L;
+	private static final long serialVersionUID = -8136983222053549666L;
 
-	private final static Logger LOGGER = Logger.getLogger(RebootAction.class);
+	private final static Logger LOGGER = Logger.getLogger(IndexAction.class);
 	
 	/**
 	 * 
 	 */
-	public RebootAction() {
+	public IndexAction() {
 		
 		super();
 		
 		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("RebootAction()");
+			LOGGER.debug("IndexAction()");
 		}
 	}
 	
+	/* (non-Javadoc)
+	 * @see com.opensymphony.xwork2.ActionSupport#execute()
+	 */
 	public String execute() throws Exception {
 		
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("execute()");
 		}
 		
-		String result = reboot();
+		String result = SUCCESS;
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("execute() returns " + result);
 		}
-		
+
 		return result;
 	}
-	
-	/**
-	 * @return
-	 * @throws Exception
-	 */
-	private String reboot() throws Exception {
-		
-		LOGGER.info("reboot()");
-
-		try {
-			Thread.sleep(1000);
-			Util.reboot(cbForceReboot);
-		} catch (Exception e) {
-			LOGGER.warn("Caught exception rebooting device!", e);
-			throw e;
-		}
-		
-		String result = SUCCESS;
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("reboot() returns " + result);
-		}
-		
-		return result;
-	}	
 }

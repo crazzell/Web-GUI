@@ -141,7 +141,7 @@ public abstract class InterfaceAction extends ActionSupport {
 	
 	protected String status;
 	
-	protected boolean cbForce = false;
+	protected boolean cbForceReboot = false;
 
 	/**
 	 * 
@@ -496,17 +496,17 @@ public abstract class InterfaceAction extends ActionSupport {
 	}
 	
 	/**
-	 * @return the cbForce
+	 * @return the cbForceReboot
 	 */
-	public boolean isCbForce() {
-		return cbForce;
+	public boolean isCbForceReboot() {
+		return cbForceReboot;
 	}
 
 	/**
-	 * @param cbForce the cbForce to set
+	 * @param cbForceReboot the cbForceReboot to set
 	 */
-	public void setCbForce(boolean cbForce) {
-		this.cbForce = cbForce;
+	public void setCbForceReboot(boolean cbForceReboot) {
+		this.cbForceReboot = cbForceReboot;
 	}
 
 	/**

@@ -68,7 +68,7 @@ public class HaltAction extends ShutdownAction {
 
 		try {
 			Thread.sleep(1000);
-			Util.halt(cbForce);
+			Util.halt(cbForceReboot);
 		} catch (Exception e) {
 			LOGGER.warn("Caught exception halting device!", e);
 			throw e;

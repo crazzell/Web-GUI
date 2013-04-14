@@ -5,7 +5,7 @@ pageEncoding="ISO-8859-1"%>
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-  <title>Community Squeeze OS: Ethernet Interface Configuration</title>
+  <title><s:text name="ethernet.title" /></title>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
   <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -17,16 +17,20 @@ pageEncoding="ISO-8859-1"%>
 <table>
   <tr>
     <td>
-      <a href="index.jsp"><img src="images/cs-logo-146x50.png" alt="Community Squeeze Logo" width="146" height="50" /></a>
+      <a href="index.jsp">
+      	<img src="images/cs-logo-146x50.png" 
+      		 alt="Community Squeeze Logo" 
+      		 width="146" height="50" />
+      </a>
     </td>
     <td>
-      <h2>Ethernet Interface Configuration</h2>
+      <h2><s:text name="ethernet.header" /></h2>
     </td>
   </tr>
 </table>
 
 <hr />
-<h4>Status</h4>
+<h4><s:text name="header.status" /></h4>
 <s:form action="Ethernet_populate" theme="simple" >
 <table>
 <tr>
@@ -36,15 +40,14 @@ pageEncoding="ISO-8859-1"%>
 </tr>
 <tr>
 <td align="right">
-  <s:submit action="Ethernet_populate" value="Refresh" />
+  <s:submit action="Ethernet_populate" key="button.refresh" />
 </td>
 </tr>
 </table>
 </s:form>
 
 <hr />
-
-<h4>Configuration</h4>
+<h4><s:text name="header.configuration" /></h4>
 <s:actionerror />
 <s:form action="EthernetSave_save" theme="simple">
 					
@@ -55,64 +58,33 @@ pageEncoding="ISO-8859-1"%>
 
 <tr>
 <td colspan="2" align="right">
-	<s:reset key="button.reset" />
-	<s:submit value="Save" action="EthernetSave_save" />
+  <s:reset key="button.reset" />
+  <s:submit action="EthernetSave_save" key="button.save" />
 </td>
 </tr>
 <tr>
 <td colspan="2" align="right">
-	<s:submit value="Save and Reboot" action="EthernetSave_saveAndReboot" />
-	<!--
-	<s:submit value="Interface Up" action="Ethernet_up" />
-	<s:submit value="Interface Down" action="Ethernet_down" />
-	<s:submit value="Interface Down / Interface Up" action="Ethernet_downUp" />
-	-->
+  <s:submit action="EthernetSave_saveAndReboot" key="button.saveAndReboot" />
+  <!--
+	<s:submit key="button.interfaceUp" action="Ethernet_up" />
+	<s:submit key="button.interfaceDown" action="Ethernet_down" />
+	<s:submit key="button.interfaceDownUp" action="Ethernet_downUp" />
+  -->
 </td>
 </tr>
 <tr>
-<td>
-&nbsp;
-</td>
-<td>
-&nbsp;
-</td>
-</tr>
-<tr>
-<td />
-<td align="right">
-  <s:checkbox name="cbForce" />
-  <s:label>Force (-f) reboot</s:label>
+<td colspan="2" align="right">
+  <s:checkbox name="cbForceReboot" />
+  <s:text name="cb.forceReboot" />
 </td>
 </tr>
 </table>
 </s:form>
 
 <hr />
-<h4>Notes</h4>
-<p>This configuration page is for the Ethernet Network Interface.</p>
-<ul>
-<li>The <i>Status</i> area at the top of the page, shows the current interface status and 
-is the output returned from running the command, <i>ifconfig&nbsp;&lt;interface_name&gt;</i>.
-It may be refreshed by pressing the <i>Refresh</i> button.</li>
-<li>The <i>Configuration</i> section is used to set interface parameters.</li>
-<li>By default, none of the field values are populated and the interface will 
-try to obtain an IP Address via dhcp. If you wish to use a static IP Address, 
-you should populate the <i>IP Address</i>, <i>Netmask</i> and <i>Gateway</i> 
-fields. To enable DNS resolution, you should also populate at least one DNS 
-server IP Address (eg. <i>DNS1</i>) and optionally the local network 
-<i>Domain</i> name.</li>
-<li>Having configured the Ethernet Network Interface, press the 
-&quot;Save and Reboot&quot; button. The web page will submit the 
-parameters you have entered. If any of the configuration parameters 
-fail server-side validation, 
-the web page will return with one (or more) messages, 
-<font color="red">highlighted in red</font>, at 
-the beginning of the <i>Configuration</i> section. These messages should be 
-self-explanatory and enable you to &quot;adjust&quot; the 
-indicated parameters, before you attempt to submit them again.
-If the parameters you have entered pass validation, the device will be rebooted 
-and the network interface initialised using the saved parameters.</li>
-</ul>
+<h4><s:text name="header.notes" /></h4>
+<p><s:text name="ethernet.notes.desc" /></p>
+<ul><s:text name="ethernet.notes" /></ul>
 
 <hr />
 <jsp:include page="Footer.jsp"/>
