@@ -59,7 +59,7 @@
   <s:checkbox name="cbForceReboot" />
 </td>
 <td>
-  <s:text name="cb.forceReboot" />
+  <s:text name="cb.forceRebootHalt" />
 </td>
 </tr>
 </table>
