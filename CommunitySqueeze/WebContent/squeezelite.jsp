@@ -5,7 +5,7 @@
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-  <title>Community Squeeze OS: Squeezelite Player Configuration and Control</title>
+  <title><s:text name="squeezelite.title" /></title>
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
   <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -18,12 +18,13 @@
   <tr>
     <td>
       <a href="index.jsp">
-        <img src="images/cs-logo-146x50.png" alt="Community Squeeze Logo" 
-          width="146" height="50" />
+        <img src="images/cs-logo-146x50.png" 
+        	 alt="Community Squeeze Logo" 
+          	 width="146" height="50" />
       </a>
     </td>
     <td>
-      <h2>Squeezelite Player Configuration and Control</h2>
+      <h2><s:text name="squeezelite.header" /></h2>
     </td>
   </tr>
 </table>
@@ -39,202 +40,160 @@
 </tr>
 <tr>
 <td align="right">
-	<s:submit action="Squeezelite_populate" value="Refresh" />
-	<s:submit action="Squeezelite_enableService" value="Enable" />
-	<s:submit action="Squeezelite_disableService" value="Disable" />
-	<s:submit action="Squeezelite_startService" value="Start" />
-	<s:submit action="Squeezelite_stopService" value="Stop" />
-	<s:submit action="Squeezelite_restartService" value="Restart" />
+	<s:submit action="Squeezelite_populate" key="button.refresh" />
+	<s:submit action="Squeezelite_enableService" key="button.enable" />
+	<s:submit action="Squeezelite_disableService" key="button.disable" />
+	<s:submit action="Squeezelite_startService" key="button.start" />
+	<s:submit action="Squeezelite_stopService" key="button.stop" />
+	<s:submit action="Squeezelite_restartService" key="button.restart" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:submit action="Squeezelite_enableAndStartService" value="Enable and Start" />
-	<s:submit action="Squeezelite_disableAndStopService" value="Disable and Stop" />
+	<s:submit action="Squeezelite_enableAndStartService" key="button.enableAndStart" />
+	<s:submit action="Squeezelite_disableAndStopService" key="button.disableAndStop" />
 </td>
 </tr>
 </table>
 </s:form>
 
 <hr />
-<h4>Configuration</h4>
+<h4><s:text name="header.configuration" /></h4>
 <s:actionerror />
 <s:form action="SqueezeliteSave_save" theme="simple" >
 <table>
 <tr>
 <td align="right">
-	<s:label>Name</s:label>
+	<s:text name="squeezelite.label.name" />
 	<img src='struts/tooltip.gif'
-	  title="Set the player name"
-      alt="Set the player name" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.name')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.name')" />" />
 </td>
 <td>
-	<s:textfield name="name" label="Name" 
-		tooltip="Set the player name" 
-		cssClass="size-300px" />
+	<s:textfield name="name" cssClass="size-300px" />
 </td>      
 </tr>
 <tr>
 <td align="right">
-    <s:label>MAC&nbsp;Address</s:label>
+    <s:text name="squeezelite.label.mac" />
 	<img src='struts/tooltip.gif'
-	  title="Set mac address, format: ab:cd:ef:12:34:56"
-      alt="Set mac address, format: ab:cd:ef:12:34:56" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.mac')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.mac')" />" />
 </td>
 <td>
-	<s:textfield name="mac" label="MAC Address" 
-		tooltip="Set mac address, format: ab:cd:ef:12:34:56" 
-		cssClass="size-300px" />
+	<s:textfield name="mac" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:label>Audio&nbsp;Device</s:label>
+	<s:text name="squeezelite.label.audioDev" />
 	<img src='struts/tooltip.gif'
-	  title="Specify output device, default 'default' if not specified"
-      alt="Specify output device, default 'default' if not specified" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.audioDev')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.audioDev')" />" />
 </td>
 <td>
-	<s:select name="audioDev" list="audioDevList" label="Audio Device" 
-		tooltip="Specify output device, default 'default' if not specified" />
+	<s:select name="audioDev" list="audioDevList" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:label>Max&nbsp;Sample&nbsp;Rate</s:label>
+	<s:text name="squeezelite.label.maxRate" />
 	<img src='struts/tooltip.gif'
-	  title="Max sample rate for output device, enables output device to be off when squeezelite is started, format: <rate>"
-      alt="Max sample rate for output device, enables output device to be off when squeezelite is started, format: <rate>" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.maxRate')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.maxRate')" />" />
 </td>
 <td>
-	<s:textfield name="maxRate" label="Max Sample Rate" 
-		tooltip="Max sample rate for output device, enables output device to be off when squeezelite is started, format: <rate>" 
-		cssClass="size-300px" />
+	<s:textfield name="maxRate" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:label>Log&nbsp;File</s:label>
+	<s:text name="squeezelite.label.logFile" />
 	<img src='struts/tooltip.gif'
-	  title="Write debug to logfile, format: <logfile>"
-      alt="Write debug to logfile, format: <logfile>" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.logFile')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.logFile')" />" />
 </td>
 <td>
-	<s:textfield name="logFile" label="Log File" 
-		tooltip="Write debug to logfile, format: <logfile>" 
-		cssClass="size-300px" />
+	<s:textfield name="logFile" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:label>Log&nbsp;Level</s:label>
+	<s:text name="squeezelite.label.logLevel" />
 	<img src='struts/tooltip.gif'
-	  title="Set logging level, format: <log>=<level> [<log>=<level> <log>=<level> ...],
-		 logs: all|slimproto|stream|decode|output, 
-		 level: info|debug|sdebug"
-      alt="Set logging level, format: <log>=<level> [<log>=<level> <log>=<level> ...],
-		 logs: all|slimproto|stream|decode|output, 
-		 level: info|debug|sdebug" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.logLevel')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.logLevel')" />" />
 </td>
 <td>
-	<s:textfield name="logLevel" label="Log Level" 
-		tooltip="Set logging level, format: <log>=<level> [<log>=<level> <log>=<level> ...],
-		 logs: all|slimproto|stream|decode|output, 
-		 level: info|debug|sdebug" 
-		cssClass="size-300px" />
+	<s:textfield name="logLevel" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:label>RT&nbsp;Thread&nbsp;Priority</s:label>
+	<s:text name="squeezelite.label.priority" />
 	<img src='struts/tooltip.gif'
-	  title="Set real time priority of output thread"
-      alt="Set real time priority of output thread" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.priority')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.priority')" />" />
 </td>
 <td>
-	<s:select name="priority" list="priorityList" label="RT Thread Priority" 
-		tooltip="Set real time priority of output thread" />
+	<s:select name="priority" list="priorityList" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:label>Buffer</s:label>
+	<s:text name="squeezelite.label.buffer" />
 	<img src='struts/tooltip.gif'
-	  title="Specify internal Stream and Output buffer sizes in Kbytes, format: <stream>:<output>"
-      alt="Specify internal Stream and Output buffer sizes in Kbytes, format: <stream>:<output>" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.buffer')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.buffer')" />" />
 </td>
 <td>
-	<s:textfield name="buffer" label="Buffer" 
-		tooltip="Specify internal Stream and Output buffer sizes in Kbytes, format: <stream>:<output>" 
-		cssClass="size-300px" />
+	<s:textfield name="buffer" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:label>Codec</s:label>
+	<s:text name="squeezelite.label.codec" />
 	<img src='struts/tooltip.gif'
-	  title="Restrict codecs those specified, otherwise loads all available codecs; 
-		 format: <codec1>[,<codec2>,<codec3>,...]
-		 known codecs: flac,pcm,mp3,ogg,aac (mad,mpg for specific mp3 codec)"
-      alt="Restrict codecs those specified, otherwise loads all available codecs; 
-		 format: <codec1>[,<codec2>,<codec3>,...]
-		 known codecs: flac,pcm,mp3,ogg,aac (mad,mpg for specific mp3 codec)" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.codec')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.codec')" />" />
 </td>
 <td>
-	<s:textfield name="codec" label="Codec" 
-		tooltip="Restrict codecs those specified, otherwise loads all available codecs; 
-		 format: <codec1>[,<codec2>,<codec3>,...]
-		 known codecs: flac,pcm,mp3,ogg,aac (mad,mpg for specific mp3 codec)" 
-		cssClass="size-300px" />
+	<s:textfield name="codec" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:label>Alsa&nbsp;Params</s:label>
+	<s:text name="squeezelite.label.alsaParams" />
 	<img src='struts/tooltip.gif'
-	  title="Specify ALSA params to open output device, format: <b>:<c>:<f>:<m>, 
-		 b = buffer time in ms, 
-		 c = period count, 
-		 f = sample format (16|24|24_3|32), 
-		 m = use mmap (0|1)"
-      alt="Specify ALSA params to open output device, format: <b>:<c>:<f>:<m>, 
-		 b = buffer time in ms, 
-		 c = period count, 
-		 f = sample format (16|24|24_3|32), 
-		 m = use mmap (0|1)" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.alsaParams')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.alsaParams')" />" />
 </td>
 <td>
-	<s:textfield name="alsaParams" label="Alsa Params" 
-		tooltip="Specify ALSA params to open output device, format: <b>:<c>:<f>:<m>, 
-		 b = buffer time in ms, 
-		 c = period count, 
-		 f = sample format (16|24|24_3|32), 
-		 m = use mmap (0|1)" 
-		cssClass="size-300px" />
+	<s:textfield name="alsaParams" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
 <td align="right">
-	<s:label>Server&nbsp;IP&nbsp;Address</s:label>
+	<s:text name="squeezelite.label.serverIp" />
 	<img src='struts/tooltip.gif'
-	  title="Connect to specified server, otherwise uses autodiscovery to find server"
-      alt="Connect to specified server, otherwise uses autodiscovery to find server" />
+	  	 title="<s:property value="getText('squeezelite.tooltip.serverIp')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.serverIp')" />" />
 </td>
 <td>
-	<s:textfield name="serverIp" label="Server IP Address" 
-		tooltip="Connect to specified server, otherwise uses autodiscovery to find server"
-		cssClass="size-300px" />
+	<s:textfield name="serverIp" cssClass="size-300px" />
 </td>
 </tr>
 <tr>
 <td colspan="2" align="right">
 	<s:reset key="button.reset"/>
-	<s:submit action="SqueezeliteSave_save" value="Save" />
+	<s:submit action="SqueezeliteSave_save" 
+			  key="button.save" />
 </td>
 </tr>
 <tr>
 <td colspan="2" align="right">
-	<s:submit action="SqueezeliteSave_saveAndRestart" value="Save and Conditionally Restart" />
+	<s:submit action="SqueezeliteSave_saveAndRestart" 
+			  key="button.saveAndConditionallyRestart" />
 </td>
 </tr>
 </table>
@@ -250,71 +209,10 @@
 </s:form>
 
 <hr />
-<h4>Notes</h4>
-<p>This configuration page is for the Squeezelite Player Service.</p>
+<h4><s:text name="header.notes" /></h4>
+<p><s:text name="squeezelite.notes.desc" /></p>
 <ul>
-<li>The Squeezelite Player runs on the device as a systemd service, under  
-user <i>squeezelite</i>, group <i>squeezelite</i>, with RT privileges, 
-allowing ALSA memory to be locked and the process output thread to run 
-at a higher priority. The default output thread priority if not explicitly set, 
-(using the drop-down field in the <i>Configuration</i> section above), is 46. 
-The process is started with a nice value of -10. The service configuration file 
-that you are editing using this web interface is 
-&quot;/etc/sysconfig/squeezelite&quot;.</li>
-<li>The <i>Service</i> status area at the top of the page, shows the current 
-Squeezelite Player service status and is the output returned from running 
-the command, &quot;systemctl&nbsp;status&nbsp;squeezelite&quot;.</li>
-<li>The <i>Service</i> status area may be refreshed by pressing the 
-<i>Refresh</i> button.
-The service can be <i>Enable</i>d, <i>Disable</i>d, <i>Start</i>ed, 
-(if not already running), <i>Stop</i>ped, (if running), or <i>Restart</i>ed, 
-(stopped and started if running, or started if not running), using the 
-respective control buttons.</li>
-<li>Each configuration item has a tooltip, which provides an explanation of 
-what the option does as well as the expected format for the option. 
-Your web browser should display the tooltips when you move the mouse pointer 
-over the &quot;i&quot; image icon next to the option.</li>
-<li>By default on the Wandboard, the sgtl5000 codec is configured as the audio device, 
-and the player name is set to &quot;SqueezeliteWAND&quot;</li>
-<li>If the selected <i>Audio Device</i> name contains the string, 
-&quot;sgtl5000&quot;, and the <i>Alsa Params</i> field is left unpopulated, 
-a default value of &quot;40::16:&quot; will be submitted to the squeezelite config 
-file, forcing the output of 16 bit audio. Althought the sgtl5000 codec is 24 bit capable, 
-at the present time it results in distorted sound. Please be aware that once this 
-value has been set and saved, it will remain if you change the selected 
-<i>Audio Device</i>. So if you choose another device which is 24 bit capable, 
-before saving, remember to delete the contents of the <i>Alsa Params</i> field.</li>
-<li>Although a <i>plughw</i> selection should appear in the <i>Audio Device</i> 
-drop-down for each available audio device, you should choose the <i>hw</i> selection. 
-Squeezelite will automatically try and open the audio hardware device at the 
-requested sample rate, and fallback to re-opening it using <i>plughw</i> if the 
-hardware does not directly support the requested sample rate.</li>
-<li>If the <i>Name</i> field is not populated before saving the configuration, 
-the default value, &quot;SqueezeliteWAND&quot;, will be written to the 
-config file.</li>
-<li>If the <i>MAC Address</i> field is not populated before saving the configuration, 
-the MAC address of the ethernet interface will be written to the config file.</li>
-<li>If the <i>Log File</i> field is not populated before saving the configuration, 
-the default value, &quot;/var/log/squeezelite/squeezelite.log&quot; will be 
-written to the config file.</li>
-<li>The configuration can be saved by pressing the <i>Save</i> button, in which case 
-it will not take effect until the service is next manually started or restarted. 
-Alternatively, the configuration may be saved using the 
-<i>Save and Conditionally Restart</i> button, 
-in which case the configuration will be saved and the service will be 
-conditionally restarted. ie. If the service is running it will be restarted. 
-If it is not already running, it will not be started. You will need to 
-manually start it by pressing the <i>Start</i> button.</li>
-<li>When you submit the configuration to be saved, it will be validated 
-on the server-side. If any of the configuration parameters fail server-side 
-validation, the web page will return with one (or more) messages, 
-<font color="red">highlighted in red</font>, at 
-the beginning of the <i>Configuration</i> section. These messages should be 
-self-explanatory and enable you to &quot;adjust&quot; the 
-indicated parameters, before you attempt to submit them again.</li>
-<li>The Squeezelite program was written by and is Copyright &copy; 2013 Adrian Smith, 
-otherwise known as <i>Triode</i> on the SlimDevices Forum. It is free software and 
-released under the GNU GPL. Thank you, Adrian!</li>
+<s:text name="squeezelite.notes" />
 </ul>
 
 <hr />

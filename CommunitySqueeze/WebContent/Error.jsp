@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 <head>
-	<title>Community Squeeze OS: Unexpected Error</title>
+	<title><s:text name="error.title" /></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="images/favicon.ico" rel="icon" type="image/x-icon" />
@@ -20,12 +20,13 @@
 		<tr>
 			<td>
 				<a href="index.jsp"> 
-			      <img src="images/cs-logo-146x50.png" alt="Community Squeeze Logo"
-					   width="146" height="50" />
+			      <img src="images/cs-logo-146x50.png" 
+			      	   alt="Community Squeeze Logo"
+			      	   width="146" height="50" />
 				</a>
 			</td>
 			<td>
-				<h2>An unexpected error has occured!</h2>
+				<h2><s:text name="error.header" /></h2>
 			</td>
 		</tr>
 	</table>
@@ -39,14 +40,15 @@
 	-->
 
 	<hr />
-	<h3>Error Message</h3>
+	<h3><s:text name="header.errorMessage" /></h3>
 	<s:actionerror />
 	<p><s:property value="%{exception.message}" /></p>
 
 	<hr />
-	<h3>Technical Details</h3>
+	<h3><s:text name="header.techDetails" /></h3>
 	<p><s:property value="%{exceptionStack}" /></p>
 
+	<hr />
 	<jsp:include page="Footer.jsp" />
 </body>
 </html>
