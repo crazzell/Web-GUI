@@ -30,7 +30,7 @@
 </table>
 
 <hr />
-<h4>Service</h4>
+<h4><s:text name="header.service" /></h4>
 <s:form action="Squeezelite_populate" theme="simple" >
 <table>
 <tr>
