@@ -33,12 +33,12 @@ public class FstabAddAction extends ActionSupport {
 
 	private final static Logger LOGGER = Logger.getLogger(FstabAddAction.class);
 
-	private String spec = null;
-	private String file = null;
-	private String vfsType = null;
-	private String mntOps = "default";
-	private int freq = 0;
-	private int passNo = 0;
+	protected String spec = null;
+	protected String file = null;
+	protected String vfsType = null;
+	protected String mntOps = "defaults";
+	protected int freq = 0;
+	protected int passNo = 0;
 
 	/**
 	 * 
@@ -68,18 +68,6 @@ public class FstabAddAction extends ActionSupport {
 		}
 		
 		return result;
-	}
-
-	/* (non-Javadoc)
-	 * @see com.opensymphony.xwork2.ActionSupport#validate()
-	 */
-	@Override
-	public void validate() {
-		if (LOGGER.isDebugEnabled()) {
-			LOGGER.debug("validate()");
-		}
-		
-		addActionError("Save not yet implemented!");
 	}
 
 	/**

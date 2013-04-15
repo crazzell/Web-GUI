@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@taglib uri="/struts-tags" prefix="s"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+ "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-  <title>Community Squeeze OS: File Systems</title>
+  <title><s:text name="fstab.title" /></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
   <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -24,29 +25,29 @@
       </a>
     </td>
     <td>
-      <h2>File Systems</h2>
+      <h2><s:text name="fstab.header" /></h2>
     </td>
   </tr>
 </table>
 
 <hr />
-<h4>Mounted File Systems</h4>
+<h4><s:text name="header.mountedFileSystems" /></h4>
 <s:form action="Fstab" theme="simple">
 <table>
 <tr>
 <td>
-	<s:checkbox name="cbAll" label="All Filesystem Types" />
-	<s:label>All Filesystem Types</s:label>
-	<s:checkbox name="cbCifs" label="cifs" />
-	<s:label>cifs</s:label>
-	<s:checkbox name="cbExt4" label="ext4" />
-	<s:label>ext4</s:label>
-	<s:checkbox name="cbExt3" label="ext3" />
-	<s:label>ext3</s:label>
-	<s:checkbox name="cbExt2" label="ext2" />
-	<s:label>ext2</s:label>
-	<s:checkbox name="cbNfs" label="nfs" />
-	<s:label>nfs</s:label>
+	<s:checkbox name="cbAll" />
+	<s:text name="cb.allFileSystemTypes" />
+	<s:checkbox name="cbCifs" />
+	<s:text name="cb.cifs" />
+	<s:checkbox name="cbExt4" />
+	<s:text name="cb.ext4" />
+	<s:checkbox name="cbExt3" />
+	<s:text name="cb.ext3" />
+	<s:checkbox name="cbExt2" />
+	<s:text name="cb.ext2" />
+	<s:checkbox name="cbNfs" />
+	<s:text name="cb.nfs" />
 </td>
 </tr>
 <tr>
@@ -61,12 +62,15 @@
 </tr>
 </table>
 </s:form>
-<hr />
-<h4>Fstab: Add</h4>
-<a href="fstabAdd.jsp">Add a new entry to /etc/fstab</a>
 
 <hr />
-<h4>Fstab: Modify</h4>
+<h4><s:text name="header.fstabAdd" /></h4>
+<a href="<s:url  action="FstabAdd.action" />">
+  <s:text name="fstab.addEntry.message" />
+</a>
+
+<hr />
+<h4><s:text name="header.fstabModify" /></h4>
 <s:actionerror />
 <s:form action="FstabSave_save" theme="simple">
 
@@ -75,14 +79,14 @@
 <table>
 <thead>
 <tr>
-<td>Specification</td>
-<td>Mount Point</td>
-<td>Type</td>
-<td>Mount Options</td>
-<td>Freq</td>
-<td>Pass</td>
-<td>Action</td>
-<td>Delete</td>
+<td><s:text name="fstab.label.spec" /></td>
+<td><s:text name="fstab.label.file" /></td>
+<td><s:text name="fstab.label.vfsType" /></td>
+<td><s:text name="fstab.label.mntOps" /></td>
+<td><s:text name="fstab.label.freq" /></td>
+<td><s:text name="fstab.label.passNo" /></td>
+<td><s:text name="fstab.label.action" /></td>
+<td><s:text name="fstab.label.delete" /></td>
 </tr>
 </thead>
 <s:iterator value="fstabList" id="fstabList">
@@ -99,16 +103,16 @@
 </s:iterator>
 <tr>
 <td colspan="8" align="left">
-	<s:submit action="Fstab_populate" value="Refresh" />
-	<s:submit action="FstabSave_save" value="Submit" />
+	<s:submit action="Fstab_populate" key="button.refresh" />
+	<s:submit action="FstabSave_save" key="button.submit" />
 	<s:reset />
 </td>
 </tr>
 </table>
 </s:form>
 <hr />
-<h4>Notes</h4>
-<p>This configuration page is for viewing the mounted file systems and modifying /etc/fstab.</p>
+<h4><s:text name="header.notes" /></h4>
+<p><s:text name="fstab.notes.desc" /></p>
 
 <hr />
 <jsp:include page="Footer.jsp"/>

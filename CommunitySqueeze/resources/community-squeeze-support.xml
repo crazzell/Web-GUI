@@ -163,6 +163,12 @@
 
 		<action name="FstabAdd" method="execute"
 			class="org.communitysqueeze.web.FstabAddAction">
+			<result name="input">/fstabAdd.jsp</result> 
+			<result name="success">/fstabAdd.jsp</result>
+		</action>
+
+		<action name="FstabAddSave" method="execute"
+			class="org.communitysqueeze.web.FstabAddSaveAction">
 			<interceptor-ref name="defaultStack" /> 
 			<interceptor-ref name="execAndWait">
 				<param name="threadPriority">10</param>

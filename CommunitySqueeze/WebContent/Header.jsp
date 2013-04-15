@@ -37,7 +37,7 @@
 		</a>
 	</span> 
 	<span id="nav-help">
-		<a href="Index.action">
+		<a href="help.jsp">
 			<s:text name="nav.help" />
 		</a>
 	</span> 

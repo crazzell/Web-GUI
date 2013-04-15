@@ -1,11 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<%@taglib uri="/struts-tags" prefix="s"%>
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="/struts-tags" prefix="s"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+ "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-  <title>Community Squeeze OS: Add Fstab Entry</title>
+  <title><s:text name="fstabAdd.title" /></title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
   <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
   <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
@@ -18,28 +19,29 @@
   <tr>
     <td>
       <a href="index.jsp">
-        <img src="images/cs-logo-146x50.png" alt="Community Squeeze Logo" 
-          width="146" height="50" />
+        <img src="images/cs-logo-146x50.png" 
+        	 alt="Community Squeeze Logo"
+        	 width="146" height="50" />
       </a>
     </td>
     <td>
-      <h2>Add Fstab Entry</h2>
+      <h2><s:text name="fstabAdd.header" /></h2>
     </td>
   </tr>
 </table>
 
 <hr />
 
-<h4>Configuration</h4>
+<h4><s:text name="header.configuration" /></h4>
 <s:actionerror />
-<s:form action="FstabAdd" theme="simple" >
+<s:form action="FstabAddSave" theme="simple" >
 <table>
 <tr>
 <td align="right">
-	<s:label>Specification</s:label>
+	<s:text name="fstab.label.spec" />
 	<img src='struts/tooltip.gif'
-	  title="The block special device or remote filesystem to be mounted"
-      alt="The block special device or remote filesystem to be mounted" />
+		 title="<s:property value="getText('fstab.tooltip.spec')" />"
+		 alt="<s:property value="getText('fstab.tooltip.spec')" />" />
 </td>
 <td>
 	<s:textfield name="spec" cssClass="size-300px" />
@@ -47,10 +49,10 @@
 </tr>
 <tr>
 <td align="right">
-    <s:label>Mount&nbsp;Point</s:label>
+    <s:text name="fstab.label.file" />
 	<img src='struts/tooltip.gif'
-	  title="The mount point for the filesystem. eg. /mnt"
-      alt="The mount point for the filesystem. eg. /mnt" />
+		 title="<s:property value="getText('fstab.tooltip.file')" />"
+		 alt="<s:property value="getText('fstab.tooltip.file')" />" />
 </td>
 <td>
 	<s:textfield name="file" cssClass="size-300px" />
@@ -58,10 +60,10 @@
 </tr>
 <tr>
 <td align="right">
-	<s:label>Type</s:label>
+	<s:text name="fstab.label.vfsType" />
 	<img src='struts/tooltip.gif'
-	  title="The type of the filesystem. eg. nfs, cifs"
-      alt="The type of the filesystem. eg. nfs, cifs" />
+		 title="<s:property value="getText('fstab.tooltip.vfsType')" />"
+		 alt="<s:property value="getText('fstab.tooltip.vfsType')" />" />
 </td>
 <td>
 	<s:textfield name="vfsType" cssClass="size-300px" />
@@ -69,10 +71,10 @@
 </tr>
 <tr>
 <td align="right">
-	<s:label>Mount&nbsp;Options</s:label>
+	<s:text name="fstab.label.mntOps" />
 	<img src='struts/tooltip.gif'
-	  title="The mount options associated with the filesystem. eg. defaults"
-      alt="The mount options associated with the filesystem. eg. defaults" />
+		 title="<s:property value="getText('fstab.tooltip.mntOps')" />"
+		 alt="<s:property value="getText('fstab.tooltip.mntOps')" />" />
 </td>
 <td>
 	<s:textfield name="mntOps" cssClass="size-300px" />
@@ -80,12 +82,10 @@
 </tr>
 <tr>
 <td align="right">
-	<s:label>Frequency</s:label>
+	<s:text name="fstabAdd.label.freq" />
 	<img src='struts/tooltip.gif'
-	  title="Used by the dump command to determine which filesystems need to be dumped.
-	         Usually &quot;0&quot;"
-      alt="Used by the dump command to determine which filesystems need to be dumped.
-           Usually &quot;0&quot;" />
+		 title="<s:property value="getText('fstab.tooltip.freq')" />"
+		 alt="<s:property value="getText('fstab.tooltip.freq')" />" />
 </td>
 <td>
 	<s:textfield name="freq" cssClass="size-50px" />
@@ -93,12 +93,10 @@
 </tr>
 <tr>
 <td align="right">
-	<s:label>Pass&nbsp;Number</s:label>
+	<s:text name="fstabAdd.label.passNo" />
 	<img src='struts/tooltip.gif'
-	  title="Used by the fsck program to determine the order in which filesystem checks are done at reboot time.
-	         Usually &quot;2&quot; for a local fs and &quot;0&quot; for a remote fs"
-      alt="Used by the fsck program to determine the order in which filesystem checks are done at reboot time.
-           Usually &quot;2&quot; for a local fs and &quot;0&quot; for a remote fs" />
+		 title="<s:property value="getText('fstab.tooltip.passNo')" />"
+		 alt="<s:property value="getText('fstab.tooltip.passNo')" />" />
 </td>
 <td>
 	<s:textfield name="passNo" cssClass="size-50px" />
@@ -107,7 +105,7 @@
 <tr>
 <td colspan="2" align="right">
 	<s:reset key="button.reset"/>
-	<s:submit action="FstabAdd" value="Save" />
+	<s:submit action="FstabAddSave" key="button.save" />
 </td>
 </tr>
 </table>
@@ -115,8 +113,8 @@
 </s:form>
 
 <hr />
-<h4>Notes</h4>
-<p>This configuration page is for adding an entry to /etc/fstab.</p>
+<h4><s:text name="header.notes" /></h4>
+<p><s:text name="fstabAdd.notes.desc" /></p>
 
 <hr />
 <jsp:include page="Footer.jsp"/>
