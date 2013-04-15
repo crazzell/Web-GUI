@@ -66,6 +66,11 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String WANDBOARD_DEFAULT_AUDIO_DEVICE_ALSA_PARAMS = 
 			"40::16:";
 	
+	private final static String WANDBOARD_HDMI_AUDIO_DEVICE = 
+			"imxhdmisoc";
+	private final static String WANDBOARD_HDMI_AUDIO_DEVICE_ALSA_PARAMS = 
+			":::0";
+
 	private final static String CFG_NAME = "NAME";
 	private final static String CFG_NAME_OPTION = "-n ";
 	private final static String CFG_MAC = "MAC";
@@ -262,10 +267,13 @@ public class SqueezeliteAction extends SystemctlAction {
 		if (audioDev != null && audioDev.trim().length() > 0) {
 			list.add(CFG_AUDIO_DEV + "=\"" + CFG_AUDIO_DEV_OPTION + audioDev.trim() + "\"");
 			/*
-			 * If the user chooses sgtl5000audio device, but doesn't set alsaParams, use these
+			 * If the user chooses sgtl5000audio or imxhdmisoc device, but doesn't set alsaParams, 
+			 * use the defaults to works around issues....
 			 */
 			if (audioDev.contains(WANDBOARD_DEFAULT_AUDIO_DEVICE)) {
 				tmpAlsaParams = WANDBOARD_DEFAULT_AUDIO_DEVICE_ALSA_PARAMS;
+			} else if (audioDev.contains(WANDBOARD_HDMI_AUDIO_DEVICE)) {
+				tmpAlsaParams = WANDBOARD_HDMI_AUDIO_DEVICE_ALSA_PARAMS;
 			}
 		}
 		
