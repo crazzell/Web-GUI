@@ -56,15 +56,13 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 		
 		if (name != null && name.trim().length() > 0) {
 			if (!name.trim().matches(Validate.REGEX_ALPHA_NUMERIC)) {
-				addActionError("Invalid Name! " + 
-						"Format is <name>, alpha/numeric");
+				addActionError(getText("squeezelite.validation.name.fail"));
 			}
 		}
 		
 		if (mac != null && mac.trim().length() > 0) {
 			if (!mac.trim().matches(Validate.REGEX_MAC_ADDRESS)) {
-				addActionError("Invalid MAC Address! " + 
-						"Format is <mac>, eg. ab:cd:ef:12:34:56");
+				addActionError(getText("squeezelite.validation.mac.fail"));
 			}
 		}
 		
@@ -72,12 +70,10 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 			try {
 				int rate = Integer.parseInt(maxRate.trim());
 				if (rate > Validate.SQUEEZELITE_MAX_SAMPLE_RATE) {
-					addActionError("Invalid Max Sample Rate! " + 
-							"Format is <rate>, an integer value <= 384000");
+					addActionError(getText("squeezelite.validation.maxRate.fail"));
 				}
 			} catch (NumberFormatException nfe) {
-				addActionError("Invalid Max Sample Rate! " + 
-						"Format is <rate>, an integer value <= 384000");
+				addActionError(getText("squeezelite.validation.maxRate.fail"));
 			}
 		}
 		
@@ -88,20 +84,25 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 				
 				String[] logLevelList = tempList[i].split("=");
 				if (logLevelList.length != 2) {
-					addActionError("Invalid Log Level! " + 
-							"Format is <log>=<level> [<log>=<level> <log>=<level> ...]");
+					addActionError(getText("squeezelite.validation.logLevel.fail"));
 					break;
 				} else {
 					String type = logLevelList[0];
 					String level = logLevelList[1];
 					if (!validateLogName(type)) {
-						addActionError("Invalid Log Level '" + type + "=" + level + 
-								"'! Valid logs: " + Util.arrayToString(Validate.SQUEEZELITE_LOG_NAMES));
+						addActionError(
+								getText("squeezelite.validation.logLevel.fail.invalid") + 
+								" '" + type + "=" + level + "'! " +
+								getText("squeezelite.validation.logLevel.fail.validLogs") + 
+								": " + Util.arrayToString(Validate.SQUEEZELITE_LOG_NAMES));
 						break;
 					}
 					if (!validateLogLevel(level)) {
-						addActionError("Invalid Log Level '" + type + "=" + level + 
-								"'! Valid levels: " + Util.arrayToString(Validate.SQUEEZELITE_LOG_LEVELS));
+						addActionError(
+								getText("squeezelite.validation.logLevel.fail.invalid") + 
+								" '" + type + "=" + level + "'! " + 
+								getText("squeezelite.validation.logLevel.fail.validLevels") + 
+								": " + Util.arrayToString(Validate.SQUEEZELITE_LOG_LEVELS));
 						break;
 					}
 				}
@@ -111,17 +112,13 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 		if (buffer != null && buffer.trim().length() > 0) {
 			String[] tempList = buffer.trim().split(":");
 			if (tempList.length != 2) {
-				addActionError("Invalid Buffer! " + 
-						"Format is <stream:output>, " + 
-						"where stream and output are integers");
+				addActionError(getText("squeezelite.validation.buffer.fail"));
 			} else {
 				try {
 					Integer.parseInt(tempList[0]);
 					Integer.parseInt(tempList[1]);
 				} catch (NumberFormatException nfe) {
-					addActionError("Invalid Buffer! " + 
-							"Format is <stream:output>, " + 
-							"where stream and output are integers");
+					addActionError(getText("squeezelite.validation.buffer.fail"));
 				}
 			}
 		}
@@ -130,9 +127,11 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 			String[] tempList = codec.trim().split(",");
 			for (int i = 0; i < tempList.length; i++) {
 				if (!validateCodec(tempList[i])) {
-					addActionError("Invalid Codec '" + tempList[i] + 
-							"'! Valid codecs: " + 
-							Util.arrayToString(Validate.SQUEEZELITE_CODECS));
+					addActionError(
+							getText("squeezelite.validation.codec.fail.invalid") + 
+							" '" + tempList[i] + "'! " + 
+							getText("squeezelite.validation.codec.fail.validCodecs") + 
+							": " + Util.arrayToString(Validate.SQUEEZELITE_CODECS));
 					break;
 				}
 			}
@@ -140,17 +139,13 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 		
 		if (alsaParams != null && alsaParams.trim().length() > 0) {
 			if (!alsaParams.trim().matches(Validate.SQUEEZELITE_REGEX_ALSA_PARAMS)) {
-				addActionError("Invalid Alsa Params! Format is <buffer>:<period count>:<format>:<mmap>, " + 
-								"where buffer and period count are integers if set, " + 
-								"format value: 16, 24, 24_3, 32, or not set, " + 
-								"mmap value: 0, 1 or not set");		
+				addActionError(getText("squeezelite.validation.alsaParams.fail"));		
 			}
 		}
 		
 		if (serverIp != null && serverIp.trim().length() > 0) {
 			if (!serverIp.trim().matches(Validate.REGEX_IP_ADDRESS)) {
-				addActionError("Invalid Server IP Address! " + 
-						"Format is dotted quad. eg. 192.168.0.1");
+				addActionError(getText("squeezelite.validation.serverIp.fail"));
 			}
 		}
 	}
