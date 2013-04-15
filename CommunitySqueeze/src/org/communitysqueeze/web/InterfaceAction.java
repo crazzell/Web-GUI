@@ -536,49 +536,43 @@ public abstract class InterfaceAction extends ActionSupport {
 		
 		if (ipAddr0 != null && ipAddr0.trim().length() > 0) {
 			if (!ipAddr0.trim().matches(Validate.REGEX_IP_ADDRESS)) {
-				addActionError("Invalid IP Address! " + 
-						"Format is dotted quad. eg. 192.168.0.1");
+				addActionError(getText("interface.validation.ipAddress.fail"));
 			}
 		}
 		
 		if (netmask0 != null && netmask0.trim().length() > 0) {
 			if (!netmask0.trim().matches(Validate.REGEX_IP_ADDRESS)) {
-				addActionError("Invalid Netmask! " + 
-						"Format is dotted quad. eg. 255.255.255.0");
+				addActionError(getText("interface.validation.netmask.fail"));
 			}
 		}
 
 		if (gateway0 != null && gateway0.trim().length() > 0) {
 			if (!gateway0.trim().matches(Validate.REGEX_IP_ADDRESS)) {
-				addActionError("Invalid Gateway! " + 
-						"Format is dotted quad. eg. 192.168.0.1");
+				addActionError(getText("interface.validation.gateway.fail"));
 			}
 		}
 		
 		if (dns1 != null && dns1.trim().length() > 0) {
 			if (!dns1.trim().matches(Validate.REGEX_IP_ADDRESS)) {
-				addActionError("Invalid DNS1! " + 
-						"Format is dotted quad. eg. 192.168.0.1");
+				addActionError(getText("interface.validation.dns1.fail"));
 			}
 		}
 		
 		if (dns2 != null && dns2.trim().length() > 0) {
 			if (!dns2.trim().matches(Validate.REGEX_IP_ADDRESS)) {
-				addActionError("Invalid DNS2! " + 
-						"Format is dotted quad. eg. 192.168.0.1");
+				addActionError(getText("interface.validation.dns2.fail"));
 			}
 		}
 
 		if (dns3 != null && dns3.trim().length() > 0) {
 			if (!dns3.trim().matches(Validate.REGEX_IP_ADDRESS)) {
-				addActionError("Invalid DNS3! " + 
-						"Format is dotted quad. eg. 192.168.0.1");
+				addActionError(getText("interface.validation.dns3.fail"));
 			}
 		}
 		
 		if (domain != null && domain.trim().length() > 0) {
 			if (!domain.trim().matches(Validate.REGEX_HOST_ADDRESS)) {
-				addActionError("Invalid Domain! eg. test.com");
+				addActionError(getText("interface.validation.domain.fail"));
 			}
 		}
 	}
