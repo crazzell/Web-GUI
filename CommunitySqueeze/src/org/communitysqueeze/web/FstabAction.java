@@ -294,10 +294,10 @@ public class FstabAction extends ActionSupport {
 		}
 		
 		ArrayList<String> list = new ArrayList<String>();
-		list.add("");
-		list.add("Mount");
-		list.add("Umount");
-		list.add("Remount");
+		list.add(Util.BLANK_STRING);
+		list.add(FstabEntry.ACTION_MOUNT);
+		list.add(FstabEntry.ACTION_UMOUNT);
+		list.add(FstabEntry.ACTION_REMOUNT);
 		return list;
 	}
 }

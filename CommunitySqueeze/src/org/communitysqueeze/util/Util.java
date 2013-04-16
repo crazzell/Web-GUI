@@ -60,6 +60,8 @@ public final class Util {
 	private final static String WALL_HALT_MSG = "web-gui requests halt";
 	private final static String WALL_FORCE_OPTION_MSG = " with force (" + 
 			Commands.SHUTDOWN_FORCE + ") option";
+	
+	public final static String BLANK_STRING = "";
 
 	/**
 	 * 
@@ -396,7 +398,7 @@ public final class Util {
 			}
 		}
 		
-		networkList.add(0, "");
+		networkList.add(0, BLANK_STRING);
 		
 		return networkList;
 	}
@@ -514,7 +516,7 @@ public final class Util {
 		/*
 		 * Add blank entry
 		 */
-		list.add("");
+		list.add(BLANK_STRING);
 
 		File tmpFile = Util.createTempFile("audioDev", ".txt");
 		BufferedReader reader = null;
@@ -587,7 +589,7 @@ public final class Util {
 		}
 		
 		ArrayList<String> list = new ArrayList<String>();
-		list.add("");
+		list.add(BLANK_STRING);
 		for (int i = 1; i <= max; i++) {
 			list.add(String.valueOf(i));
 		}
@@ -598,7 +600,7 @@ public final class Util {
 	public final static ArrayList<String> getTestAudioDevList() {
 		
 		ArrayList<String> list = new ArrayList<String>();
-		list.add("");
+		list.add(BLANK_STRING);
 		list.add("null");
 		list.add("pulse");
 		list.add("default");
