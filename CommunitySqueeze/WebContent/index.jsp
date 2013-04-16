@@ -14,7 +14,11 @@
 </head>
 
 <body>
+	
+	<!-- Header -->
+	<jsp:include page="Header.jsp" />
 
+	<!-- Language -->
 	<div align="right">
 	<p class="language">Language:
 	<s:url id="en" action="Index">
@@ -32,13 +36,15 @@
 	</p>
 	</div>
 
-	<jsp:include page="Header.jsp" />
+	<!-- Logo -->
 	<center>
 		<h2><s:text name="index.header" /></h2>
 		<img src="images/cs-logo-541x288.png"
 			 alt="Community Squeeze Logo"
 			 width="541" height="288" />
 	</center>
+	
+	<!-- Footer -->
 	<jsp:include page="Footer.jsp" />
 </body>
 
