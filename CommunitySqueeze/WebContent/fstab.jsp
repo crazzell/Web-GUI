@@ -13,15 +13,17 @@
 </head>
 <body>
 
+<!-- Header -->
 <jsp:include page="Header.jsp"/>
 
+<!-- Title -->
 <table>
   <tr>
     <td>
       <a href="index.jsp">
-        <img src="images/cs-logo-146x50.png" 
-             alt="Community Squeeze Logo" 
-             width="146" height="50" />
+        <img src="images/cs-logo-146x50.png"
+        	 alt="Community Squeeze Logo"
+        	 width="146" height="50" />
       </a>
     </td>
     <td>
@@ -30,6 +32,7 @@
   </tr>
 </table>
 
+<!-- Mounted File Systems -->
 <hr />
 <h4><s:text name="header.mountedFileSystems" /></h4>
 <s:form action="Fstab" theme="simple">
@@ -63,12 +66,14 @@
 </table>
 </s:form>
 
+<!-- Add Fstab entry -->
 <hr />
 <h4><s:text name="header.fstabAdd" /></h4>
 <a href="<s:url  action="FstabAdd.action" />">
   <s:text name="fstab.addEntry.message" />
 </a>
 
+<!-- Modify Fstab Entry -->
 <hr />
 <h4><s:text name="header.fstabModify" /></h4>
 <s:actionerror />
@@ -79,26 +84,68 @@
 <table>
 <thead>
 <tr>
-<td><s:text name="fstab.label.spec" /></td>
-<td><s:text name="fstab.label.file" /></td>
-<td><s:text name="fstab.label.vfsType" /></td>
-<td><s:text name="fstab.label.mntOps" /></td>
-<td><s:text name="fstab.label.freq" /></td>
-<td><s:text name="fstab.label.passNo" /></td>
-<td><s:text name="fstab.label.action" /></td>
-<td><s:text name="fstab.label.delete" /></td>
+	<td>
+		<s:text name="fstab.label.spec" />
+		<img src='struts/tooltip.gif'
+			 title="<s:property value="getText('fstab.tooltip.spec')" />"
+			 alt="<s:property value="getText('fstab.tooltip.spec')" />" />
+	</td>
+	<td>
+		<s:text name="fstab.label.file" />
+		<img src='struts/tooltip.gif'
+			 title="<s:property value="getText('fstab.tooltip.file')" />"
+			 alt="<s:property value="getText('fstab.tooltip.file')" />" />
+	</td>
+	<td>
+		<s:text name="fstab.label.vfsType" />
+		<img src='struts/tooltip.gif'
+			 title="<s:property value="getText('fstab.tooltip.vfsType')" />"
+			 alt="<s:property value="getText('fstab.tooltip.vfsType')" />" />
+	</td>
+	<td>
+		<s:text name="fstab.label.mntOps" />
+		<img src='struts/tooltip.gif'
+			 title="<s:property value="getText('fstab.tooltip.mntOps')" />"
+			 alt="<s:property value="getText('fstab.tooltip.mntOps')" />" />
+	</td>
+	<td>
+		<s:text name="fstab.label.freq" />
+		<img src='struts/tooltip.gif'
+			 title="<s:property value="getText('fstab.tooltip.freq')" />"
+			 alt="<s:property value="getText('fstab.tooltip.freq')" />" />
+	</td>
+	<td>
+		<s:text name="fstab.label.passNo" />
+		<img src='struts/tooltip.gif'
+			 title="<s:property value="getText('fstab.tooltip.passNo')" />"
+			 alt="<s:property value="getText('fstab.tooltip.passNo')" />" />
+	</td>
+	<td>
+		<s:text name="fstab.label.action" />
+		<img src='struts/tooltip.gif'
+			 title="<s:property value="getText('fstab.tooltip.action')" />"
+			 alt="<s:property value="getText('fstab.tooltip.action')" />" />
+	</td>
+	<td>
+		<s:text name="fstab.label.delete" />
+		<img src='struts/tooltip.gif'
+			 title="<s:property value="getText('fstab.tooltip.delete')" />"
+			 alt="<s:property value="getText('fstab.tooltip.delete')" />" />
+	</td>
 </tr>
 </thead>
 <s:iterator value="fstabList" id="fstabList">
 <tr>
-<td><s:textfield name="spec" readonly="true" /></td>
-<td><s:textfield name="file" /></td>
-<td><s:textfield name="vfsType" cssClass="size-50px" /></td>
-<td><s:textfield name="mntOps" /></td>
-<td><s:textfield name="freq" cssClass="size-50px" /></td>
-<td><s:textfield name="passNo" cssClass="size-50px" /></td>
-<td><s:select name="action" list="fstabEntryActionList" /></td>
-<td><s:checkbox name="delete" /></td>
+	<td><s:textfield name="spec" readonly="true" /></td>
+	<td><s:textfield name="file" /></td>
+	<td><s:textfield name="vfsType" cssClass="size-50px" /></td>
+	<td><s:textfield name="mntOps" /></td>
+	<td><s:textfield name="freq" cssClass="size-50px" /></td>
+	<td><s:textfield name="passNo" cssClass="size-50px" /></td>
+	<td><s:select name="action" list="fstabEntryActionList" /></td>
+	<td align="center">
+		<s:checkbox name="delete" />
+	</td>
 </tr>
 </s:iterator>
 <tr>
@@ -110,10 +157,13 @@
 </tr>
 </table>
 </s:form>
+
+<!-- Notes -->
 <hr />
 <h4><s:text name="header.notes" /></h4>
 <p><s:text name="fstab.notes.desc" /></p>
 
+<!-- Footer -->
 <hr />
 <jsp:include page="Footer.jsp"/>
 
