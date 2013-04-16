@@ -19,11 +19,11 @@
 	<table>
 		<tr>
 			<td>
-				<a href="index.jsp"> 
-			      <img src="images/cs-logo-146x50.png" 
-			      	   alt="Community Squeeze Logo"
-			      	   width="146" height="50" />
-				</a>
+				<s:a action="Index">
+				<img src="images/cs-logo-146x50.png" 
+					 alt="Community Squeeze Logo" 
+					 width="146" height="50" />
+				</s:a>
 			</td>
 			<td>
 				<h2><s:text name="error.header" /></h2>

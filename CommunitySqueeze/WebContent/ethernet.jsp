@@ -18,11 +18,11 @@
 <table>
   <tr>
     <td>
-      <a href="index.jsp">
+	  <s:a action="Index">
       	<img src="images/cs-logo-146x50.png" 
       		 alt="Community Squeeze Logo" 
       		 width="146" height="50" />
-      </a>
+      </s:a>
     </td>
     <td>
       <h2><s:text name="ethernet.header" /></h2>
