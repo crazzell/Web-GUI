@@ -2,44 +2,44 @@
 
 <div id="navigation" class="curved container">
 	<span id="nav-home">
-		<a href="Index.action">
+		<s:a action="Index">
 			<s:text name="nav.home" />
-		</a>
+		</s:a>
 	</span> 
 	<span id="nav-wired">
-		<a href="Ethernet_populate.action">
+		<s:a action="Ethernet_populate">
 			<s:text name="nav.wired" />
-		</a>
+		</s:a>
 	</span> 
 	<span id="nav-wireless">
-		<a href="Wireless_populate.action">
+		<s:a action="Wireless_populate">
 			<s:text name="nav.wireless" />
-		</a>
+		</s:a>
 	</span> 
 	<span id="nav-squeezelite">
-		<a href="Squeezelite_populate.action">
+		<s:a action="Squeezelite_populate">
 			<s:text name="nav.squeezelite" />
-		</a>
+		</s:a>
 	</span> 
 	<span id="nav-squeezeserver">
-		<a href="SqueezeServer_populate.action">
+		<s:a action="SqueezeServer_populate">
 			<s:text name="nav.squeezeserver" />
-		</a>
+		</s:a>
 	</span> 
 	<span id="nav-fstab">
-		<a href="Fstab_populate.action">
+		<s:a action="Fstab_populate">
 			<s:text name="nav.fstab" />
-		</a>
+		</s:a>
 	</span>
 	<span id="nav-shutdown">
-		<a href="Shutdown.action">
+		<s:a action="Shutdown">
 			<s:text name="nav.shutdown" />
-		</a>
+		</s:a>
 	</span> 
 	<span id="nav-help">
-		<a href="help.jsp">
+		<s:a href="help.jsp">
 			<s:text name="nav.help" />
-		</a>
+		</s:a>
 	</span> 
 	<br class="separator" />
 </div>

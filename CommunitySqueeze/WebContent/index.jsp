@@ -22,25 +22,30 @@
 	<div align="right">
 	<p class="language">Language:
 	
-	<s:url id="en" action="Index">
+	<s:url id="en">
 	  <s:param name="request_locale">en</s:param>
 	</s:url>
 	<s:a href="%{en}">English</s:a>
 	
-	<s:url id="fr" action="Index">
+	<s:url id="fr">
 	  <s:param name="request_locale">fr</s:param>
 	</s:url>
 	<s:a href="%{fr}">French</s:a>
 	
-	<s:url id="nl" action="Index">
+	<s:url id="nl">
 	  <s:param name="request_locale">nl</s:param>
 	</s:url>
 	<s:a href="%{nl}">Dutch</s:a>
 	
-	<s:url id="de" action="Index">
+	<s:url id="de">
 	  <s:param name="request_locale">de</s:param>
 	</s:url>
 	<s:a href="%{de}">German</s:a>
+	
+	<s:url id="it">
+	  <s:param name="request_locale">it</s:param>
+	</s:url>
+	<s:a href="%{it}">Italian</s:a>
 	
 	</p>
 	</div>
