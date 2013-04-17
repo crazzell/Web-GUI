@@ -47,6 +47,11 @@
 	</s:url>
 	<s:a href="%{it}">Italian</s:a>
 	
+	<s:url id="sv">
+	  <s:param name="request_locale">sv</s:param>
+	</s:url>
+	<s:a href="%{sv}">Swedish</s:a>
+	
 	</p>
 	</div>
 
