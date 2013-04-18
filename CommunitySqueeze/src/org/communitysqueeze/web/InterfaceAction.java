@@ -98,6 +98,7 @@ public abstract class InterfaceAction extends ActionSupport {
 	public final static String CFG_ESSID = "ESSID";
 	public final static String CFG_MODE = "MODE";
 	public final static String CFG_KEY_MGMT = "KEY_MGMT";
+	public final static String CFG_SCAN_SSID = "SCAN_SSID";
 	
 	/*
 	 * Wireless keys-<interface>
@@ -774,6 +775,7 @@ public abstract class InterfaceAction extends ActionSupport {
 				if (wirelessEssid.trim().equals(ESSID_SELECT_OTHER)) {
 					if (wirelessEssidOther != null && wirelessEssidOther.trim().length() > 0) {
 						interfaceProperties.put(CFG_ESSID, "\"" + wirelessEssidOther.trim() + "\"");
+						interfaceProperties.put(CFG_SCAN_SSID, "1");
 					} else {
 						interfaceProperties.put(CFG_ESSID, "\"" + DUMMY_ESSID + "\"");
 					}
