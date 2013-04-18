@@ -66,17 +66,27 @@
 <tr>
 <td colspan="2" align="right">
   <s:submit action="EthernetSave_saveAndReboot" key="button.saveAndReboot" />
-  <!--
-	<s:submit key="button.interfaceUp" action="Ethernet_up" />
-	<s:submit key="button.interfaceDown" action="Ethernet_down" />
-	<s:submit key="button.interfaceDownUp" action="Ethernet_downUp" />
-  -->
 </td>
 </tr>
 <tr>
 <td colspan="2" align="right">
   <s:checkbox name="cbForceReboot" />
   <s:text name="cb.forceReboot" />
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+  <s:submit key="button.interfaceUp" action="Ethernet_up" />
+  <s:submit key="button.interfaceDown" action="Ethernet_down" />
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+  <s:submit key="button.interfaceDownUp" action="Ethernet_downUp" />
 </td>
 </tr>
 </table>

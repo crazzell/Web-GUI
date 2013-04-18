@@ -8,7 +8,7 @@
 <s:hidden name="hwAddr" />
 <s:hidden name="zone" />
 <s:hidden name="bootProto" />
-<s:hidden name="onBoot" />
+<!-- <s:hidden name="onBoot" /> -->
 
 <tr>
 <td align="right">
@@ -50,5 +50,8 @@
 <td align="right">
 <s:text name="interface.label.onBoot" />
 </td>
-<td><font color="blue"><s:property value="onBoot" /></font></td>
+<td>
+  <!-- <font color="blue"><s:property value="onBoot" /></font> -->
+  <s:checkbox name="onBoot" />
+</td>
 </tr>

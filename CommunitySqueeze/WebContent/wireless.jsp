@@ -127,17 +127,27 @@
 <tr>
 <td colspan="2" align="right">
   <s:submit key="button.refreshNetworkList" action="Wireless_populate" />
-  <!--
-	<s:submit key="button.interfaceUp" action="Wireless_up" />
-	<s:submit key="button.interfaceDown" action="Wireless_down" />
-	<s:submit key="button.interfaceDownUp" action="Wireless_downUp" />
-  -->
 </td>
 </tr>
 <tr>
 <td colspan="2" align="right">
   <s:checkbox name="cbForceReboot" />
   <s:text name="cb.forceReboot" />
+</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+  <s:submit key="button.interfaceUp" action="Wireless_up" />
+  <s:submit key="button.interfaceDown" action="Wireless_down" />
+</td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+  <s:submit key="button.interfaceDownUp" action="Wireless_downUp" />
 </td>
 </tr>
 </table>

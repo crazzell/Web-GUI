@@ -109,6 +109,9 @@ public abstract class InterfaceAction extends ActionSupport {
 	public final static String DUMMY_WPA_PSK = "YOUR_PSK_HERE";
 	public final static String ESSID_SELECT_OTHER = "User Specified (below):";
 	
+	public final static String ONBOOT_TRUE = "yes";
+	public final static String ONBOOT_FALSE = "no";
+	
 	protected SortedMap<String, String> interfaceProperties = 
 			new TreeMap<String, String>(StringIgnoreCaseComparator.COMPARATOR);
 	protected SortedMap<String, String> keysProperties = 
@@ -128,7 +131,8 @@ public abstract class InterfaceAction extends ActionSupport {
 	protected String dns3;
 	protected String domain;
 
-	protected String onBoot;
+	//protected String onBoot;
+	protected boolean onBoot = true;
 	protected String zone;
 	protected String bootProto;
 
@@ -433,18 +437,16 @@ public abstract class InterfaceAction extends ActionSupport {
 	}
 
 	/**
-	 * @return
+	 * @return the onBoot
 	 */
-	public String getOnBoot() {
-		
+	public boolean isOnBoot() {
 		return onBoot;
 	}
 
 	/**
-	 * @param onBoot
+	 * @param onBoot the onBoot to set
 	 */
-	public void setOnBoot(String onBoot) {
-		
+	public void setOnBoot(boolean onBoot) {
 		this.onBoot = onBoot;
 	}
 
@@ -836,6 +838,8 @@ public abstract class InterfaceAction extends ActionSupport {
 		} else {
 			interfaceProperties.remove(CFG_DOMAIN);
 		}
+		
+		interfaceProperties.put(CFG_ONBOOT, (onBoot) ? ONBOOT_TRUE : ONBOOT_FALSE);
 	}
 
 	/**
@@ -887,7 +891,12 @@ public abstract class InterfaceAction extends ActionSupport {
 		dns2 = interfaceProperties.get(CFG_DNS2);
 		dns3 = interfaceProperties.get(CFG_DNS3);
 		domain = interfaceProperties.get(CFG_DOMAIN);
-		onBoot = interfaceProperties.get(CFG_ONBOOT);
+		String tmp = interfaceProperties.get(CFG_ONBOOT);
+		if (tmp != null && tmp.equals("no")) {
+			onBoot = false;
+		} else {
+			onBoot = true;
+		}
 		zone = interfaceProperties.get(CFG_ZONE);
 		bootProto = interfaceProperties.get(CFG_BOOTPROTO);
 
