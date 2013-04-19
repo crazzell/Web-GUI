@@ -773,6 +773,11 @@ public abstract class InterfaceAction extends ActionSupport {
 		 * Are we a wireless interface?
 		 */
 		if (type != null && type.equalsIgnoreCase(CFG_TYPE_WIRELESS)) {
+			/*
+			 * If ESSID is user defined, set SCAN_SSID=1 
+			 * to allow connecting to a hidden network. 
+			 * Otherwise, remove SCAN_SSID from the properties.
+			 */
 			if (wirelessEssid != null && wirelessEssid.trim().length() > 0) {
 				if (wirelessEssid.trim().equals(ESSID_SELECT_OTHER)) {
 					if (wirelessEssidOther != null && wirelessEssidOther.trim().length() > 0) {
@@ -780,12 +785,15 @@ public abstract class InterfaceAction extends ActionSupport {
 						interfaceProperties.put(CFG_SCAN_SSID, "1");
 					} else {
 						interfaceProperties.put(CFG_ESSID, "\"" + DUMMY_ESSID + "\"");
+						interfaceProperties.remove(CFG_SCAN_SSID);
 					}
 				} else {
 					interfaceProperties.put(CFG_ESSID, "\"" + wirelessEssid.trim() + "\"");
+					interfaceProperties.remove(CFG_SCAN_SSID);
 				}
 			} else {
 				interfaceProperties.put(CFG_ESSID, "\"" + DUMMY_ESSID + "\"");
+				interfaceProperties.remove(CFG_SCAN_SSID);
 			}
 			
 			if (wirelessWpaPsk != null && wirelessWpaPsk.trim().length() > 0) {
@@ -924,15 +932,22 @@ public abstract class InterfaceAction extends ActionSupport {
 			 */
 			networkList = Util.getAvailableNetworks(getInterfaceName());
 			networkList.add(ESSID_SELECT_OTHER);
-			/*
-			 * Make sure the network list contains the currently configured 
-			 * wireless network. It might be temporaily unavailable, or the scan
-			 * may have failed to pick it up.
-			 */
-			if (wirelessEssid != null && wirelessEssid.length() > 0 && 
-					!networkList.contains(wirelessEssid)) {
-				
-				networkList.add(0, wirelessEssid);
+
+			if (wirelessEssid != null && wirelessEssid.length() > 0) {
+				if (interfaceProperties.containsKey(CFG_SCAN_SSID)) {
+					/*
+					 * This ESSID was user defined and might be hidden
+					 */
+					wirelessEssidOther = wirelessEssid;
+					wirelessEssid = ESSID_SELECT_OTHER;
+				} else if (!networkList.contains(wirelessEssid)) {				
+					/*
+					 * Make sure the network list contains the currently configured 
+					 * wireless network. It might be temporaily unavailable, or the 
+					 * scan may have failed to pick it up.
+					 */
+					networkList.add(0, wirelessEssid);
+				}
 			}
 		}
 	}	
@@ -1062,11 +1077,29 @@ public abstract class InterfaceAction extends ActionSupport {
 			File file = Util.createTempFile(IFCFG_PREFIX + getInterfaceName() + "_", ".txt");
 			writer = new BufferedWriter(new FileWriter(file));
 			writer.write(Util.getModifiedComment());
+			/*
+			 * If SCAN_SSID make sure it is first parameter written.
+			 * Forum post by Pascal Hibon: it needs to be before ESSID.  
+			 */
+			boolean wroteScanSSID = false;
+			if (interfaceProperties.containsKey(CFG_SCAN_SSID)) {
+				wroteScanSSID = true;
+				writer.write(CFG_SCAN_SSID + "=" + 
+						interfaceProperties.get(CFG_SCAN_SSID) + Util.LINE_SEP);
+			}
 			Set<Entry<String, String>> set = interfaceProperties.entrySet();
 			Iterator<Entry<String, String>> it = set.iterator();
 			while (it.hasNext()) {
 				Entry<String, String> entry = it.next();
-				writer.write(entry.getKey() + "=" + entry.getValue() + Util.LINE_SEP);
+				String key = entry.getKey();
+				if (wroteScanSSID && key.equals(CFG_SCAN_SSID)) {
+					/*
+					 * Do nothing! 
+					 * We already wrote SCAN_SSID.
+					 */
+				} else {
+					writer.write(key + "=" + entry.getValue() + Util.LINE_SEP);
+				}
 			}
 			return file;
 		} finally {
