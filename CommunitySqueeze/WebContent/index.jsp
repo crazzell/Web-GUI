@@ -14,47 +14,12 @@
 </head>
 
 <body>
-	
 	<!-- Header -->
 	<jsp:include page="Header.jsp" />
-
+	
 	<!-- Language -->
-	<div align="right">
-	<p class="language">Language:
+	<jsp:include page="Language.jsp" />
 	
-	<s:url id="en">
-	  <s:param name="request_locale">en</s:param>
-	</s:url>
-	<s:a href="%{en}">English</s:a>
-	
-	<s:url id="fr">
-	  <s:param name="request_locale">fr</s:param>
-	</s:url>
-	<s:a href="%{fr}">French</s:a>
-	
-	<s:url id="nl">
-	  <s:param name="request_locale">nl</s:param>
-	</s:url>
-	<s:a href="%{nl}">Dutch</s:a>
-	
-	<s:url id="de">
-	  <s:param name="request_locale">de</s:param>
-	</s:url>
-	<s:a href="%{de}">German</s:a>
-	
-	<s:url id="it">
-	  <s:param name="request_locale">it</s:param>
-	</s:url>
-	<s:a href="%{it}">Italian</s:a>
-	
-	<s:url id="sv">
-	  <s:param name="request_locale">sv</s:param>
-	</s:url>
-	<s:a href="%{sv}">Swedish</s:a>
-	
-	</p>
-	</div>
-
 	<!-- Logo -->
 	<center>
 		<h2><s:text name="index.header" /></h2>
