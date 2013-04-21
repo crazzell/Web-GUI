@@ -4,11 +4,11 @@
   <div align="right">
   
 	<p class="language">
-	<s:text name="language.language" />:&nbsp;
+	<s:text name="language.language" />:
 	<select name="myLocales" class="language"
 		OnChange="location.href=localeForm.myLocales.options[selectedIndex].value">
 
-		<option selected>Please Select Locale</option>
+		<option selected>Select...</option>
 
 		<!-- English -->
 		<s:url id="en">
