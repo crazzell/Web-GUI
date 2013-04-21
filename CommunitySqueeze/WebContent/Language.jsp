@@ -1,43 +1,73 @@
 <%@ taglib uri="/struts-tags" prefix="s" %>
 
-<!-- Language -->
-<div align="right">
-	<p class="language"><s:text name="language.language" />:
+<s:form name="localeForm" theme="simple">
+  <div align="right">
+  
+	<p class="language">
+	<s:text name="language.language" />:&nbsp;
+	<select name="myLocales" class="language"
+		OnChange="location.href=localeForm.myLocales.options[selectedIndex].value">
+
+		<option selected>Please Select Locale</option>
+
 		<!-- English -->
 		<s:url id="en">
 		  <s:param name="request_locale">en</s:param>
 		</s:url>
-		<s:a href="%{en}"><s:text name="language.en" /></s:a>
+		<option value="<s:property value="%{en}" />">
+			<s:text name="language.en" />
+		</option>
+
 		<!-- French -->
 		<s:url id="fr">
 		  <s:param name="request_locale">fr</s:param>
 		</s:url>
-		<s:a href="%{fr}"><s:text name="language.fr" /></s:a>
+		<option value="<s:property value="%{fr}" />">
+			<s:text name="language.fr" />
+		</option>
+
 		<!-- Danish -->
 		<s:url id="da">
 		  <s:param name="request_locale">da</s:param>
 		</s:url>
-		<s:a href="%{da}"><s:text name="language.da" /></s:a>
+		<option value="<s:property value="%{da}" />">
+			<s:text name="language.da" />
+		</option>
+
 		<!-- Dutch -->
 		<s:url id="nl">
 		  <s:param name="request_locale">nl</s:param>
 		</s:url>
-		<s:a href="%{nl}"><s:text name="language.nl" /></s:a>
+		<option value="<s:property value="%{nl}" />">
+			<s:text name="language.nl" />
+		</option>
+
 		<!-- German -->
 		<s:url id="de">
 		  <s:param name="request_locale">de</s:param>
 		</s:url>
-		<s:a href="%{de}"><s:text name="language.de" /></s:a>
+		<option value="<s:property value="%{de}" />">
+			<s:text name="language.de" />
+		</option>
+
 		<!-- Italian -->
 		<s:url id="it">
 		  <s:param name="request_locale">it</s:param>
 		</s:url>
-		<s:a href="%{it}"><s:text name="language.it" /></s:a>
+		<option value="<s:property value="%{it}" />">
+			<s:text name="language.it" />
+		</option>
+
 		<!-- Swedish -->
 		<s:url id="sv">
 		  <s:param name="request_locale">sv</s:param>
 		</s:url>
-		<s:a href="%{sv}"><s:text name="language.sv" /></s:a>
+		<option value="<s:property value="%{sv}" />">
+			<s:text name="language.sv" />
+		</option>
+
+	</select>
 	</p>
-</div>
+  </div>
+</s:form>
 
