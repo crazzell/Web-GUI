@@ -31,6 +31,7 @@ public class Commands {
 	public final static String SCRIPT_SQUEEZELITE_CONFIG_UPDATE = "csos-squeezeliteConfigUpdate";
 	public final static String SCRIPT_REBOOT = "csos-reboot";
 	public final static String SCRIPT_HALT = "csos-halt";
+	public final static String SCRIPT_TIMEZONE = "csos-timeZone";
 	
 	public final static String CMD_SUDO = "sudo";
 	public final static String CMD_NOHUP = "nohup";

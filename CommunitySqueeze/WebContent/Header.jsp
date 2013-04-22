@@ -6,6 +6,11 @@
 			<s:text name="nav.home" />
 		</s:a>
 	</span> 
+	<span id="nav-system">
+		<s:a action="Configuration_populate">
+			<s:text name="nav.system" />
+		</s:a>
+	</span> 
 	<span id="nav-wired">
 		<s:a action="Ethernet_populate">
 			<s:text name="nav.wired" />

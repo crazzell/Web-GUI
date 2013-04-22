@@ -180,6 +180,20 @@
 			<result name="success" type="redirectAction">Fstab_populate</result>
 		</action>
 
+		<action name="Configuration_*" method="{1}"
+			class="org.communitysqueeze.web.ConfigurationAction">
+			<interceptor-ref name="defaultStack" /> 
+			<interceptor-ref name="execAndWait">
+				<param name="threadPriority">10</param>
+		        <param name="delay">0</param>
+		        <param name="delaySleepInterval">50</param>
+		    </interceptor-ref>
+		    <result name="wait">/wait.jsp</result>
+			<result name="populate">/system.jsp</result>
+			<result name="input">/system.jsp</result>
+			<result name="success" type="redirectAction">Configuration_populate</result>
+		</action>
+
 		<action name="Index" 
 			class="org.communitysqueeze.web.IndexAction">
 			<result name="input">/index.jsp</result> 

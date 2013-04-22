@@ -62,7 +62,7 @@ public final class Util {
 			Commands.SHUTDOWN_FORCE + ") option";
 	
 	public final static String BLANK_STRING = "";
-
+	
 	/**
 	 * 
 	 */
@@ -787,6 +787,23 @@ public final class Util {
 
 		return new String[] {Commands.CMD_SUDO, Commands.CMD_SYSTEMCTL, 
 				Commands.SYSTEMCTL_COND_RESTART, serviceName};
+	}
+	
+	/**
+	 * @param serviceName
+	 * @return
+	 */
+	public final static int setTimeZone(String timeZone) 
+			throws IOException, InterruptedException {
+		
+		if (LOGGER.isTraceEnabled()) {
+			LOGGER.trace("setTimeZone(timeZone=" + timeZone + ")");
+		}
+
+		String[] cmdLineArgs = new String[] {
+				Commands.CMD_SUDO, Commands.SCRIPT_TIMEZONE, timeZone};
+		
+		return ExecuteProcess.executeCommand(cmdLineArgs);
 	}
 	
 	/**

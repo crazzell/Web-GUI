@@ -6,6 +6,7 @@ tomcat ALL = NOPASSWD:\
  /usr/sbin/csos-squeezeliteConfigUpdate,\
  /usr/sbin/csos-reboot,\
  /usr/sbin/csos-halt,\
+ /usr/sbin/csos-timeZone,\
  /usr/bin/systemctl,\
  /usr/bin/aplay,\
  /usr/sbin/ifconfig,\
