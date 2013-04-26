@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /images/
+Disallow: /repo/
+Disallow: /gui/
+Disallow: /logos/
+Disallow: /patches/
