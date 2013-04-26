@@ -8,7 +8,9 @@
 	<select name="myLocales" class="language"
 		OnChange="location.href=localeForm.myLocales.options[selectedIndex].value">
 
-		<option selected>Select...</option>
+		<option selected>
+		  <s:text name="language.select" />
+		</option>
 
 		<!-- English -->
 		<s:url id="en">

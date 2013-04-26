@@ -7,22 +7,28 @@ body {
 h1, h2, h3, h4, h5, h6, p, ul, ol {
     margin: 0 0 0.5em;
 }
+
 h1 {
     font-size: 18pt;
     margin: 0.5em 0 0;
 }
+
 h2 {
     font-size: 16pt;
 }
+
 h3 {
     font-size: 13pt;
 }
+
 h4 {
     font-size: 12pt;
 }
+
 h5 {
     font-size: 11pt;
 }
+
 p {
     font-size: 11pt
 }
@@ -33,6 +39,7 @@ ul {
     text-indent: 0;
     list-style: none;
 }
+
 li {
     margin: 0;
     padding: 0 0 0.25em;
@@ -83,15 +90,18 @@ a img {
     margin: 0 0 10px;
     padding: 0;
 }
+
 #navigation span {
     float: left;
 }
+
 #navigation span a {
     display: block;
     padding: 10px;
     font-weight: bold;
     text-shadow: 1px 1px 1px #fff;
 }
+
 #navigation span a:link,
 #navigation span a:visited,
 #navigation span a:hover,
@@ -99,6 +109,7 @@ a img {
     color: #666;
     text-decoration: none;
 }
+
 #navigation span#nav-help {
     float: right;
     margin-right: 0;
