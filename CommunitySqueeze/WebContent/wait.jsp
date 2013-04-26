@@ -8,15 +8,15 @@
   <title><s:text name="wait.title" /></title>
   <meta http-equiv="refresh" content="1;url=<s:url includeParams="all" />" />
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link href="html/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
  
 <body>
   <center>
   <h1><s:text name="wait.header" /></h1>
-  <img src="images/cs-logo-541x288.png" 
+  <img src="html/images/cs-logo-541x288.png" 
   	   alt="Community Squeeze Logo"
   	   width="541" height="288" />
   <h2><s:text name="wait.message" /></h2>

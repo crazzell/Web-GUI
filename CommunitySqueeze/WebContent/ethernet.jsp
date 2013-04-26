@@ -7,9 +7,9 @@
 <head>
   <title><s:text name="ethernet.title" /></title>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-  <link href="images/favicon.ico" rel="icon" type="image/x-icon" />
-  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  <link href="html/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+  <link href="favicon.ico" rel="icon" type="image/x-icon" />
+  <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
 </head>
 <body>
 
@@ -19,7 +19,7 @@
   <tr>
     <td>
 	  <s:a action="Index">
-      	<img src="images/cs-logo-146x50.png" 
+      	<img src="html/images/cs-logo-146x50.png" 
       		 alt="Community Squeeze Logo" 
       		 width="146" height="50" />
       </s:a>

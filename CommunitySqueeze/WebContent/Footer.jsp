@@ -3,12 +3,13 @@
 <hr />
 
 <div class="pull-right">
-	<a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html"
-	   target="_blank"> 
-	   <img src="images/gplv3-127x51.png" alt="GPLv3"
-	   		border="0px" align="top" />
-	</a>
+	<s:a href="http://www.gnu.org/licenses/gpl-3.0-standalone.html"
+         target="_blank"> 
+	   <img src="html/images/gplv3-127x51.png" alt="GPLv3"
+            border="0px" align="top" />
+	</s:a>
 </div>
+
 <div class="pull-left">
 	<p class="copyright">
 		<s:text name="copyright" />
