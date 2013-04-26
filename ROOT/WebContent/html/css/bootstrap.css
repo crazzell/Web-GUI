@@ -86,7 +86,7 @@ a img {
 }
 
 #navigation {
-    background: #eee url(html/images/bg-nav.png) repeat-x top left;
+    background: #eee url(/html/images/bg-nav.png) repeat-x top left;
     margin: 0 0 10px;
     padding: 0;
 }
