@@ -36,29 +36,39 @@
 
 	<hr />
 
-<h4>Community Squeeze OS</h4>
-<p>Based on the Fedora Linux distribution, Community Squeeze OS is the
-default operating system for the Community Squeeze Player.
+<h4>Community Squeeze Operating System</h4>
+<p>Based on the <s:a href="http://fedoraproject.org" target="blank_">Fedora</s:a> 
+18 Linux distribution, Community Squeeze Operating System (CSOS) is the
+default operating system for the Community Squeeze Player project.
 </p>
-<hr />
-
-<h4>Software Repository</h4>
-<p>The <s:a href="/repo" target="blank_">
-repository</s:a> contains packages for the 
-<s:a href="/repo/18/armhfp" target="blank_">ARM</s:a> 
-platform, (compiled for ARM7 hard-float with Neon extensions), 
-<s:a href="/repo/18/x86_64" target="blank_">x86_64</s:a> 
-and <s:a href="/repo/18/i386" target="blank_">i686</s:a>.
-</p>
-<hr />
-
-<h4>Current CSOS Install Image</h4>
-<p>Community Squeeze OS R3 (Release 3) image, 
+<p>CSOS R3 (Release 3) image, 
 <s:a href="/images/wandboard/CSOS/CSOS-Wandboard-Dual-R3-20130412-1.img.7z"
      target="blank_">CSOS-Wandboard-Dual-R3-20130412-1.img.7z</s:a>, for the 
 Wandboard Dual.
 </p>
-<hr />	
+<hr />
+
+<h4>Community Squeeze Software Repository</h4>
+<p>The Community Squeeze software <s:a href="/repo" target="blank_">
+repository</s:a> contains the software we have packaged 
+for the CSOS Wandboard <s:a href="/repo/18/armhfp" target="blank_">ARM</s:a> 
+image, as well as software pre-packaged for Fedora 18, 
+<s:a href="/repo/18/x86_64" target="blank_">x86_64</s:a> and 
+<s:a href="/repo/18/i386" target="blank_">i686</s:a> architectures. 
+The <s:a href="http://vortexbox.org" target="blank_">Vortexbox</s:a> 
+distribution, (version 2.2, which is currently based on Fedora 16 
+<s:a href="/repo/16/i386" target="blank_">i386</s:a>), is also 
+supported by the repository.</p>
+<!-- 
+<p><s:a href="repo.jsp">How to use the software repository.</s:a></p>
+-->
+<p>NB. The ARM packages (armv7hnl) are optimised for ARM7 hard-float with 
+<s:a href="http://www.arm.com/products/processors/technologies/neon.php"
+     target="blank_">Neon</s:a> extensions and have been compiled with: 
+</p>
+<pre>-march=armv7-a -mfloat-abi=hard -mfpu=neon</pre>.
+<p />
+<hr />
 
 	<!-- Footer -->
 	<jsp:include page="Footer.jsp" />
