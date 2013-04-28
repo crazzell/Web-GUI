@@ -122,7 +122,7 @@ the Win32DiskImager program.</p>
 
 <p>
 <img src="html/images/quick_start_guide/quickstart_html_1f96466c.png" 
-     name="graphics1" width="413" height="209" border="0" />
+     alt="Win32DiskImager" width="413" height="209" border="0" />
 </p>
 
 <p>Using the little blue folder icon navigate to the
@@ -158,7 +158,7 @@ remove push it in a little further and it will spring out.</p>
 
 <p>
 <img src="html/images/quick_start_guide/quickstart_html_m65b7e473.jpg" 
-     name="graphics2" width="643" height="559" border="0" />
+     alt="Wandboard SDCARD" width="643" height="559" border="0" />
 </p>
 <hr />
 
@@ -178,7 +178,7 @@ working as a SqueezeBox.</p>
 
 <p>
 <img src="html/images/quick_start_guide/quickstart_html_m781f8cd3.jpg" 
-     name="graphics3" width="643" height="687" border="0" />
+     alt="Wandboard connections" width="643" height="687" border="0" />
 </p>
 <hr />
 
@@ -223,7 +223,7 @@ networks.</p>
 
 <p>
 <img src="html/images/quick_start_guide/quickstart_html_434f1a83.jpg" 
-     name="graphics5" width="643" height="484" border="0" />
+     alt="Network Scanner" width="643" height="484" border="0" />
 </p>
 
 <p>The Wandboard doesn't have a host name like some
@@ -242,7 +242,7 @@ to the one shown.</p>
 
 <p>
 <img src="html/images/quick_start_guide/quickstart_html_337f0344.jpg" 
-     name="graphics4" width="643" height="609" border="0" />
+     alt="CSOS Web-GUI" width="643" height="609" border="0" />
 </p>
 
 <p>If you can see a page similar to the one shown, 
