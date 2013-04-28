@@ -39,8 +39,15 @@ The player uses a software application known as Squeezelite which provides the a
 to your local LMS server in the same way as other hardware and software players. Squeezelite itself 
 does not have a user interface and you will normally not need to configure it other than to select 
 the audio output device you wish to use. Audio playback is controlled via the LMS server web interface, 
-the Jivelite HDMI user interface application, (which is also part of CSOS), or by using another control 
-application, of which there are many available. eg. for iOS and Android.
+the Jivelite HDMI User Interface, (which is also part of CSOS), or by using another control 
+application, of which there are many available. eg. 
+<s:a href="https://play.google.com/store/apps/details?id=com.logitech.squeezeboxremote" 
+     target="blank_">Logitech Squeezebox Controller</s:a>, 
+<s:a href="http://penguinlovesmusic.de/ipeng-the-iphone-skin-for-squeezecenter/" 
+     target="blank_">iPeng</s:a>, 
+or 
+<s:a href="http://orangebikelabs.com/products/orangesqueeze/" 
+     target="blank_">Orange Squeeze</s:a>.
 </p>
 
 <h4>Specifications</h4>
@@ -78,9 +85,9 @@ analogue line output for the output of Squeezelite. To change this you should us
 configuration interfaces to select alternative output devices:
 </p>
 
-<h4>Via the HDMI user interface</h4>
+<h4>Via the Jivelite HDMI User Interface</h4>
 
-<p>Using the HDMI user interface navigate to: 
+<p>Using the Jivelite HDMI User Interface navigate to: 
 Settings&nbsp;&gt;&nbsp;Audio&nbsp;Settings&nbsp;&gt;&nbsp;Audio&nbsp;Output&nbsp;Device
 Select the desired output device from the list and confirm by selecting the &quot;Select device&quot; 
 option. The device should then be confirmed with a tick indicating that it is selected. Note that 
@@ -103,8 +110,8 @@ these if you wish to use a usb device.</p>
 configuration page which allows the Squeezelite configuration parameters to be set. You should 
 normally only need to change the Audio Device from this menu to change the output device. 
 Select the desired output and then select &quot;Save&nbsp;and&nbsp;Conditionally&nbsp;Restart&quot;.
-The same devices will appear in the drop down list on this page as for the HDMI interface, but the 
-name will also include &quot;hw:CARD=&quot; and &quot;plughw:CARD=&quot;. You should try the 
+The same devices will appear in the drop down list on this page as for the Jivelite HDMI User Interface, 
+but the name will also include &quot;hw:CARD=&quot; and &quot;plughw:CARD=&quot;. You should try the 
 &quot;hw:&quot; version first and if this does not work reliably, then select the &quot;plughw:&quot; 
 one.</p>
 
@@ -117,7 +124,7 @@ configuration.</p>
 
 <p>Advanced configuration is normally only needed to turn the configuration for specific audio devices 
 to enable better compatibility with certain devices. The CSOS Web Configuration interfaces provides 
-access to all configuration options. The Jivelite HDMI user interface provides access to the common 
+access to all configuration options. The Jivelite HDMI User Interface provides access to the common 
 additional options from the Settings &gt; Audio Settings &gt; Audio Output Device &gt; Optional Parameters 
 (Advanced) menu.</p>
 
@@ -126,7 +133,7 @@ additional options from the Settings &gt; Audio Settings &gt; Audio Output Devic
 <h4>Alsa Parameters</h4>
 
 <p>This defines the specific internal audio configuration used to interface to the device. It is made 
-up of four separate parameters which are configured separately from the Jivelite HDMI user interface 
+up of four separate parameters which are configured separately from the Jivelite HDMI User Interface 
 and as one entry on the Web Configuration interface using the format 
 &quot;&lt;a&gt;:&lt;b&gt;:&lt;c&gt;:&lt;d&gt;&quot;.</p>
 
@@ -142,7 +149,7 @@ if you hear drop outs</li>
 
 <ol>
 <li>The sgtl5000 on-board audio device works best in 16 bit mode. 
-By default, the Jivelite HDMI user interface will set Alsa Format to &quot;16&quot; for this device.
+By default, the Jivelite HDMI User Interface will set Alsa Format to &quot;16&quot; for this device.
 By default, the Web Configuration interface with set the Alsa parameters to &quot;40::16:&quot;, if 
 they are not user set. (ie. the field is left blank and not populated by the user.)
 </li>

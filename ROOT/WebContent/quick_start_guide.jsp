@@ -251,12 +251,14 @@ then your Wandboard should now be working as a wired SqueezeBox.
 
 <p>To access your new SqueezeBox device you can use either a
 smartphone or tablet and one of the various applications that are
-available from the app stores (eg. 
+available from the app stores, (eg.
+<s:a href="https://play.google.com/store/apps/details?id=com.logitech.squeezeboxremote" 
+     target="blank_">Logitech Squeezebox Controller</s:a>,  
 <s:a href="http://penguinlovesmusic.de/ipeng-the-iphone-skin-for-squeezecenter/" 
-     target="blank_">iPeng</s:a> 
+     target="blank_">iPeng</s:a>, 
 or 
 <s:a href="http://orangebikelabs.com/products/orangesqueeze/" 
-     target="blank_">Orange Squeeze</s:a>) or you
+     target="blank_">Orange Squeeze</s:a>), or you
 can use the LMS web interface on your SqueezeBox server. You cannot use
 (at the moment) your infra-red remote.</p>
 
