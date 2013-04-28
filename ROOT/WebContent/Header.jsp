@@ -32,6 +32,24 @@
 		</s:a>
 	</span> 
 
+	<span id="nav-jivelite">
+		<s:a href="jivelite_about.jsp">
+			<s:text name="nav.jivelite" />
+		</s:a>
+	</span> 
+
+	<span id="nav-quick_start_guide">
+		<s:a href="quick_start_guide.jsp">
+			<s:text name="nav.qsg" />
+		</s:a>
+	</span> 
+
+	<span id="nav-squeezelite">
+		<s:a href="squeezelite_about.jsp">
+			<s:text name="nav.squeezelite" />
+		</s:a>
+	</span> 
+
 	<span id="nav-help">
 		<s:a href="help.jsp">
 			<s:text name="nav.help" />

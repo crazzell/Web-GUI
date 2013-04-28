@@ -6,7 +6,7 @@
 <html>
 
 <head>
-	<title><s:text name="web.index.title" /></title>
+	<title><s:text name="index.title" /></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	<link href="html/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link href="favicon.ico" rel="icon" type="image/x-icon" />
@@ -28,7 +28,7 @@
 				</s:a>
 			</td>
 			<td>
-				<h2><s:text name="web.index.header" /></h2>
+				<h2><s:text name="index.header" /></h2>
 				<p class="copyright">Designed by the Squeeze Community, for the Squeeze Community</p>
 			</td>
 		</tr>
