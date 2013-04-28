@@ -174,8 +174,20 @@ required by experience users who wish to tweak their configuration. Please don't
 you know what these do.</p>
 <hr />
 
+<h3>Source Code</h3>
+<p>Squeezelite was written by, and is Copyright &copy; 2012, 2013 Adrian Smith.</p>
+<p>Squeezelite source code is hosted by Google Code. 
+<s:a href="http://code.google.com/p/squeezelite/" target="blank_">
+Squeezelite Git Source Repository</s:a>.
+</p>
+<hr />
+
 <h3><s:text name="header.author" /></h3>
-<p>TBD</p>
+<p>This information on this page was authored by 
+<s:a href="http://forums.slimdevices.com/member.php?17-Triode" 
+     target="blank_">Triode</s:a>, with minor contributions from 
+<s:a href="http://forums.slimdevices.com/member.php?3069-JackOfAll" 
+     target="blank_">JackOfAll</s:a>.</p>
 
 <hr />
 <jsp:include page="Footer.jsp" />
