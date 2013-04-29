@@ -181,6 +181,28 @@ required by experience users who wish to tweak their configuration. Please don't
 you know what these do.</p>
 <hr />
 
+<h3>Command Line Options</h3>
+<pre>
+
+Squeezelite v1.1, Copyright 2012, 2013 Adrian Smith. See -t for license terms
+Usage: squeezelite [options] [&lt;server&gt;]
+  &lt;server&gt;		Connect to specified server, otherwise uses autodiscovery to find server
+  -o &lt;output device&gt;	Specify output device, default &quot;default&quot;
+  -l 			List output devices
+  -a &lt;b&gt;:&lt;c&gt;:&lt;f&gt;:&lt;m&gt;	Specify ALSA params to open output device, b = buffer time in ms, c = period count, f sample format (16|24|24_3|32), m = use mmap (0|1)
+  -b &lt;stream&gt;:&lt;output&gt;	Specify internal Stream and Output buffer sizes in Kbytes
+  -c &lt;codec1&gt;,&lt;codec2&gt;	Restrict codecs those specified, otherwise loads all available codecs; known codecs: flac,pcm,mp3,ogg,aac (mad,mpg for specific mp3 codec)
+  -d &lt;log&gt;=&lt;level&gt;	Set logging level, logs: all|slimproto|stream|decode|output, level: info|debug|sdebug
+  -f &lt;logfile&gt;		Write debug to logfile
+  -m &lt;mac addr&gt;		Set mac address, format: ab:cd:ef:12:34:56
+  -n &lt;name&gt;		Set the player name
+  -p &lt;priority&gt;		Set real time priority of output thread (1-99)
+  -r &lt;rate&gt;		Max sample rate for output device, enables output device to be off when squeezelite is started
+  -z 			Daemonize
+  -t 			License terms
+</pre>
+<hr />
+
 <h3>Source Code</h3>
 <p>Squeezelite was written by, and is Copyright &copy; 2012, 2013 Adrian Smith.</p>
 <p>Squeezelite source code is hosted by Google Code. 
