@@ -35,8 +35,8 @@
 <h3><s:text name="header.introduction" /></h3>
 
 <p>
-<img src="html/images/jivelite/jivelite_1_640x480.png" 
-     alt="Jivelite on monitor" width="640" height="480" />
+<img src="html/images/jivelite/jivelite_1_640x427.png" 
+     alt="Jivelite on monitor" width="640" height="427" />
 </p>
 <p>Jivelite is the Community Squeeze Operating System's recommended
 graphical user interface. It is already installed and running by
@@ -227,54 +227,66 @@ Contributed by Triode.</p>
 <br />
 <br />
 
-<img src="html/images/jivelite/squeezeplay0005_1280x720.png" 
+<s:a href="html/images/jivelite/squeezeplay0005_1280x720.png" target="blank_">
+<img src="html/images/jivelite/squeezeplay0005_640x360.png" 
      alt="Jivelite: Select Skin (1280x720)"
-     width="1280" height="720" />
+     width="640" height="360" />
+</s:a>
 <p />
 <p class="copyright">&quot;Select&nbsp;Skin&quot;, using HD Skin (1280x720). 
 Contributed by Triode.</p>
 <br />
 <br />
 
-<img src="html/images/jivelite/squeezeplay0006_1280x720.png" 
+<s:a href="html/images/jivelite/squeezeplay0006_1280x720.png" target="blank_">
+<img src="html/images/jivelite/squeezeplay0006_640x360.png" 
      alt="Jivelite: Confirm Skin Change (1280x720)"
-     width="1280" height="720" />
+     width="640" height="360" />
+</s:a>
 <p />
 <p class="copyright">&quot;Confirm&nbsp;Skin&nbsp;Change&quot;, using HD Skin (1280x720). 
 Contributed by Triode.</p>
 <br />
 <br />
 
-<img src="html/images/jivelite/squeezeplay0007_1280x720.png" 
+<s:a href="html/images/jivelite/squeezeplay0007_1280x720.png" target="blank_">
+<img src="html/images/jivelite/squeezeplay0007_640x360.png" 
      alt="Jivelite: Main Menu (1280x720)"
-     width="1280" height="720" />
+     width="640" height="360" />
+</s:a>
 <p />
 <p class="copyright">&quot;Main&nbsp;Menu&quot;, using HD Skin (1280x720). 
 Contributed by Triode.</p>
 <br />
 <br />
 
-<img src="html/images/jivelite/squeezeplay0008_1280x720.png" 
+<s:a href="html/images/jivelite/squeezeplay0008_1280x720.png" target="blank_">
+<img src="html/images/jivelite/squeezeplay0008_640x360.png" 
      alt="Jivelite: My Music (1280x720)"
-     width="1280" height="720" />
+     width="640" height="360" />
+</s:a>
 <p />
 <p class="copyright">&quot;Main&nbsp;Menu&nbsp;&minus;&gt;&nbsp;My&nbsp;Music&quot;, using HD Skin (1280x720). 
 Contributed by Triode.</p>
 <br />
 <br />
 
-<img src="html/images/jivelite/squeezeplay0009_1280x720.png" 
+<s:a href="html/images/jivelite/squeezeplay0009_1280x720.png" target="blank_">
+<img src="html/images/jivelite/squeezeplay0009_640x360.png" 
      alt="Jivelite: Spotify What's New (1280x720)"
-     width="1280" height="720" />
+     width="640" height="360" />
+</s:a>
 <p />
 <p class="copyright">&quot;Main&nbsp;Menu&nbsp;&minus;&gt;&nbsp;My&nbsp;Apps&nbsp;&minus;&gt;&nbsp;Spotify&nbsp;&minus;&gt;&nbsp;What's&nbsp;New&quot;, using HD Skin (1280x720). 
 Contributed by Triode.</p>
 <br />
 <br />
 
-<img src="html/images/jivelite/squeezeplay0013_1280x720.png" 
+<s:a href="html/images/jivelite/squeezeplay0013_1280x720.png" target="blank_">
+<img src="html/images/jivelite/squeezeplay0013_640x360.png" 
      alt="Jivelite: Now Playing (1280x720)"
-     width="1280" height="720" />
+     width="640" height="360" />
+</s:a>
 <p />
 <p class="copyright">&quot;Now&nbsp;Playing&quot;, using HD Skin (1280x720). 
 Contributed by Triode.</p>
