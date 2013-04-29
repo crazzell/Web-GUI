@@ -61,6 +61,7 @@
     you update CSOS on the Wandboard when new software is released?</s:a></li>
   <li><s:a href="#Does_the_Wandboard_have_enough_performance_to_reliably_run_LMS.3F">Does the 
     Wandboard have enough performance to reliably run LMS?</s:a></li>
+  <li><s:a href="#Sample_rate_test_files">Sample rate test files</s:a></li>
 </ol>
 
 <h5><span id="What_is_Community_Squeeze.3F">What is Community Squeeze?</span></h5>
@@ -105,13 +106,23 @@ web site.
 <li><s:a href="http://forums.slimdevices.com/member.php?25868-Chunkywizard" 
          target="blank_">Chunkywizard</s:a> (FAQ)</li>
 <li><s:a href="http://forums.slimdevices.com/member.php?8264-Stoker" 
-     target="blank_">Stoker</s:a> (Quick Start Guide)</li>
+         target="blank_">Stoker</s:a>
+         (<s:a href="http://www.communitysqueeze.org/quick_start_guide.jsp"
+               target="blank_">CSOS on the Wandboard: Quick Start Guide</s:a>)</li>
+<li><s:a href="http://forums.slimdevices.com/member.php?12588-dsdreamer" 
+         target="blank_">dsdreamer</s:a>
+         (<s:a href="http://www.communitysqueeze.org/jivelite_about.jsp"
+               target="blank_">Jivelite: Control of Audio Playback on the Wandboard</s:a>)</li>
 <li><s:a href="http://forums.slimdevices.com/member.php?23863-albertone74" 
-         target="blank_">albertone74</s:a> (Italian Translation)</li>
-<li>Translation: ...</li>
-<li>Translation: ...</li>
-<li>Translation: ...</li>
-<li>Translation: ...</li>
+         target="blank_">albertone74</s:a> (CSOS Web-GUI Italian translation)</li>
+<li><s:a href="http://forums.slimdevices.com/member.php?58909-Gandhi" 
+         target="blank_">Gandhi</s:a> (CSOS Web-GUI Swedish translation)</li>
+<li><s:a href="http://forums.slimdevices.com/member.php?59321-michaelvv" 
+         target="blank_">michaelvv</s:a> (CSOS Web-GUI Danish translation)</li>
+<li><s:a href="http://forums.slimdevices.com/member.php?16711-epoch1970" 
+         target="blank_">epoch1970</s:a> (CSOS Web-GUI French translation)</li>
+<li><s:a href="http://forums.slimdevices.com/member.php?53748-ab-wagener" 
+         target="blank_">ab.wagener</s:a> (CSOS Web-GUI German translation)</li>
 </ul>
 <p />
  
@@ -121,7 +132,7 @@ to be supported?</span></h5>
 <li>SPDIF: electrical (COAX BNC)</li>
 <li>SPDIF: optical (TOSLINK)</li>
 <li>USB: UAC1 and UAC2</li>
-<li>Line Level Analogue: single-ended (RCA), balanced (XLR) and headphones.</li>
+<li>Line Level Analog: single-ended (RCA), balanced (XLR) and headphones.</li>
 </ul>
 <p />
  
@@ -381,6 +392,14 @@ started by default, every time the Wandboard is re-started. ie. after a subseque
 <p>Although the stated goal of the Community Squeeze project is primarily a hardware player, LMS 
 running on the Wandboard works well, even with large music libraries. 
 </p>
+
+<h5><span id="Sample_rate_test_files">Sample rate test files</span></h5>
+<p><s:a href="http://www.communitysqueeze.org/files/SampleRateTest.tgz" 
+        target="blank_">SampleRateTest.tgz</s:a> is a tar/gzip archive containing a flac file from the 
+Bink Audio Test CD, (this is the right channel, this is the left channel, this is both channels), 
+re-sampled at 32k, 44k1, 48k, 88k2, 96k, 176k4, 192k, 352k8, and 384k.
+</p>
+
 <hr />
 
 <h3>Author</h3>
