@@ -210,7 +210,7 @@ comes with the case or be creative.</li>
 <p>Connections (starting from the right side, working left are):</p>
 <ul> 
 <li>top: barrel power jack, bottom: micro USB as power connector</li> 
-<li>top: RJ‐45 Ethernet jack, no bottom</li> 
+<li>top: RJ-45 Ethernet jack, no bottom</li> 
 <li>top: micro OTG USB jack, bottom: HDMI jack</li> 
 <li>top: stacked USB full size type A jacks (host jacks, type on laptops etc), no bottom</li> 
 <li>top: BNC jack (SPDIF), bottom: TOSLINK</li> 
@@ -220,7 +220,7 @@ comes with the case or be creative.</li>
 <p />
  
 <h5><span id="Can_you_re-order_the_jacks.3F">Can you re-order the jacks?</span></h5> 
-<p>John can't really re‐arrange the order of the jacks; it's determined by the pin order on that 
+<p>John can't really re-arrange the order of the jacks; it's determined by the pin order on that 
 giant connector. If he changed the order he would have high speed differential signals 
 crossing each other, and he doesn't want to do that.</p> 
  
@@ -249,7 +249,7 @@ external TV or monitor via the HDMI port.</p>
 <h5><span id="How_can_you_control_CSP1.3F">How can you control CSP1?</span></h5> 
 <p>The traditional SB control options will all work (server web UI, external programs on smart 
 phones, tablets, laptops, desktops, the Duet controller, a SB Touch, etc.) There will also be some 
-form of HDMI output and IR input which can be used for control. There will be a built‐in web 
+form of HDMI output and IR input which can be used for control. There will be a built-in web 
 server for configuration purposes.</p> 
  
 <h5><span id="How_many_CSP1_s_will_be_made.3F">How many CSP1's will be made?</span></h5> 
@@ -259,9 +259,9 @@ server for configuration purposes.</p>
 <p>CSP2 will be the general release version. It is expected that there will be at least 2 distributors, 
 one in Europe and the other in the USA. 
 It is hoped (but to be confirmed) that there will be the option of purchasing the bare DAC carrier board, 
-or a ready to go, pre‐built player, assembled, tested and comprising the DAC carrier board, 
+or a ready to go, pre-built player, assembled, tested and comprising the DAC carrier board, 
 Wandboard Dual CPU board, Hammond extruded aluminium chassis, front/rear panels, (glass fibre PCB 
-material), a power supply, and a pre‐imaged SD card.</p> 
+material), a power supply, and a pre-imaged SD card.</p> 
  
 <h5><span id="Is_CSP1_CSP2_going_to_include_IR_receivers_blasters.3F">Is CSP1/CSP2 going to include 
   IR receivers/blasters?</span></h5> 
@@ -322,11 +322,11 @@ be improved.</p>
 <p>It's pretty easy. It will use the existing LMS server software and should behave like most 
 Squeezeboxes. To configure wireless settings, such as entering a Wi-Fi password, you'll plug it 
 into your wired network. It will use DHCP to configure itself on the network, and then it will 
-have a built‐in web interface for configuring Wi-Fi.</p> 
+have a built-in web interface for configuring Wi-Fi.</p> 
  
 <h5><span id="How_will_you_control_it_if_it_doesn_t_have_a_display.3F">How will you control it if it 
   doesn't have a display?</span></h5> 
-<p>It won't have a built‐in display, so you'll need some other way to control the player across 
+<p>It won't have a built-in display, so you'll need some other way to control the player across 
 the network. That could be a smartphone or tablet, but it doesn't have to be. It could be 
 controlled through the web interface of LMS, or you could use your Touch (you can point the 
 Touch's user interface at any Squeezebox player on your network).</p> 
@@ -337,7 +337,7 @@ Touch's user interface at any Squeezebox player on your network).</p>
 
 <h5><span id="TOSLINK_isn_t_working_for_me_on_the_default_Wandboard_carrier_board__What_can_be_done.3F">
   TOSLINK isn't working for me on the default Wandboard carrier board. What can be done?</span></h5>
-<p>Slimdevices forum <s:a href="http://forums.slimdevices.com/showthread.php?97881‐Community‐Funded‐Squeezebox‐Replacement‐Would‐you‐be‐interested&p=745185&viewfull=1#post745185"
+<p>Slimdevices forum <s:a href="http://forums.slimdevices.com/showthread.php?97881-Community-Funded-Squeezebox-Replacement-Would-you-be-interested&p=745185&viewfull=1#post745185"
         target="blank_">TOSLINK</s:a> post by Terry.
 </p>
 
