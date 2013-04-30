@@ -142,10 +142,10 @@ to be supported?</span></h5>
  
 <h5><span id="Which_external_DAC_s_have_been_tested_with_the_Wandboard.3F">Which 
   external DAC's have been tested with the Wandboard?</span></h5> 
-<p>SlimDevices forum post with list of
-<s:a href="http://forums.slimdevices.com/showthread.php?98544‐Community‐Squeeze‐OS‐R3&p=744486&viewfull=1#post744486"
-     target="blank_">compatible USB DAC's</s:a> by JackOfAll.
-</p> 
+<p>USB DAC list:</p>
+<p>
+<jsp:include page="faq_content_usb_dac_list.jsp" />
+</p>
  
 <h5><span id="What_do_you_need_to_get_started_with_CSOS_ahead_of_a_finished_product.3F">What 
   do you need to get started with CSOS ahead of a finished product?</span></h5> 
