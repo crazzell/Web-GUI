@@ -77,7 +77,8 @@
   <br />
   
   <ul>
-    <li>Name: <s:a href="http://www.sonore.us/index2.html" target="blank_">Sonore ExD DAC</s:a></li>
+    <li>Name: <s:a href="http://www.sonore.us/index2.html" 
+                   target="blank_">Sonore ExD DAC</s:a></li>
     <li>Driver: snd-usb-audio</li>
     <li>Max Rate: 384k</li>
     <li>Class: UAC2</li>
@@ -104,7 +105,7 @@
   
   <ul>
     <li>Name: <s:a href="http://www.musicalfidelity.com/products/vSeries/v-link192/" 
-                   target="">Musical Fidelity V-192 S/PDIF Output Interface</s:a></li>
+                   target="blank_">Musical Fidelity V-192 S/PDIF Output Interface</s:a></li>
     <li>Driver: snd-usb-audio</li>
     <li>Max Rate: 192k</li>
     <li>Class: UAC2</li>
