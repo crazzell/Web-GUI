@@ -63,6 +63,7 @@
     Wandboard have enough performance to reliably run LMS?</s:a></li>
   <li><s:a href="#Sample_rate_test_files">Sample rate test files</s:a></li>
 </ol>
+<hr />
 
 <h5><span id="What_is_Community_Squeeze.3F">What is Community Squeeze?</span></h5>
 <p>It's a project to produce an audiophile quality Squeezebox compatible music player by various 
