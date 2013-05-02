@@ -55,10 +55,21 @@ li {
 }
 
 pre {
-    text-indent: 0.25em;
-    width: 90%;
+    /* text-indent: 0.25em; */
+    margin-left: 1em;
+    margin-right: 1em;
+    text-indent: 0;
+    /* width: 90%; */
     font-size: 90%;
+    /* color: white;
+    background: black; */
 }
+
+.terminal {
+    color: white;
+    background: black;
+}
+
 
 br.separator {
     margin: 0;
