@@ -42,7 +42,7 @@ ol {
 
 ul {
     margin: 0;
-    padding: 0 0 0 1em;
+    padding: 0 0 0 2em;
     text-indent: 0;
     /* list-style: none; */
 }
@@ -69,7 +69,6 @@ pre {
     color: white;
     background: black;
 }
-
 
 br.separator {
     margin: 0;
@@ -180,3 +179,4 @@ a img {
 .language {
   font-size: 8pt;
 }
+
