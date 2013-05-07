@@ -122,3 +122,14 @@
     <li>Used by: Stoker</li> 
   </ul>
   <br />
+
+    <ul>
+    <li>Name: <s:a href="http://audioengineusa.com/Store/Audioengine-D1" 
+                   target="blank_">AudioEngine D1</s:a></li>
+    <li>Driver: snd-usb-audio</li>
+    <li>Max Rate: 96k</li>
+    <li>Class: UAC1</li>
+    <li>Hub: Bus powered external high speed hub</li>
+    <li>Used by: dsdreamer</li> 
+  </ul>
+  <br />
