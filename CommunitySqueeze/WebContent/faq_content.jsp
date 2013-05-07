@@ -11,7 +11,7 @@
   <li><s:a href="#What_do_you_need_to_get_started_with_CSOS_ahead_of_a_finished_product.3F">What 
     do you need to get started with the Community Squeeze OS (CSOS) ahead of a finished product?</s:a></li>
   <li><s:a href="#Where_can_you_buy_a_Wandboard.3F">Where can you buy a Wandboard?</s:a></li>
-  <li><s:a href="#Can_I_use_an_external_DAC_with_the_Wandboard.3F">Can I se an external DAC with the Wandboard?</s:a></li>
+  <li><s:a href="#Can_I_use_an_external_DAC_with_the_Wandboard.3F">Can I use an external DAC with the Wandboard?</s:a></li>
   <li><s:a href="#Which_external_DAC_s_have_been_tested_with_the_Wandboard.3F">Which external 
     DAC's have been tested with the Wandboard?</s:a></li>
   <li><s:a href="#If_you_get_a_Wandboard_now__can_you_re-use_its_CPU_card_for_later_releases.3F">If you 
