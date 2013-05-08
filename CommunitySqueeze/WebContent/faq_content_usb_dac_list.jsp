@@ -9,7 +9,7 @@
     <li>Class: UAC2</li>
     <li>Used by: JackOfAll</li>
   </ul>
-  <br />
+  <p />
 
   <ul>
     <li>Name: 
@@ -21,7 +21,7 @@
     <li>Class: UAC2</li>
     <li>Used by: JackOfAll</li>
   </ul>
-  <br />
+  <p />
 
   <ul>
     <li>Name: 
@@ -32,7 +32,7 @@
     <li>Class: UAC2</li>
     <li>Used by: agillis</li>
   </ul>
-  <br />
+  <p />
 
   <ul>
     <li>Name: <s:a href="http://www.audiolab.co.uk/M-DAC%20Series.aspx?lang=En" target="blank_">
@@ -43,7 +43,7 @@
     <li>Hub: Bus powered external high speed hub</li>
     <li>Used by: Triode</li>
   </ul>
-  <br />
+  <p />
 
   <ul>
     <li>Name: <s:a href="http://www.beresford.me" target="blank_">
@@ -53,7 +53,7 @@
     <li>Class: UAC1</li>
     <li>Used by: lintweaker</li>
   </ul>
-  <br />
+  <p />
   
   <ul>
     <li>Name: <s:a href="http://www.cambridgeaudio.com/products/dacmagic-plus-digital-to-analogue-converter" 
@@ -63,7 +63,7 @@
     <li>Class: UAC1/UAC2 (UAC mode is switchable)</li>
     <li>Used by: lintweaker</li>
   </ul>
-  <br />
+  <p />
 
   <ul>
     <li>Name: <s:a href="http://mytekdigital.com/hifi" 
@@ -74,7 +74,7 @@
     <li>Class: UAC1/UAC2 (The Mytek Digital has both a USB1.1 and a USB2 connector)</li>
     <li>Used by: lintweaker</li>
   </ul>
-  <br />
+  <p />
   
   <ul>
     <li>Name: <s:a href="http://www.sonore.us/index2.html" 
@@ -84,7 +84,7 @@
     <li>Class: UAC2</li>
     <li>Used by: lintweaker</li> 
   </ul>
-  <br />
+  <p />
   
   <ul>
     <li>Name: <s:a href="http://www.littledot.net/forum/viewtopic.php?f=9&t=814&sid=5f6cdbb7b861234e2f2753d134177f66" 
@@ -93,7 +93,7 @@
     <li>Class: UAC1</li>
     <li>Used by: albertone74</li>
   </ul>
-  <br />
+  <p />
 
   <ul>
     <li>Name: Cambridge Audio DacMagic</li>
@@ -101,7 +101,7 @@
     <li>Class: UAC1</li>
     <li>Used by: albertone74</li>
   </ul>
-  <br />
+  <p />
   
   <ul>
     <li>Name: <s:a href="http://www.musicalfidelity.com/products/vSeries/v-link192/" 
@@ -111,7 +111,7 @@
     <li>Class: UAC2</li>
     <li>Used by: dsdreamer</li>
   </ul>
-  <br />
+  <p />
 
   <ul>
     <li>Name: <s:a href="http://hifimediy.com/index.php?route=product/product&product_id=83" 
@@ -121,7 +121,7 @@
     <li>Class: UAC2 (TenorTE7022L USB chip)</li>
     <li>Used by: Stoker</li> 
   </ul>
-  <br />
+  <p />
 
     <ul>
     <li>Name: <s:a href="http://audioengineusa.com/Store/Audioengine-D1" 
@@ -132,4 +132,4 @@
     <li>Hub: Bus powered external high speed hub</li>
     <li>Used by: dsdreamer</li> 
   </ul>
-  <br />
+  <p />
