@@ -60,12 +60,18 @@
 </tr>
 </table>
 </s:form>
-
 <hr />
+
+<h4><s:text name="header.configuration" /></h4>
+<p><a href="http://${pageContext.request.serverName}:9000/" target="blank_">
+SqueezeServer Web Interface</a>
+</p>
+<hr />
+
 <h4><s:text name="header.notes" /></h4>
 <p><s:text name="squeezeserver.notes.desc" /></p>
-
 <hr />
+
 <jsp:include page="Footer.jsp"/>
 
 </body>
