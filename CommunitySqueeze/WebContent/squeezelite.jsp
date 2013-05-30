@@ -86,6 +86,13 @@
 </td>
 </tr>
 <tr>
+<td />
+<td>
+	<s:checkbox name="defaultMac" />
+    <s:text name="squeezelite.label.mac.default" />
+</td>
+</tr>
+<tr>
 <td align="right">
 	<s:text name="squeezelite.label.audioDev" />
 	<img src='struts/tooltip.gif'

@@ -116,6 +116,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	protected List<String> priorityList = PRIORITY_LIST;
 	protected List<String> audioDevList;
 	
+	protected boolean defaultMac = false;
+	
 	/**
 	 * 
 	 */
@@ -232,13 +234,13 @@ public class SqueezeliteAction extends SystemctlAction {
 		}
 
 		/*
-		 * If mac has not populated by the user, get the mac of 
-		 * the default wired network interface
+		 * If mac has not populated by the user and default mac cb is populated, 
+		 * get the mac of the default wired network interface
 		 */
-		if (mac == null || mac.trim().length() != Validate.MAC_STRING_LENGTH) {
-			String tempMac = Util.getMacAddress(WebConfig.getWiredInterfaceName());
-			if (tempMac != null && tempMac.length() == Validate.MAC_STRING_LENGTH) {
-				mac = tempMac;
+		if ((mac == null || mac.trim().length() < Validate.MAC_STRING_LENGTH) && defaultMac) {
+			String tmpMac = Util.getMacAddress(WebConfig.getWiredInterfaceName());
+			if (tmpMac != null && tmpMac.matches(Validate.REGEX_MAC_ADDRESS)) {
+				mac = tmpMac;
 			}
 		} 
 		
@@ -578,6 +580,20 @@ public class SqueezeliteAction extends SystemctlAction {
 		this.audioDevList = audioDevList;
 	}
 	
+	/**
+	 * @return the defaultMac
+	 */
+	public boolean isDefaultMac() {
+		return defaultMac;
+	}
+
+	/**
+	 * @param defaultMac the defaultMac to set
+	 */
+	public void setDefaultMac(boolean defaultMac) {
+		this.defaultMac = defaultMac;
+	}
+
 	/**
 	 * @param configName
 	 * @throws FileNotFoundException
