@@ -92,6 +92,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String CFG_ALSA_PARAMS = "ALSA_PARAMS";
 	private final static String CFG_ALSA_PARAMS_OPTION = "-a ";
 	private final static String CFG_SERVER_IP = "SERVER_IP";
+	private final static String CFG_UPSAMPLE = "UPSAMPLE";
+	private final static String CFG_UPSAMPLE_OPTION = "-u";
 	
 	private final static List<String> PRIORITY_LIST = 
 			Util.generatePriorityList(SQUEEZELITE_MAX_RT_PRIORITY);
@@ -117,6 +119,7 @@ public class SqueezeliteAction extends SystemctlAction {
 	protected List<String> audioDevList;
 	
 	protected boolean defaultMac = false;
+	protected boolean upsample = false;
 	
 	/**
 	 * 
@@ -172,6 +175,7 @@ public class SqueezeliteAction extends SystemctlAction {
 		codec = properties.get(CFG_CODEC);
 		alsaParams = properties.get(CFG_ALSA_PARAMS);
 		serverIp = properties.get(CFG_SERVER_IP);
+		upsample = properties.get(CFG_UPSAMPLE) != null;
 	}
 	
 	/**
@@ -355,6 +359,10 @@ public class SqueezeliteAction extends SystemctlAction {
 		
 		if (serverIp != null && serverIp.trim().length() > 0) {
 			list.add(CFG_SERVER_IP + "=\"" + serverIp.trim() + "\"");
+		}
+		
+		if (upsample) {
+			list.add(CFG_UPSAMPLE + "=\"" + CFG_UPSAMPLE_OPTION + "\"");
 		}
 		
 		File file = null;
@@ -595,6 +603,20 @@ public class SqueezeliteAction extends SystemctlAction {
 	}
 
 	/**
+	 * @return the upsample
+	 */
+	public boolean isUpsample() {
+		return upsample;
+	}
+
+	/**
+	 * @param upsample the upsample to set
+	 */
+	public void setUpsample(boolean upsample) {
+		this.upsample = upsample;
+	}
+
+	/**
 	 * @param configName
 	 * @throws FileNotFoundException
 	 * @throws IOException
@@ -649,6 +671,13 @@ public class SqueezeliteAction extends SystemctlAction {
 							properties.put(name, value);
 							if (LOGGER.isTraceEnabled()) {
 								LOGGER.trace("Name='" + name + "', Value='" + value + "'");
+							}
+						} else if (name.equals(CFG_UPSAMPLE)) {
+							if (value.equals(CFG_UPSAMPLE_OPTION)) {
+								properties.put(name, "");
+								if (LOGGER.isTraceEnabled()) {
+									LOGGER.trace("Name='" + name + "', Value='" + value + "'");
+								}
 							}
 						} else {
 							/*

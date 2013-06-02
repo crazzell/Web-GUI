@@ -182,6 +182,17 @@
 </tr>
 <tr>
 <td align="right">
+    <s:text name="squeezelite.label.upsample" />
+	<img src='struts/tooltip.gif'
+	  	 title="<s:property value="getText('squeezelite.tooltip.upsample')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.upsample')" />" />
+</td>
+<td>
+	<s:checkbox name="upsample" />
+</td>
+</tr>
+<tr>
+<td align="right">
 	<s:text name="squeezelite.label.serverIp" />
 	<img src='struts/tooltip.gif'
 	  	 title="<s:property value="getText('squeezelite.tooltip.serverIp')" />"
