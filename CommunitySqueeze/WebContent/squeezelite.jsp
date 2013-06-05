@@ -189,6 +189,7 @@
 </td>
 <td>
 	<s:checkbox name="upsample" />
+	<s:textfield name="upsampleOptions" cssClass="size-100px" />
 </td>
 </tr>
 <tr>

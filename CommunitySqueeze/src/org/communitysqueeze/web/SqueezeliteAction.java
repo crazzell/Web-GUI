@@ -93,7 +93,19 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String CFG_ALSA_PARAMS_OPTION = "-a ";
 	private final static String CFG_SERVER_IP = "SERVER_IP";
 	private final static String CFG_UPSAMPLE = "UPSAMPLE";
-	private final static String CFG_UPSAMPLE_OPTION = "-u";
+	private final static String CFG_UPSAMPLE_OPTION = "-u ";
+	
+	private final static String CFG_UPSAMPLE_QUALITY_QUICK = "q";
+	private final static String CFG_UPSAMPLE_QUALITY_LOW = "l";
+	private final static String CFG_UPSAMPLE_QUALITY_MEDIUM = "m";
+	private final static String CFG_UPSAMPLE_QUALITY_HIGH = "h";
+	private final static String CFG_UPSAMPLE_QUALITY_VERY_HIGH = "v";
+	
+	private final static String CFG_UPSAMPLE_PHASE_LINEAR = "L";
+	private final static String CFG_UPSAMPLE_PHASE_MINIMUM = "M";
+	private final static String CFG_UPSAMPLE_PHASE_INTERMEDIATE = "I";
+	
+	private final static String CFG_UPSAMPLE_FILTER_STEEP = "s";
 	
 	private final static List<String> PRIORITY_LIST = 
 			Util.generatePriorityList(SQUEEZELITE_MAX_RT_PRIORITY);
@@ -120,6 +132,7 @@ public class SqueezeliteAction extends SystemctlAction {
 	
 	protected boolean defaultMac = false;
 	protected boolean upsample = false;
+	protected String upsampleOptions;
 	
 	/**
 	 * 
@@ -175,7 +188,10 @@ public class SqueezeliteAction extends SystemctlAction {
 		codec = properties.get(CFG_CODEC);
 		alsaParams = properties.get(CFG_ALSA_PARAMS);
 		serverIp = properties.get(CFG_SERVER_IP);
-		upsample = properties.get(CFG_UPSAMPLE) != null;
+		upsampleOptions = properties.get(CFG_UPSAMPLE);
+		if (upsampleOptions != null) {
+			upsample = true;
+		}
 	}
 	
 	/**
@@ -362,7 +378,10 @@ public class SqueezeliteAction extends SystemctlAction {
 		}
 		
 		if (upsample) {
-			list.add(CFG_UPSAMPLE + "=\"" + CFG_UPSAMPLE_OPTION + "\"");
+			list.add(CFG_UPSAMPLE + "=\"" + CFG_UPSAMPLE_OPTION + 
+						((upsampleOptions != null && upsampleOptions.trim().length() > 0) ? 
+								upsampleOptions.trim() : "") + 
+						"\"");
 		}
 		
 		File file = null;
@@ -617,6 +636,20 @@ public class SqueezeliteAction extends SystemctlAction {
 	}
 
 	/**
+	 * @return the upsampleOptions
+	 */
+	public String getUpsampleOptions() {
+		return upsampleOptions;
+	}
+
+	/**
+	 * @param upsampleOptions the upsampleOptions to set
+	 */
+	public void setUpsampleOptions(String upsampleOptions) {
+		this.upsampleOptions = upsampleOptions;
+	}
+
+	/**
 	 * @param configName
 	 * @throws FileNotFoundException
 	 * @throws IOException
@@ -672,13 +705,6 @@ public class SqueezeliteAction extends SystemctlAction {
 							if (LOGGER.isTraceEnabled()) {
 								LOGGER.trace("Name='" + name + "', Value='" + value + "'");
 							}
-						} else if (name.equals(CFG_UPSAMPLE)) {
-							if (value.equals(CFG_UPSAMPLE_OPTION)) {
-								properties.put(name, "");
-								if (LOGGER.isTraceEnabled()) {
-									LOGGER.trace("Name='" + name + "', Value='" + value + "'");
-								}
-							}
 						} else {
 							/*
 							 * Remove the arg flag
@@ -689,6 +715,13 @@ public class SqueezeliteAction extends SystemctlAction {
 								properties.put(name, temp);
 								if (LOGGER.isTraceEnabled()) {
 									LOGGER.trace("Name='" + name + "', Value='" + temp + "'");
+								}
+							} else if (name.equals(CFG_UPSAMPLE)) {
+								if (splitOption.length == 1 && splitOption[0].equals(CFG_UPSAMPLE_OPTION.trim())) {
+									properties.put(name, "");
+									if (LOGGER.isTraceEnabled()) {
+										LOGGER.trace("Name='" + name + "', Value='" + value + "'");
+									}									
 								}
 							}
 						}
