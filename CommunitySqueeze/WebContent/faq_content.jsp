@@ -1,6 +1,20 @@
 <%@ taglib uri="/struts-tags" prefix="s"%>    
 
-<h3><s:text name="header.faq" /> (0.95-CM)</h3>	
+<h3><s:text name="header.faq" /> (0.96-CM)</h3>	
+
+<h5><s:a href="#State_of_play.3F">State of play in the Squeezebox replacement world 6/13?</s:a></h5>
+<ol>
+  <li><s:a href="#SqueezePlug">SqueezePlug</s:a></li>
+  <li><s:a href="#SqueezeLite">SqueezeLite</s:a></li>
+  <li><s:a href="#Community_Squeeze">Community Squeeze</s:a></li>
+  <li><s:a href="#VAMP">VAMP</s:a></li>
+  <li><s:a href="#Wandboard">Wandboard</s:a></li>
+  <li><s:a href="#Raspberry_Pi">Raspberry Pi</s:a></li>
+  <li><s:a href="#Vortexbox">Vortexbox</s:a></li>
+  <li><s:a href="#ickStream_Music_Platform">ickStream Music Platform</s:a></li>
+  <li><s:a href="#Final_Thoughts">Final Thoughts</s:a></li>
+</ol>
+<p />
 
 <h5><s:a href="#General">General</s:a></h5>
 <ol>
@@ -71,6 +85,150 @@
   <li><s:a href="#Sample_rate_test_files">Sample rate test files</s:a></li>
 </ol>
 <p />
+<hr />
+
+<h2><i><span id="State_of_play.3F">State of play in the Squeezebox replacement world 6/13?</span></i></h2>
+
+<div>
+<h5><span id="SqueezePlug">SqueezePlug</span></h5>
+<p>
+<s:a href="http://forums.slimdevices.com/showthread.php?97709-SqueezePlug-for-Raspberry-Pi-version-6-ready-for-download" target="blank_">
+SqueezePlug for Raspberry Pi version 6 ready for download</s:a>
+</p>
+<p>
+<s:a href="http://forums.slimdevices.com/showthread.php?90931-SqueezePlug-Media-Server-4-0-(final-Release)" target="blank_">
+SqueezePlug Media-Server 4.0 (final Release)</s:a>
+</p>
+<p>
+Software distribution for SheevaPlug based hardware which also works on the Raspberry Pi hardware.
+Initially designed to be a LMS server but these days SqueezeLite can be installed to make it a player also.
+Typically it requires a an external DAC to get audio quality close to a Squeezebox Touch.
+</p>
+<p class="faqTop"><s:a href="#">Back to top</s:a></p>
+</div>
+
+<div>
+<h5><span id="SqueezeLite">SqueezeLite</span></h5>
+<p>
+<s:a href="http://forums.slimdevices.com/showthread.php?97046-Announce-Squeezelite-a-small-headless-squeezeplay-emulator-for-linux-(alsa-only)"
+     target="blank_">Announce: Squeezelite - a small headless squeezeplay emulator for linux (alsa only)</s:a>
+</p>
+<p>
+<s:a href="http://forums.slimdevices.com/showthread.php?97766-Announce-Local-Player-plugin-and-Squeezelite-for-Linux-Windows-OSX"
+     target="blank_">Announce: Local Player plugin and Squeezelite for Linux/Windows/OSX </s:a>
+</p>
+<p>
+Software player distributed as a plugin which makes it possible to use your computer and the soundcard in it as a player.
+Can be used on ARM based platforms such as Raspberry Pi, SheevaPlug or Wandboard or on Intel based platforms like your normal computer.
+Typically it requires a an external DAC to get audio quality close to a Squeezebox Touch, the exception is the Community Squeeze project which will have a really good built-in DAC.
+</p>
+<p class="faqTop"><s:a href="#">Back to top</s:a></p>
+</div>
+
+<div>
+<h5><span id="Community_Squeeze">Community Squeeze</span></h5>
+<p>
+<s:a href="http://forums.slimdevices.com/showthread.php?98521-Announce-Community-Squeeze" target="blank_">
+Announce: Community Squeeze
+</s:a>
+</p>
+<p>
+<s:a href="http://forums.slimdevices.com/showthread.php?98544-Community-Squeeze-OS-R3" target="blank_">
+Community Squeeze OS R3
+</s:a>
+</p>
+<p>
+Consists of both software and hardware designed by community members with the intention to be able to be an alternative for Logitech based Squeezebox hardware. Currently only the software distribution is available but they are working hard on the hardware part. It uses the CPU card from the Wandboard as a base but will provide an add-on hardware card which provides what we need to get excellent audio quality out of it. It uses SqueezeLite as a player.
+</p>
+<p class="faqTop"><s:a href="#">Back to top</s:a></p>
+</div>
+
+<div>
+<h5><span id="VAMP">VAMP</span></h5>
+<p>
+<s:a href="http://forums.slimdevices.com/showthread.php?97721-Logitech-SqueezeBox-replacement-for-under-30" target="blank_">
+Logitech SqueezeBox replacement for under $30
+</s:a>
+</p>
+<p>
+Cheap DIY hardware project which base its player hardware on SqueezeLite with the intention to make a cheap replacement for a Touch for people with an external DAC.
+</p>
+<p class="faqTop"><s:a href="#">Back to top</s:a></p>
+</div>
+
+<div>
+<h5><span id="Wandboard">Wandboard</span></h5>
+<p>
+<s:a href="http://wandboard.org/" target="blank_">
+Wandboard - Freescale i.MX6 ARM Cortex-A9 Opensource Community Development Board - BLOG
+</s:a>
+</p>
+<p>
+The hardware which contains the CPU card which is the base for the Community Squeezebox project. Can be used as a player already today, but to get decent audio quality you need an external DAC.
+</p>
+<p class="faqTop"><s:a href="#">Back to top</s:a></p>
+</div>
+
+<div>
+<h5><span id="Raspberry_Pi">Raspberry Pi</span></h5>
+<p>
+<s:a href="http://www.raspberrypi.org/" target="blank_">
+Raspberry Pi | An ARM GNU/Linux box for $25. Take a byte!
+</s:a>
+</p>
+<p>
+The hardware which is used in VAMP. Can be used as a player already today, but to get decent audio quality you need an external DAC.
+Can also be used together with the SheevaPlug distribution.
+</p>
+<p class="faqTop"><s:a href="#">Back to top</s:a></p>
+</div>
+
+<div>
+<h5><span id="Vortexbox">Vortexbox</span></h5>
+<p>
+<s:a href="http://vortexbox.org" target="blank_">
+Vortexbox
+</s:a>
+</p>
+<p>
+Software and hardware platform, initially designed to be a media server hosting LMS, but these days it also bundles a player so you can use it both as a server and player.
+The software can be used either on a dedicated Vortexbox Appliance hardware or on your own computer.
+</p>
+<p class="faqTop"><s:a href="#">Back to top</s:a></p>
+</div>
+
+<div>
+<h5><span id="ickStream_Music_Platform">ickStream Music Platform</span></h5>
+<p>
+<s:a href="http://forums.slimdevices.com/showthread.php?98467-Pre-Announcement-ickStream-Music-Platform" target="blank_">
+Pre-Announcement: ickStream Music Platform
+</s:a>
+</p>
+<p>
+<s:a href="http://blog.ickstream.com/" target="blank_">
+ickStream music platform blog
+</s:a>
+</p>
+<p>
+Software project with the intention to create the next generation music streaming platform based on the experience from Squeezebox. It's currently in a closed beta phase and the intention is that any hardware vendor that wants to use it should be able license it to use it on their hardware platform. Will focus on providing a solution for people who are interested in having access both to local music and online music, will integrate with LMS and other music servers for local music and provide its own cloud server for integration with online streaming services.
+</p>
+<p class="faqTop"><s:a href="#">Back to top</s:a></p>
+</div>
+
+<div>
+<h5><span id="Final_Thoughts">Final Thoughts</span></h5>
+<p>
+From a hardware perspective, my feeling is that the Community Squeeze is most promising for people who like excellent audio quality, especially if you want a device with an excellent built-in DAC. It will hopefully also be possible to combine with ickStream Music Platform so we also can get great support for online services. For people who want a cheaper solution than the current Touch and have an external DAC, it might be worth to look into VAMP or SqueezePlug based on a Raspberry Pi, just make sure the DAC is compatible with the Raspberry Pi, I know some asynchronous USB DAC's have issues on the Raspberry Pi.
+If you aren't in a hurry, I would wait and see how all these projects develops during the next 6 months. 
+</p>
+<p class="copyright">Contributed by <s:a href="http://forums.slimdevices.com/member.php?3124-erland" target="_blank">erland</s:a>
+in reply to the post, 
+<s:a href="http://forums.slimdevices.com/showthread.php?98886-State-of-play-in-the-Squeezebox-replacement-world-6-13" 
+     target="_blank">State of play in the Squeezebox-replacement world 6/13?</s:a>
+, on the Squeezebox Community Forum.
+</p>
+<p class="faqTop"><s:a href="#">Back to top</s:a></p>
+</div>
 <hr />
 
 <h2><i><span id="General">General</span></i></h2>
