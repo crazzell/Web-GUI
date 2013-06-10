@@ -95,6 +95,7 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String CFG_UPSAMPLE = "UPSAMPLE";
 	private final static String CFG_UPSAMPLE_OPTION = "-u ";
 	
+	/*
 	private final static String CFG_UPSAMPLE_QUALITY_QUICK = "q";
 	private final static String CFG_UPSAMPLE_QUALITY_LOW = "l";
 	private final static String CFG_UPSAMPLE_QUALITY_MEDIUM = "m";
@@ -106,6 +107,7 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String CFG_UPSAMPLE_PHASE_INTERMEDIATE = "I";
 	
 	private final static String CFG_UPSAMPLE_FILTER_STEEP = "s";
+	*/
 	
 	private final static List<String> PRIORITY_LIST = 
 			Util.generatePriorityList(SQUEEZELITE_MAX_RT_PRIORITY);
@@ -720,9 +722,22 @@ public class SqueezeliteAction extends SystemctlAction {
 								if (splitOption.length == 1 && splitOption[0].equals(CFG_UPSAMPLE_OPTION.trim())) {
 									properties.put(name, "");
 									if (LOGGER.isTraceEnabled()) {
-										LOGGER.trace("Name='" + name + "', Value='" + value + "'");
+										LOGGER.trace("Name='" + name + "', Value='" + "" + "'");
 									}									
 								}
+							} else if (name.equals(CFG_LOG_LEVEL)) {
+								String tmp = "";
+								int optionCount = splitOption.length / 2;
+								for (int i = 0; i < optionCount; i++) {
+									tmp += splitOption[(i * 2) + 1].trim();
+									if (i + 1 < optionCount) {
+										tmp += " ";
+									}
+								}
+								properties.put(name, tmp);
+								if (LOGGER.isTraceEnabled()) {
+									LOGGER.trace("Name='" + name + "', Value='" + tmp + "'");
+								}									
 							}
 						}
 					} else {

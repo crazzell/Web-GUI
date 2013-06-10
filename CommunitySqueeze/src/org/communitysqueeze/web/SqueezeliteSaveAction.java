@@ -110,6 +110,13 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 		}
 		
 		if (buffer != null && buffer.trim().length() > 0) {
+			if (!buffer.trim().matches(Validate.SQUEEZELITE_REGEX_ALSA_BUFFER)) {
+				addActionError(getText("squeezelite.validation.buffer.fail"));		
+			}
+		}
+
+		/*
+		if (buffer != null && buffer.trim().length() > 0) {
 			String[] tempList = buffer.trim().split(":");
 			if (tempList.length != 2) {
 				addActionError(getText("squeezelite.validation.buffer.fail"));
@@ -122,6 +129,7 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 				}
 			}
 		}
+		*/
 		
 		if (codec != null && codec.trim().length() > 0) {
 			String[] tempList = codec.trim().split(",");
