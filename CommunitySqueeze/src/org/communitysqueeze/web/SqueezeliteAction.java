@@ -92,6 +92,7 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String CFG_ALSA_PARAMS = "ALSA_PARAMS";
 	private final static String CFG_ALSA_PARAMS_OPTION = "-a ";
 	private final static String CFG_SERVER_IP = "SERVER_IP";
+	private final static String CFG_SERVER_IP_OPTION = "-s ";
 	private final static String CFG_UPSAMPLE = "UPSAMPLE";
 	private final static String CFG_UPSAMPLE_OPTION = "-u ";
 	
@@ -376,7 +377,7 @@ public class SqueezeliteAction extends SystemctlAction {
 		}
 		
 		if (serverIp != null && serverIp.trim().length() > 0) {
-			list.add(CFG_SERVER_IP + "=\"" + serverIp.trim() + "\"");
+			list.add(CFG_SERVER_IP + "=\"" + CFG_SERVER_IP_OPTION + serverIp.trim() + "\"");
 		}
 		
 		if (upsample) {
@@ -702,7 +703,7 @@ public class SqueezeliteAction extends SystemctlAction {
 						/*
 						 * we don't use an arg flag for the serverIp
 						 */
-						if (name.equals(CFG_SERVER_IP)) {
+						if (name.equals(CFG_SERVER_IP) && !value.startsWith(CFG_SERVER_IP_OPTION)) {
 							properties.put(name, value);
 							if (LOGGER.isTraceEnabled()) {
 								LOGGER.trace("Name='" + name + "', Value='" + value + "'");
