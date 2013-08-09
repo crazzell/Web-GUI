@@ -190,6 +190,7 @@
 <td>
 	<s:checkbox name="upsample" />
 	<s:textfield name="upsampleOptions" cssClass="size-100px" />
+    <s:a href="squeezelite_upsample.jsp">Info</s:a>
 </td>
 </tr>
 <tr>
