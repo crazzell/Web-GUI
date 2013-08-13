@@ -133,3 +133,24 @@
     <li>Used by: dsdreamer</li> 
   </ul>
   <p />
+
+  <ul>
+    <li>Name: <s:a href="http://www.oppodigital.com/blu-ray-bdp-105/" 
+                   target="blank_">OPPO BDP-105</s:a></li>
+    <li>Driver: snd-usb-audio</li>
+    <li>Max Rate: 192k</li>
+    <li>Class: UAC2</li>
+    <li>Hub: onboard usb / Belkin Hi-Speed Powered</li>
+    <li>Used by: lesliew</li> 
+  </ul>
+  <p />
+
+  <ul>
+    <li>Name: <s:a href="http://www.teac.com/product/ud-501/" 
+                   target="blank_">TEAC UD-501 Dual Monaural D/A Converter</s:a></li>
+    <li>Driver: snd-usb-audio</li>
+    <li>Max Rate: 384k</li>
+    <li>Class: UAC2</li>
+    <li>Used by: dsdreamer</li> 
+  </ul>
+  <p />
