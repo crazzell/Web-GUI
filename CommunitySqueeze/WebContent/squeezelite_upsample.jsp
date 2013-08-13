@@ -132,14 +132,14 @@ all resampling implementations are created equal. SoX is one of the best.
 </p>
 <pre>Squeezelite v1.3-dev, Copyright 2012, 2013 Adrian Smith. See -t for license terms
 Usage: squeezelite [options] [&lt;server&gt;]
-  -u [&lt;quality&gt;:&lt;flags&gt;:&lt;attenuation&gt;:&lt;precision&gt;:&lt;passband_end&gt;:&lt;stopband_start&gt;:&lt;phase_response&gt;] Upsample to max rate for device,
-  			quality = (v|h|m|l|q)(|L|I|M)(|s), (|X) = async - resample to max rate for device, otherwise resample to max sync rate
-  			flags = num in hex,
-  			attenuation = attenuation in dB to apply (default is -1db if not explicitly set),
-  			precision = number of bits precision (NB. HQ = 20. VHQ = 28),
-  			passband_end = number in percent (0dB pt. bandwidth to preserve. nyquist = 100%),
-  			stopband_start = number in percent (Aliasing/imaging control. &gt; passband_end),
-  			phase_response = 0-100 (0 = minimum / 50 = linear / 100 = maximum)
+  -u [params]		Upsample, params = &lt;quality&gt;:&lt;flags&gt;:&lt;attenuation&gt;:&lt;precision&gt;:&lt;passband_end&gt;:&lt;stopband_start&gt;:&lt;phase_response&gt;
+  			 quality = (v|h|m|l|q)(|L|I|M)(|s), (|X) = async - resample to max rate for device, otherwise resample to max sync rate
+  			 flags = num in hex,
+  			 attenuation = attenuation in dB to apply (default is -1db if not explicitly set),
+  			 precision = number of bits precision (NB. HQ = 20. VHQ = 28),
+  			 passband_end = number in percent (0dB pt. bandwidth to preserve. nyquist = 100%),
+  			 stopband_start = number in percent (Aliasing/imaging control. &gt; passband_end),
+  			 phase_response = 0-100 (0 = minimum / 50 = linear / 100 = maximum)
 </pre>
 <p>The &quot;-u&quot; option without any supplementary arguments enables a default set of resampling options. 
 For most users the defaults will be fine. I would suggest before changing them, at the very least, have a read of 
