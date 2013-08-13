@@ -292,8 +292,8 @@ attached to a custom audio carrier board designed by John Swenson.
 
 <div>
 <h5><span id="What_software_does_it_run.3F">What software does it run?</span></h5> 
-<p>A Linux software distribution (based on 
-<s:a href="http://fedoraproject.org" target="blank_">Fedora</s:a> 18 ARM), featuring Squeezelite 
+<p>A Linux software distribution, (based on 
+<s:a href="http://fedoraproject.org" target="blank_">Fedora</s:a> ARM), featuring Squeezelite 
 (software player) and JiveLite (software controller). 
 </p>
 <p>Logitech Media Server (LMS) 7.8 is installed, so the device can be configured as a 
