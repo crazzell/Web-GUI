@@ -69,7 +69,7 @@
     <li>Name: <s:a href="http://mytekdigital.com/hifi" 
                    target="blank_">Mytek Digital Stereo192-DSD DAC</s:a></li>
     <li>Driver: <s:a href="https://github.com/lintweaker/mytekusb2" 
-                     target="blank_">snd-usb-audio</s:a></li>
+                     target="blank_">snd-usb-mytek</s:a></li>
     <li>Max Rate: 96k/192k</li>
     <li>Class: UAC1/UAC2 (The Mytek Digital has both a USB1.1 and a USB2 connector)</li>
     <li>Used by: lintweaker</li>
@@ -152,5 +152,26 @@
     <li>Max Rate: 384k</li>
     <li>Class: UAC2</li>
     <li>Used by: dsdreamer</li> 
+  </ul>
+  <p />
+
+  <ul>
+    <li>Name: <s:a href="http://www.ebay.co.uk/itm/300841215784" 
+                   target="blank_">PCM2704 USB DAC USB Power Sound card decoding deck</s:a></li>
+    <li>Driver: snd-usb-audio</li>
+    <li>Max Rate: 48k</li>
+    <li>Class: UAC1 (adaptive)</li>
+    <li>Used by: slackhead</li> 
+  </ul>
+  <p />
+
+  <ul>
+    <li>Name: <s:a href="http://highresolutiontechnologies.com/music-streamer-ii" 
+                   target="blank_">HRT Music Streamer II</s:a></li>
+    <li>Driver: snd-usb-audio</li>
+    <li>Max Rate: 96k</li>
+    <li>Class: UAC1</li>
+    <li>Hub: external</li>
+    <li>Used by: JohnSwenson</li> 
   </ul>
   <p />
