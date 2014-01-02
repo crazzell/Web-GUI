@@ -95,6 +95,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String CFG_SERVER_IP_OPTION = "-s ";
 	private final static String CFG_UPSAMPLE = "UPSAMPLE";
 	private final static String CFG_UPSAMPLE_OPTION = "-u ";
+	private final static String CFG_DOP = "DOP";
+	private final static String CFG_DOP_OPTION = "-D ";
 	
 	/*
 	private final static String CFG_UPSAMPLE_QUALITY_QUICK = "q";
@@ -137,6 +139,9 @@ public class SqueezeliteAction extends SystemctlAction {
 	protected boolean upsample = false;
 	protected String upsampleOptions;
 	
+	protected boolean dop = false;
+	protected String dopOptions;
+
 	/**
 	 * 
 	 */
@@ -194,6 +199,10 @@ public class SqueezeliteAction extends SystemctlAction {
 		upsampleOptions = properties.get(CFG_UPSAMPLE);
 		if (upsampleOptions != null) {
 			upsample = true;
+		}
+		dopOptions = properties.get(CFG_DOP);
+		if (dopOptions != null) {
+			dop = true;
 		}
 	}
 	
@@ -384,6 +393,13 @@ public class SqueezeliteAction extends SystemctlAction {
 			list.add(CFG_UPSAMPLE + "=\"" + CFG_UPSAMPLE_OPTION + 
 						((upsampleOptions != null && upsampleOptions.trim().length() > 0) ? 
 								upsampleOptions.trim() : "") + 
+						"\"");
+		}
+		
+		if (dop) {
+			list.add(CFG_DOP + "=\"" + CFG_DOP_OPTION + 
+						((dopOptions != null && dopOptions.trim().length() > 0) ? 
+								dopOptions.trim() : "") + 
 						"\"");
 		}
 		
@@ -653,6 +669,34 @@ public class SqueezeliteAction extends SystemctlAction {
 	}
 
 	/**
+	 * @return the dop
+	 */
+	public boolean isDop() {
+		return dop;
+	}
+
+	/**
+	 * @param dop the dop to set
+	 */
+	public void setDop(boolean dop) {
+		this.dop = dop;
+	}
+
+	/**
+	 * @return the dopOptions
+	 */
+	public String getDopOptions() {
+		return dopOptions;
+	}
+
+	/**
+	 * @param dopOptions the dopOptions to set
+	 */
+	public void setDopOptions(String dopOptions) {
+		this.dopOptions = dopOptions;
+	}
+
+	/**
 	 * @param configName
 	 * @throws FileNotFoundException
 	 * @throws IOException
@@ -721,6 +765,13 @@ public class SqueezeliteAction extends SystemctlAction {
 								}
 							} else if (name.equals(CFG_UPSAMPLE)) {
 								if (splitOption.length == 1 && splitOption[0].equals(CFG_UPSAMPLE_OPTION.trim())) {
+									properties.put(name, "");
+									if (LOGGER.isTraceEnabled()) {
+										LOGGER.trace("Name='" + name + "', Value='" + "" + "'");
+									}									
+								}
+							} else if (name.equals(CFG_DOP)) {
+								if (splitOption.length == 1 && splitOption[0].equals(CFG_DOP_OPTION.trim())) {
 									properties.put(name, "");
 									if (LOGGER.isTraceEnabled()) {
 										LOGGER.trace("Name='" + name + "', Value='" + "" + "'");

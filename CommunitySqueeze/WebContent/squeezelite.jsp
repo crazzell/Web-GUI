@@ -195,6 +195,18 @@
 </tr>
 <tr>
 <td align="right">
+    <s:text name="squeezelite.label.dop" />
+	<img src='struts/tooltip.gif'
+	  	 title="<s:property value="getText('squeezelite.tooltip.dop')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.dop')" />" />
+</td>
+<td>
+	<s:checkbox name="dop" />
+	<s:textfield name="dopOptions" cssClass="size-100px" />
+</td>
+</tr>
+<tr>
+<td align="right">
 	<s:text name="squeezelite.label.serverIp" />
 	<img src='struts/tooltip.gif'
 	  	 title="<s:property value="getText('squeezelite.tooltip.serverIp')" />"

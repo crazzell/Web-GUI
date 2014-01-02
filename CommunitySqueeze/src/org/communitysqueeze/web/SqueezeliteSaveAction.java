@@ -156,6 +156,14 @@ public class SqueezeliteSaveAction extends SqueezeliteAction {
 				addActionError(getText("squeezelite.validation.serverIp.fail"));
 			}
 		}
+		
+		if (dop && dopOptions != null && dopOptions.trim().length() > 0) {
+			try {
+				Integer.parseInt(dopOptions.trim());
+			} catch (NumberFormatException nfe) { 
+				addActionError(getText("squeezelite.validation.dopOptions.fail"));
+			}
+		}
 	}
 	
 	/**
