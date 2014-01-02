@@ -207,6 +207,17 @@
 </tr>
 <tr>
 <td align="right">
+    <s:text name="squeezelite.label.options" />
+	<img src='struts/tooltip.gif'
+	  	 title="<s:property value="getText('squeezelite.tooltip.options')" />"
+      	 alt="<s:property value="getText('squeezelite.tooltip.options')" />" />
+</td>
+<td>
+	<s:textfield name="options" cssClass="size-300px" />
+</td>
+</tr>
+<tr>
+<td align="right">
 	<s:text name="squeezelite.label.serverIp" />
 	<img src='struts/tooltip.gif'
 	  	 title="<s:property value="getText('squeezelite.tooltip.serverIp')" />"

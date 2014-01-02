@@ -97,6 +97,7 @@ public class SqueezeliteAction extends SystemctlAction {
 	private final static String CFG_UPSAMPLE_OPTION = "-u ";
 	private final static String CFG_DOP = "DOP";
 	private final static String CFG_DOP_OPTION = "-D ";
+	private final static String CFG_OPTIONS = "OPTIONS";
 	
 	/*
 	private final static String CFG_UPSAMPLE_QUALITY_QUICK = "q";
@@ -141,6 +142,8 @@ public class SqueezeliteAction extends SystemctlAction {
 	
 	protected boolean dop = false;
 	protected String dopOptions;
+	
+	protected String options;
 
 	/**
 	 * 
@@ -204,6 +207,7 @@ public class SqueezeliteAction extends SystemctlAction {
 		if (dopOptions != null) {
 			dop = true;
 		}
+		options = properties.get(CFG_OPTIONS);
 	}
 	
 	/**
@@ -401,6 +405,10 @@ public class SqueezeliteAction extends SystemctlAction {
 						((dopOptions != null && dopOptions.trim().length() > 0) ? 
 								dopOptions.trim() : "") + 
 						"\"");
+		}
+		
+		if (options != null && options.trim().length() > 0) {
+			list.add(CFG_OPTIONS + "=\"" + options.trim() + "\"");
 		}
 		
 		File file = null;
@@ -697,6 +705,20 @@ public class SqueezeliteAction extends SystemctlAction {
 	}
 
 	/**
+	 * @return the options
+	 */
+	public String getOptions() {
+		return options;
+	}
+
+	/**
+	 * @param options the options to set
+	 */
+	public void setOptions(String options) {
+		this.options = options;
+	}
+
+	/**
 	 * @param configName
 	 * @throws FileNotFoundException
 	 * @throws IOException
@@ -747,7 +769,8 @@ public class SqueezeliteAction extends SystemctlAction {
 						/*
 						 * we don't use an arg flag for the serverIp
 						 */
-						if (name.equals(CFG_SERVER_IP) && !value.startsWith(CFG_SERVER_IP_OPTION)) {
+						if ((name.equals(CFG_SERVER_IP) && !value.startsWith(CFG_SERVER_IP_OPTION)) || 
+								name.equals(CFG_OPTIONS)) {
 							properties.put(name, value);
 							if (LOGGER.isTraceEnabled()) {
 								LOGGER.trace("Name='" + name + "', Value='" + value + "'");
