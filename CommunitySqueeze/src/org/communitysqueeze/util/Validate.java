@@ -43,7 +43,9 @@ public class Validate {
 	
 	public final static String REGEX_ALPHA_NUMERIC_UNDERSCORE = "^[a-zA-Z0-9_]*$";
 
-	public final static String SQUEEZELITE_REGEX_ALSA_PARAMS = "^([0-9]*):([0-9]*):(16|24|24_3|32)?:(0|1)?$";
+	// public final static String SQUEEZELITE_REGEX_ALSA_PARAMS = "^([0-9]*):([0-9]*):(16|24|24_3|32)?:(0|1)?$";
+	// Add optional 5th param, double close / open.
+	public final static String SQUEEZELITE_REGEX_ALSA_PARAMS = "^([0-9]*):([0-9]*):(16|24|24_3|32)?:(0|1)?:?(0|1)?$";
 
 	public final static String SQUEEZELITE_REGEX_ALSA_BUFFER = "^([0-9]*):([0-9]*)$";
 
